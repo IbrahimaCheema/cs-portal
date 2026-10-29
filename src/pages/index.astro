@@ -2,34 +2,31 @@
 import Layout from '../layouts/Layout.astro';
 import { getMediaUrl } from '../utils/media';
 
+// Exact 4 Legacy Slider Frames matching user reference images
 const heroSlides = [
   {
     image: '/images/hero_slider_1.jpg',
-    tagline: 'Faith • Unity • Discipline',
     title: 'Rich History Exceeding Fifty Years',
-    desc: 'With a rich history exceeding fifty years, the Crescent Model Higher Secondary School has maintained its glorious tradition of providing quality education, trained staff, and a merit-based and need-blind admission policy.',
-    highlights: ['Providing Quality Education', 'Dedicated Faculty', 'Merit Based & Need Blind Admission Policy']
+    desc: 'With a rich history exceeding fifty years, the Crescent Model Higher Secondary School has maintained its glorious tradition of providing quality education, trained staff and merit based and need blind admission policy.',
+    align: 'right'
   },
   {
     image: '/images/hero_slider_2.jpg',
-    tagline: 'Academic Distinction',
-    title: 'The Crescent College',
-    desc: 'Preparing future leaders in sciences, commerce, and computer studies with state-of-the-art laboratory facilities and academic mentorship.',
-    highlights: ['Pre-Medical & Pre-Engineering', 'ICS & I.Com Programmes', 'Exceptional Board Results']
+    title: 'Providing Quality Education',
+    desc: '',
+    align: 'right'
   },
   {
     image: '/images/hero_slider_3.jpg',
-    tagline: 'Holistic Development',
-    title: 'Nurturing Minds Since 1968',
-    desc: 'Empowering over 9,000 students across Boys and Girls campuses with intellectual, moral, and spiritual growth.',
-    highlights: ['Character Building', 'State-of-the-Art Sports Complex', 'Leadership Opportunities']
+    title: 'Dedicated Faculty',
+    desc: '',
+    align: 'right'
   },
   {
     image: '/images/hero_slider_4.png',
-    tagline: 'Girls Campus Excellence',
-    title: 'Empowering Young Women',
-    desc: 'A safe, nurturing, and high-achieving educational sanctuary dedicated to girl child education and leadership.',
-    highlights: ['Comprehensive STEM Labs', 'Art & Linguistic Academies', 'Global Accreditations']
+    title: 'Merit Based & Need Blind Admission Policy',
+    desc: '',
+    align: 'right'
   }
 ];
 
@@ -97,55 +94,37 @@ const partners = [
   title="Crescent School – Faith – Unity – Discipline | Lahore"
   description="Official portal of Crescent Model Higher Secondary School (Crescent School), Lahore. Founded in 1968, fostering over 9,000 students in Cambridge O/A Levels, IB Programmes, Matriculation, and Intermediate College."
 >
-  <!-- 1. Hero Carousel Section (High-Visibility Photography + Focused Text Plaque) -->
-  <section class="hero-carousel-section" aria-label="Campus Highlights">
-    <div class="carousel-container" id="heroCarousel">
+  <!-- 1. Legacy Full-Bleed Slider (100% Unobstructed Image Clarity, Minimal Semi-Transparent Text Overlay) -->
+  <section class="legacy-slider-section" aria-label="Campus Highlights">
+    <div class="slider-wrapper" id="heroCarousel">
       {heroSlides.map((slide, idx) => (
-        <div class={`carousel-slide ${idx === 0 ? 'active' : ''}`}>
-          <!-- Clean Unobstructed Campus Background Photo -->
-          <img src={getMediaUrl(slide.image)} alt={slide.title} class="slide-bg-img" loading={idx === 0 ? 'eager' : 'lazy'} />
-          
-          <!-- Subtle vignette for edge framing -->
-          <div class="slide-vignette"></div>
+        <div class={`slide-item ${idx === 0 ? 'active' : ''}`}>
+          <!-- 100% Natural, Unfiltered Campus Photograph -->
+          <img 
+            src={getMediaUrl(slide.image)} 
+            alt={slide.title} 
+            class="slide-img" 
+            loading={idx === 0 ? 'eager' : 'lazy'} 
+          />
 
-          <!-- Focused Glass/Plaque Content Box -->
-          <div class="container slide-content-wrapper">
-            <div class="slide-plaque">
-              <span class="slide-tagline">{slide.tagline}</span>
-              <h1 class="slide-title">{slide.title}</h1>
-              <p class="slide-desc">{slide.desc}</p>
-              
-              <div class="slide-highlights">
-                {slide.highlights.map(hl => (
-                  <div class="highlight-badge">
-                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    <span>{hl}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div class="slide-actions">
-                <a href="/online-application-form/" class="btn-primary">Apply for Admission</a>
-                <a href="/about-us/" class="btn-secondary">Explore Our Legacy</a>
-              </div>
+          <!-- Minimal Floating Semi-Transparent Text Overlay exactly like Legacy Site -->
+          <div class="container text-overlay-container">
+            <div class={`legacy-text-box align-${slide.align}`}>
+              <h2 class="legacy-title">{slide.title}</h2>
+              {slide.desc && <p class="legacy-desc">{slide.desc}</p>}
             </div>
           </div>
         </div>
       ))}
     </div>
 
-    <!-- Carousel Controls -->
-    <div class="carousel-nav">
-      <button class="nav-arrow prev" id="heroPrev" aria-label="Previous Slide">&#10094;</button>
-      <div class="carousel-dots" id="heroDots">
-        {heroSlides.map((_, idx) => (
-          <button class={`dot ${idx === 0 ? 'active' : ''}`} data-index={idx} aria-label={`Slide ${idx + 1}`}></button>
-        ))}
-      </div>
-      <button class="nav-arrow next" id="heroNext" aria-label="Next Slide">&#10095;</button>
-    </div>
+    <!-- Legacy Style Left / Right Navigation Chevrons -->
+    <button class="slider-arrow prev-arrow" id="heroPrev" aria-label="Previous Slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <button class="slider-arrow next-arrow" id="heroNext" aria-label="Next Slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
   </section>
 
   <!-- 2. Four Wings / Academic Pillars Grid -->
@@ -302,9 +281,8 @@ const partners = [
 </Layout>
 
 <script>
-  // Simple Hero Carousel Script
-  const slides = document.querySelectorAll<HTMLElement>('.carousel-slide');
-  const dots = document.querySelectorAll<HTMLElement>('.carousel-dots .dot');
+  // Simple Slide Transition
+  const slides = document.querySelectorAll<HTMLElement>('.slide-item');
   const prevBtn = document.getElementById('heroPrev');
   const nextBtn = document.getElementById('heroNext');
   let currentIdx = 0;
@@ -313,18 +291,15 @@ const partners = [
   function showSlide(index: number) {
     if (!slides.length) return;
     slides.forEach(s => s.classList.remove('active'));
-    dots.forEach(d => d.classList.remove('active'));
-
     currentIdx = (index + slides.length) % slides.length;
     slides[currentIdx].classList.add('active');
-    dots[currentIdx]?.classList.add('active');
   }
 
   function startAutoPlay() {
     stopAutoPlay();
     timer = window.setInterval(() => {
       showSlide(currentIdx + 1);
-    }, 6000);
+    }, 5500);
   }
 
   function stopAutoPlay() {
@@ -341,232 +316,128 @@ const partners = [
     startAutoPlay();
   });
 
-  dots.forEach(dot => {
-    dot.addEventListener('click', (e) => {
-      const idx = parseInt((e.target as HTMLElement).getAttribute('data-index') || '0', 10);
-      showSlide(idx);
-      startAutoPlay();
-    });
-  });
-
   startAutoPlay();
 </script>
 
 <style>
-  /* Hero Carousel Styles */
-  .hero-carousel-section {
+  /* Legacy Slider Section (100% Unobstructed Photo Clarity) */
+  .legacy-slider-section {
     position: relative;
-    background: #001226;
+    width: 100%;
+    height: 540px;
+    background: #000000;
     overflow: hidden;
   }
 
-  .carousel-container {
+  .slider-wrapper {
     position: relative;
     width: 100%;
-    min-height: 600px;
+    height: 100%;
   }
 
-  .carousel-slide {
+  .slide-item {
     position: absolute;
     inset: 0;
     opacity: 0;
     visibility: hidden;
-    display: flex;
-    align-items: center;
     transition: opacity 0.8s ease-in-out, visibility 0.8s;
   }
 
-  .carousel-slide.active {
+  .slide-item.active {
     opacity: 1;
     visibility: visible;
-    position: relative;
-    min-height: 600px;
   }
 
-  /* Full crisp photo rendering */
-  .slide-bg-img {
-    position: absolute;
-    inset: 0;
+  /* Full crisp natural photo - 100% brightness */
+  .slide-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
-    z-index: 1;
+    display: block;
   }
 
-  /* Subtle vignette gradient: very light so the photo is 100% bright and clear */
-  .slide-vignette {
+  /* Floating Minimal Text Container */
+  .text-overlay-container {
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(0, 20, 45, 0.55) 0%, rgba(0, 20, 45, 0.25) 50%, rgba(0, 20, 45, 0.05) 100%);
-    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    pointer-events: none;
+    padding: 0 40px;
   }
 
-  .slide-content-wrapper {
-    position: relative;
-    z-index: 3;
-    padding: 70px 20px;
+  /* Minimal semi-transparent black strip exactly matching LayerSlider legacy */
+  .legacy-text-box {
+    max-width: 620px;
+    pointer-events: auto;
+    text-align: left;
   }
 
-  /* Focused Frosted Plaque for razor-sharp typography over full-bright photography */
-  .slide-plaque {
-    max-width: 660px;
-    background: rgba(0, 26, 57, 0.72);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    padding: 38px 40px;
-    border-radius: 8px;
-    border-left: 5px solid var(--accent-gold);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
-  }
-
-  .slide-tagline {
+  .legacy-title {
     display: inline-block;
-    background: var(--accent-gold);
-    color: #001A39;
-    font-size: 12px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    padding: 4px 12px;
-    border-radius: 3px;
-    margin-bottom: 14px;
-  }
-
-  .slide-title {
-    font-size: clamp(28px, 3.8vw, 42px);
+    background-color: rgba(0, 0, 0, 0.45);
     color: #ffffff;
-    font-family: var(--font-heading);
+    font-family: 'Roboto', sans-serif;
+    font-size: clamp(26px, 3.2vw, 38px);
     font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 14px;
+    line-height: 1.25;
+    padding: 12px 18px;
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+    border-radius: 2px;
   }
 
-  .slide-desc {
+  .legacy-desc {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.45);
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
     font-size: 15.5px;
-    color: #e2e8f0;
     line-height: 1.6;
-    margin-bottom: 20px;
+    padding: 14px 18px;
+    border-radius: 2px;
+    margin-top: 6px;
   }
 
-  .slide-highlights {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 26px;
-  }
-
-  .highlight-badge {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    background: rgba(255, 255, 255, 0.14);
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    padding: 5px 12px;
-    border-radius: 20px;
-    color: #ffffff;
-    font-size: 12.5px;
-    font-weight: 600;
-  }
-
-  .check-icon {
-    width: 13px;
-    height: 13px;
-    color: var(--accent-gold);
-  }
-
-  .slide-actions {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  .btn-primary {
-    background: var(--accent-gold);
-    color: #00132b !important;
-    font-weight: 700;
-    padding: 11px 22px;
-    border-radius: 4px;
-    font-size: 13.5px;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-    transition: var(--transition-fast);
-    box-shadow: 0 4px 14px rgba(253, 200, 0, 0.3);
-  }
-
-  .btn-primary:hover {
-    background: var(--accent-gold-hover);
-    transform: translateY(-2px);
-  }
-
-  .btn-secondary {
-    background: transparent;
-    color: #ffffff !important;
-    border: 2px solid rgba(255, 255, 255, 0.85);
-    font-weight: 700;
-    padding: 9px 20px;
-    border-radius: 4px;
-    font-size: 13.5px;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-    transition: var(--transition-fast);
-  }
-
-  .btn-secondary:hover {
-    background: #ffffff;
-    color: #002147 !important;
-  }
-
-  /* Carousel Navigation */
-  .carousel-nav {
+  /* Discrete Navigation Chevrons */
+  .slider-arrow {
     position: absolute;
-    bottom: 24px;
-    right: 30px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    z-index: 10;
-  }
-
-  .nav-arrow {
-    background: rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.25);
+    border: none;
     color: #ffffff;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
+    width: 44px;
+    height: 60px;
     cursor: pointer;
-    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: var(--transition-fast);
+    transition: background 0.2s ease, opacity 0.2s ease;
+    opacity: 0.7;
+    z-index: 10;
   }
 
-  .nav-arrow:hover {
-    background: var(--accent-gold);
-    color: #001226;
+  .slider-arrow:hover {
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 1;
   }
 
-  .carousel-dots {
-    display: flex;
-    gap: 8px;
-  }
-
-  .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.4);
-    border: none;
-    cursor: pointer;
-    transition: var(--transition-fast);
-  }
-
-  .dot.active {
-    background: var(--accent-gold);
+  .slider-arrow svg {
     width: 28px;
-    border-radius: 6px;
+    height: 28px;
+  }
+
+  .prev-arrow {
+    left: 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .next-arrow {
+    right: 0;
+    border-radius: 4px 0 0 4px;
   }
 
   /* Academic Pillars */
@@ -785,6 +656,23 @@ const partners = [
     gap: 16px;
     margin-top: 28px;
     flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--accent-gold);
+    color: #00132b !important;
+    font-weight: 700;
+    padding: 11px 22px;
+    border-radius: 4px;
+    font-size: 13.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    transition: var(--transition-fast);
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-gold-hover);
+    transform: translateY(-2px);
   }
 
   .btn-outline {
@@ -1033,8 +921,23 @@ const partners = [
   }
 
   @media (max-width: 900px) {
-    .slide-plaque {
-      padding: 24px 20px;
+    .legacy-slider-section {
+      height: 380px;
+    }
+    .text-overlay-container {
+      justify-content: center;
+      padding: 0 20px;
+    }
+    .legacy-text-box {
+      text-align: center;
+    }
+    .legacy-title {
+      font-size: 20px;
+      padding: 8px 12px;
+    }
+    .legacy-desc {
+      font-size: 13px;
+      padding: 8px 12px;
     }
     .welcome-grid {
       grid-template-columns: 1fr;
