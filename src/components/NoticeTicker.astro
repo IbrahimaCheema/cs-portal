@@ -8,8 +8,8 @@ export interface NoticeItem {
 }
 
 export interface Props {
-  mode?: 'marquee' | 'carousel';
   notices?: NoticeItem[];
+  autoSlideInterval?: number; // ms, default 5000
 }
 
 const defaultNotices: NoticeItem[] = [
@@ -18,63 +18,76 @@ const defaultNotices: NoticeItem[] = [
     category: 'Admissions',
     text: 'Admissions are open for IB MYP, DP & CP.',
     link: '/online-application-form/',
-    linkText: 'Apply Now'
+    linkText: 'Apply Online'
   },
   {
     id: 2,
     category: 'Scholarships',
     text: 'Crescent School offers merit-based scholarships for Matriculation, Cambridge and College.',
     link: '/admissions/',
-    linkText: 'View Details'
+    linkText: 'View Criteria'
   },
   {
     id: 3,
-    category: 'Important',
+    category: 'Advisory',
     text: 'Please note that Crescent School does not recommend any particular bookseller and parents are free to buy books from anywhere.'
   }
 ];
 
-const { mode = 'marquee', notices = defaultNotices } = Astro.props;
+const { notices = defaultNotices, autoSlideInterval = 5500 } = Astro.props;
 ---
 
-<div class="notice-ticker-wrapper" role="region" aria-label="School Announcements">
+<div class="notice-ticker-wrapper" role="region" aria-label="Official School Announcements" id="verticalTickerContainer">
   <div class="container ticker-container">
-    <!-- Left Static Badge -->
+    <!-- Left Static Anchor Badge -->
     <div class="ticker-badge">
       <span class="live-dot" aria-hidden="true"></span>
       <span class="badge-text">LATEST NOTICES</span>
     </div>
 
-    <!-- Scrolling Marquee Track -->
-    <div class="ticker-track-viewport" id="tickerViewport">
-      <div class="ticker-track" id="tickerTrack">
-        <!-- Render duplicated items for seamless infinite 60fps loop -->
-        {notices.concat(notices).map((notice, idx) => (
-          <div class="ticker-item" data-index={idx}>
-            <span class="item-cat">{notice.category}</span>
-            <span class="item-text">{notice.text}</span>
+    <!-- Center Carousel Viewport (Vertical Slide Transition) -->
+    <div class="ticker-carousel-viewport" id="tickerViewport" aria-live="polite">
+      <div class="ticker-slides-wrapper" id="tickerSlidesWrapper">
+        {notices.map((notice, idx) => (
+          <div 
+            class={`ticker-slide ${idx === 0 ? 'active' : ''}`} 
+            data-slide-index={idx}
+            aria-hidden={idx === 0 ? 'false' : 'true'}
+          >
+            <span class="notice-cat-badge">{notice.category}</span>
+            <span class="notice-text">{notice.text}</span>
             {notice.link && (
-              <a href={notice.link} class="item-link">
+              <a href={notice.link} class="notice-action-btn">
                 <span>{notice.linkText || 'Read More'}</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
             )}
-            <span class="item-sep" aria-hidden="true">&bull;</span>
           </div>
         ))}
       </div>
     </div>
 
-    <!-- Right Controls: Pause / Play Toggle -->
-    <div class="ticker-controls">
-      <button type="button" class="ctrl-btn" id="tickerPauseBtn" aria-label="Pause announcements ticker" title="Pause / Play">
-        <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
-        </svg>
-        <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
-          <path d="M8 5v14l11-7z"/>
-        </svg>
-      </button>
+    <!-- Right Controls: Prev / Next / Counter / Pause -->
+    <div class="ticker-nav-controls">
+      <span class="slide-counter" id="tickerCounter">
+        <strong id="currentSlideNum">1</strong> / {notices.length}
+      </span>
+      <div class="btn-group">
+        <button type="button" class="nav-btn prev-btn" id="tickerPrevBtn" aria-label="Previous announcement" title="Previous">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button type="button" class="nav-btn next-btn" id="tickerNextBtn" aria-label="Next announcement" title="Next">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+        <button type="button" class="nav-btn pause-btn" id="tickerPauseBtn" aria-label="Pause announcement auto-rotation" title="Pause / Resume">
+          <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+          </svg>
+          <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -93,10 +106,10 @@ const { mode = 'marquee', notices = defaultNotices } = Astro.props;
     display: flex;
     align-items: center;
     height: 44px;
-    overflow: hidden;
+    gap: 16px;
   }
 
-  /* Left Badge */
+  /* Left Anchor Badge */
   .ticker-badge {
     display: flex;
     align-items: center;
@@ -145,134 +158,183 @@ const { mode = 'marquee', notices = defaultNotices } = Astro.props;
     white-space: nowrap;
   }
 
-  /* Marquee Track */
-  .ticker-track-viewport {
+  /* Carousel Viewport */
+  .ticker-carousel-viewport {
     flex: 1;
+    height: 44px;
     overflow: hidden;
     position: relative;
-    display: flex;
-    align-items: center;
-    mask-image: linear-gradient(to right, transparent, black 20px, black calc(100% - 20px), transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 20px, black calc(100% - 20px), transparent);
   }
 
-  .ticker-track {
+  .ticker-slides-wrapper {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+
+  .ticker-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
+    gap: 12px;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+    pointer-events: none;
     white-space: nowrap;
-    will-change: transform;
-    animation: smoothMarquee 38s linear infinite;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
-  .ticker-track:hover,
-  .ticker-track.paused {
-    animation-play-state: paused;
+  .ticker-slide.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 
-  @keyframes smoothMarquee {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
+  .ticker-slide.exit-up {
+    opacity: 0;
+    transform: translateY(-100%);
+    pointer-events: none;
   }
 
-  .ticker-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 0 16px;
-    font-size: 13.5px;
-    color: #1e293b;
-    font-weight: 500;
+  .ticker-slide.enter-down {
+    opacity: 0;
+    transform: translateY(100%);
+    pointer-events: none;
   }
 
-  .item-cat {
+  .notice-cat-badge {
     display: inline-block;
-    padding: 2px 7px;
-    background: rgba(0, 33, 71, 0.08);
+    padding: 2.5px 8px;
+    background: rgba(0, 33, 71, 0.1);
     color: var(--primary-navy);
     font-size: 10.5px;
     font-weight: 700;
     text-transform: uppercase;
     border-radius: 4px;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+    border: 1px solid rgba(0, 33, 71, 0.15);
   }
 
-  .item-text {
+  .notice-text {
     color: #0f172a;
+    font-size: 13.5px;
     font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
-  .item-link {
+  .notice-action-btn {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
-    color: var(--primary-navy);
+    gap: 5px;
+    background: var(--primary-navy);
+    color: #ffffff;
     font-weight: 700;
-    font-size: 12px;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    padding: 1px 6px;
-    border-radius: 3px;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    flex-shrink: 0;
     transition: var(--transition-fast);
   }
 
-  .item-link svg {
-    width: 12px;
-    height: 12px;
+  .notice-action-btn svg {
+    width: 11px;
+    height: 11px;
+    transition: transform 0.2s ease;
   }
 
-  .item-link:hover {
+  .notice-action-btn:hover {
     background: var(--accent-gold);
-    color: var(--primary-navy);
-    text-decoration: none;
+    color: #001226;
   }
 
-  .item-sep {
-    color: var(--accent-gold);
-    font-size: 18px;
-    font-weight: bold;
-    margin-left: 10px;
-    opacity: 0.8;
+  .notice-action-btn:hover svg {
+    transform: translateX(2px);
   }
 
-  /* Controls */
-  .ticker-controls {
+  /* Right Controls */
+  .ticker-nav-controls {
     display: flex;
     align-items: center;
-    padding-left: 10px;
+    gap: 12px;
     flex-shrink: 0;
   }
 
-  .ctrl-btn {
+  .slide-counter {
+    font-size: 12px;
+    color: #64748b;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    min-width: 32px;
+    text-align: right;
+  }
+
+  .slide-counter strong {
+    color: var(--primary-navy);
+    font-weight: 800;
+  }
+
+  .btn-group {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(0, 33, 71, 0.06);
+    padding: 2px 4px;
+    border-radius: 6px;
+  }
+
+  .nav-btn {
     background: transparent;
     border: none;
     cursor: pointer;
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    color: #64748b;
+    border-radius: 4px;
+    color: #475569;
     transition: var(--transition-fast);
+    padding: 0;
   }
 
-  .ctrl-btn svg {
-    width: 14px;
-    height: 14px;
+  .nav-btn svg {
+    width: 13px;
+    height: 13px;
   }
 
-  .ctrl-btn:hover {
-    background: rgba(0, 33, 71, 0.08);
+  .nav-btn:hover {
+    background: #ffffff;
     color: var(--primary-navy);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
+    .ticker-container {
+      gap: 10px;
+    }
+    .notice-text {
+      font-size: 12.5px;
+    }
+  }
+
+  @media (max-width: 680px) {
+    .notice-ticker-wrapper {
+      border-bottom-width: 1px;
+    }
     .ticker-container {
       height: 40px;
+      gap: 8px;
     }
     .ticker-badge {
       padding: 0 10px;
@@ -281,37 +343,153 @@ const { mode = 'marquee', notices = defaultNotices } = Astro.props;
     .badge-text {
       font-size: 10px;
     }
-    .ticker-item {
-      font-size: 12.5px;
-      padding: 0 10px;
+    .notice-cat-badge {
+      font-size: 9.5px;
+      padding: 2px 5px;
+    }
+    .notice-text {
+      font-size: 12px;
+    }
+    .notice-action-btn {
+      display: none; /* Hide button on tiny mobile to give full text priority */
+    }
+    .slide-counter {
+      display: none;
     }
   }
 </style>
 
 <script>
-  // Accessibility & interactive pause toggle
-  const track = document.getElementById('tickerTrack');
-  const pauseBtn = document.getElementById('tickerPauseBtn');
+  // Executive Vertical Slide Ticker Engine
+  function initVerticalTicker() {
+    const container = document.getElementById('verticalTickerContainer');
+    const viewport = document.getElementById('tickerViewport');
+    const slides = Array.from(document.querySelectorAll<HTMLElement>('.ticker-slide'));
+    const prevBtn = document.getElementById('tickerPrevBtn');
+    const nextBtn = document.getElementById('tickerNextBtn');
+    const pauseBtn = document.getElementById('tickerPauseBtn');
+    const counter = document.getElementById('currentSlideNum');
 
-  if (track && pauseBtn) {
-    const pauseIcon = pauseBtn.querySelector('.pause-icon') as HTMLElement | null;
-    const playIcon = pauseBtn.querySelector('.play-icon') as HTMLElement | null;
+    if (!viewport || slides.length === 0) return;
 
+    let currentIndex = 0;
     let isPaused = false;
+    let autoInterval: ReturnType<typeof setInterval> | null = null;
+    const intervalTime = 5500;
 
-    pauseBtn.addEventListener('click', () => {
-      isPaused = !isPaused;
-      if (isPaused) {
-        track.classList.add('paused');
-        if (pauseIcon) pauseIcon.style.display = 'none';
-        if (playIcon) playIcon.style.display = 'block';
-        pauseBtn.setAttribute('aria-label', 'Play announcements ticker');
+    function goToSlide(nextIndex: number, direction: 'up' | 'down' = 'up') {
+      if (nextIndex === currentIndex) return;
+
+      const currentSlide = slides[currentIndex];
+      const nextSlide = slides[nextIndex];
+
+      // Remove classes
+      slides.forEach(s => {
+        s.classList.remove('active', 'exit-up', 'enter-down');
+      });
+
+      if (direction === 'up') {
+        currentSlide.classList.add('exit-up');
+        nextSlide.style.transform = 'translateY(100%)';
       } else {
-        track.classList.remove('paused');
-        if (pauseIcon) pauseIcon.style.display = 'block';
-        if (playIcon) playIcon.style.display = 'none';
-        pauseBtn.setAttribute('aria-label', 'Pause announcements ticker');
+        currentSlide.style.transform = 'translateY(100%)';
+        nextSlide.style.transform = 'translateY(-100%)';
       }
-    });
+
+      // Force reflow
+      void nextSlide.offsetWidth;
+
+      nextSlide.classList.add('active');
+      nextSlide.style.transform = 'translateY(0)';
+      nextSlide.setAttribute('aria-hidden', 'false');
+      currentSlide.setAttribute('aria-hidden', 'true');
+
+      currentIndex = nextIndex;
+      if (counter) {
+        counter.textContent = String(currentIndex + 1);
+      }
+    }
+
+    function nextSlide() {
+      const target = (currentIndex + 1) % slides.length;
+      goToSlide(target, 'up');
+    }
+
+    function prevSlide() {
+      const target = (currentIndex - 1 + slides.length) % slides.length;
+      goToSlide(target, 'down');
+    }
+
+    function startAutoRotation() {
+      stopAutoRotation();
+      if (!isPaused) {
+        autoInterval = setInterval(nextSlide, intervalTime);
+      }
+    }
+
+    function stopAutoRotation() {
+      if (autoInterval) {
+        clearInterval(autoInterval);
+        autoInterval = null;
+      }
+    }
+
+    // Controls
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        nextSlide();
+        startAutoRotation();
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        prevSlide();
+        startAutoRotation();
+      });
+    }
+
+    if (pauseBtn) {
+      const pauseIcon = pauseBtn.querySelector<HTMLElement>('.pause-icon');
+      const playIcon = pauseBtn.querySelector<HTMLElement>('.play-icon');
+
+      pauseBtn.addEventListener('click', () => {
+        isPaused = !isPaused;
+        if (isPaused) {
+          stopAutoRotation();
+          if (pauseIcon) pauseIcon.style.display = 'none';
+          if (playIcon) playIcon.style.display = 'block';
+          pauseBtn.setAttribute('aria-label', 'Resume announcement auto-rotation');
+        } else {
+          startAutoRotation();
+          if (pauseIcon) pauseIcon.style.display = 'block';
+          if (playIcon) playIcon.style.display = 'none';
+          pauseBtn.setAttribute('aria-label', 'Pause announcement auto-rotation');
+        }
+      });
+    }
+
+    // Auto-pause on hover & resume on mouse leave
+    if (container) {
+      container.addEventListener('mouseenter', stopAutoRotation);
+      container.addEventListener('mouseleave', () => {
+        if (!isPaused) startAutoRotation();
+      });
+      // Touch events for mobile
+      container.addEventListener('touchstart', stopAutoRotation, { passive: true });
+      container.addEventListener('touchend', () => {
+        if (!isPaused) startAutoRotation();
+      }, { passive: true });
+    }
+
+    // Start
+    startAutoRotation();
+  }
+
+  // Run on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initVerticalTicker);
+  } else {
+    initVerticalTicker();
   }
 </script>
