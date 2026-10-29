@@ -160,42 +160,45 @@ const partners = [
     </div>
   </section>
 
-  <!-- 3. Welcome to Our School & Legacy Section -->
+  <!-- 3. Welcome to Our School (1:1 Exact Legacy Layout Parity) -->
   <section class="welcome-section">
-    <div class="container welcome-grid">
-      <div class="welcome-images">
-        <div class="image-wrapper main-img">
-          <img src={getMediaUrl('/images/welcome_early_years.jpg')} alt="Crescent Students in Classroom" loading="lazy" />
-        </div>
-        <div class="image-wrapper overlay-img">
-          <img src={getMediaUrl('/images/welcome_side.jpg')} alt="Campus Architecture" loading="lazy" />
-          <div class="experience-badge">
-            <span class="exp-num">55+</span>
-            <span class="exp-text">Years of Scholastic Excellence</span>
+    <div class="container welcome-container">
+      <div class="welcome-grid">
+        <!-- Left Column: Typography & Text Content -->
+        <div class="welcome-text-col">
+          <h2 class="welcome-heading">Welcome to Our School</h2>
+          
+          <div class="welcome-body-content">
+            <p class="welcome-lead">
+              <strong>Welcome to The Crescent Model Higher Secondary School. The journey of Crescent Model School started in 1968 with a small group of leading educationists with big dreams of providing affordable education to the young generation of Pakistan.</strong>
+            </p>
+            
+            <p class="welcome-desc">
+              A handful of students has now turned into a student body of 9000+, one of the largest Not for Profit schools in Pakistan which is no less than a miracle. With a rich history exceeding fifty years, the Crescent Model Higher Secondary School has maintained its glorious tradition of providing quality education, trained staff and merit based and need blind admission policy. We strive to provide quality education for the next generations and enlighten our students intellectually, morally and spiritually during their years with us. And that is our vision for 2050.
+            </p>
+
+            <a href="/about-us/" class="welcome-readmore">READ MORE</a>
           </div>
         </div>
-      </div>
 
-      <div class="welcome-text-block">
-        <span class="sub-label">A Glorious Tradition Since 1968</span>
-        <h2 class="welcome-heading">Welcome to Crescent Model Higher Secondary School</h2>
-        <div class="welcome-divider"></div>
-        
-        <p class="lead-text">
-          The journey of Crescent Model School started in 1968 with a small group of leading educationists with big dreams of providing affordable education to the young generation of Pakistan.
-        </p>
-        
-        <p class="body-text">
-          A handful of students has now turned into a student body of <strong>9,000+</strong>, one of the largest Not-for-Profit schools in Pakistan which is no less than a miracle. With a rich history exceeding fifty years, the Crescent Model Higher Secondary School has maintained its glorious tradition of providing quality education, trained staff, and merit-based and need-blind admission policy.
-        </p>
-
-        <p class="body-text">
-          We strive to provide quality education for the next generations and enlighten our students intellectually, morally, and spiritually during their years with us. And that is our vision for 2050.
-        </p>
-
-        <div class="welcome-cta-group">
-          <a href="/about-us/" class="btn-primary">Read More About Us</a>
-          <a href="/principals-message/" class="btn-outline">Principals' Messages</a>
+        <!-- Right Column: Single Clean Campus Image Carousel / Frame -->
+        <div class="welcome-media-col">
+          <div class="welcome-carousel-wrapper" id="welcomeCarousel">
+            <div class="welcome-slide active">
+              <img src={getMediaUrl('/images/welcome_early_years.jpg')} alt="Crescent Early Years" class="welcome-img" />
+            </div>
+            <div class="welcome-slide">
+              <img src={getMediaUrl('/images/welcome_side.jpg')} alt="Campus Architecture" class="welcome-img" />
+            </div>
+            
+            <!-- Carousel Controls -->
+            <button class="welcome-carousel-btn prev" id="welcomePrev" aria-label="Previous Image">‹</button>
+            <button class="welcome-carousel-btn next" id="welcomeNext" aria-label="Next Image">›</button>
+            <div class="welcome-dots" id="welcomeDots">
+              <span class="w-dot active" data-idx="0"></span>
+              <span class="w-dot" data-idx="1"></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -317,6 +320,29 @@ const partners = [
   });
 
   startAutoPlay();
+
+  // Welcome Carousel script
+  const wSlides = document.querySelectorAll<HTMLElement>('.welcome-slide');
+  const wDots = document.querySelectorAll<HTMLElement>('#welcomeDots .w-dot');
+  const wPrev = document.getElementById('welcomePrev');
+  const wNext = document.getElementById('welcomeNext');
+  let wIdx = 0;
+
+  function showWelcomeSlide(idx: number) {
+    if (!wSlides.length) return;
+    wSlides.forEach(s => s.classList.remove('active'));
+    wDots.forEach(d => d.classList.remove('active'));
+    wIdx = (idx + wSlides.length) % wSlides.length;
+    wSlides[wIdx].classList.add('active');
+    wDots[wIdx]?.classList.add('active');
+  }
+
+  wPrev?.addEventListener('click', () => showWelcomeSlide(wIdx - 1));
+  wNext?.addEventListener('click', () => showWelcomeSlide(wIdx + 1));
+  wDots.forEach((dot, i) => dot.addEventListener('click', () => showWelcomeSlide(i)));
+
+  // Auto-play welcome carousel every 5s
+  setInterval(() => showWelcomeSlide(wIdx + 1), 5000);
 </script>
 
 <style>
@@ -546,117 +572,158 @@ const partners = [
     color: var(--accent-gold-hover);
   }
 
-  /* Welcome Section */
+  /* Welcome to Our School Section (Exact Legacy Elementor Layout) */
   .welcome-section {
-    padding: 85px 0;
-    background: #f8fafc;
+    padding: 65px 0 75px;
+    background: #ffffff;
+    border-top: 1px solid #edf2f7;
+  }
+
+  .welcome-container {
+    max-width: 1140px;
   }
 
   .welcome-grid {
     display: grid;
-    grid-template-columns: 1fr 1.1fr;
-    gap: 50px;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
     align-items: center;
   }
 
-  .welcome-images {
-    position: relative;
-  }
-
-  .main-img img {
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-lg);
-    width: 100%;
-    height: 380px;
-    object-fit: cover;
-  }
-
-  .overlay-img {
-    position: absolute;
-    bottom: -35px;
-    right: -25px;
-    width: 55%;
-  }
-
-  .overlay-img img {
-    border-radius: var(--radius-md);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
-    border: 5px solid #ffffff;
-    height: 220px;
-    object-fit: cover;
-  }
-
-  .experience-badge {
-    position: absolute;
-    top: -20px;
-    left: -20px;
-    background: var(--primary-color);
-    color: #ffffff;
-    padding: 12px 18px;
-    border-radius: var(--radius-sm);
-    border-left: 4px solid var(--accent-gold);
-    box-shadow: var(--shadow-md);
-  }
-
-  .exp-num {
-    display: block;
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--accent-gold);
-    font-family: var(--font-heading);
-    line-height: 1;
-  }
-
-  .exp-text {
-    font-size: 11px;
-    color: #cbd5e1;
-    text-transform: uppercase;
-  }
-
-  .sub-label {
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--primary-light);
-    letter-spacing: 1px;
-    display: block;
-    margin-bottom: 8px;
+  .welcome-text-col {
+    padding-right: 15px;
   }
 
   .welcome-heading {
-    font-size: clamp(26px, 3vw, 36px);
-    color: var(--primary-color);
-    line-height: 1.25;
+    font-size: 28px;
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+    font-weight: 600;
+    color: #222222;
+    margin-bottom: 22px;
+    line-height: 1.3;
+  }
+
+  .welcome-lead {
+    font-size: 15px;
+    line-height: 26px;
+    color: #444444;
     margin-bottom: 16px;
   }
 
-  .welcome-divider {
-    width: 50px;
-    height: 3px;
-    background: var(--accent-gold);
+  .welcome-desc {
+    font-size: 15px;
+    line-height: 26px;
+    color: #7a7a7a;
     margin-bottom: 22px;
   }
 
-  .lead-text {
-    font-size: 16px;
-    color: var(--primary-dark);
-    font-weight: 600;
-    line-height: 1.6;
-    margin-bottom: 14px;
+  .welcome-readmore {
+    display: inline-block;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #002147;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #FDC800;
+    padding-bottom: 2px;
+    transition: color 0.2s ease, border-color 0.2s ease;
   }
 
-  .body-text {
-    font-size: 14.5px;
-    color: var(--text-muted);
-    line-height: 1.7;
-    margin-bottom: 16px;
+  .welcome-readmore:hover {
+    color: #FDC800;
+    border-color: #002147;
   }
 
-  .welcome-cta-group {
+  /* Right Column Carousel */
+  .welcome-media-col {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .welcome-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 544 / 570;
+    max-height: 520px;
+    background: #f1f5f9;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .welcome-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s;
+  }
+
+  .welcome-slide.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .welcome-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 4px;
+  }
+
+  .welcome-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.35);
+    border: none;
+    color: #ffffff;
+    width: 36px;
+    height: 48px;
+    font-size: 24px;
+    cursor: pointer;
     display: flex;
-    gap: 16px;
-    margin-top: 28px;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    transition: background 0.2s ease;
+    border-radius: 2px;
+  }
+
+  .welcome-carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  .welcome-carousel-btn.prev {
+    left: 8px;
+  }
+
+  .welcome-carousel-btn.next {
+    right: 8px;
+  }
+
+  .welcome-dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 5;
+  }
+
+  .w-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  .w-dot.active {
+    background: #ffffff;
   }
 
   .btn-primary {
