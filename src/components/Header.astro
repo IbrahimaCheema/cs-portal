@@ -1,106 +1,645 @@
 ---
 import { getMediaUrl } from '../utils/media';
+
+interface MenuItem {
+  title: string;
+  href: string;
+  badge?: string;
+  children?: {
+    title: string;
+    href: string;
+    grandChildren?: { title: string; href: string }[];
+  }[];
+}
+
+const menuItems: MenuItem[] = [
+  {
+    title: 'Our Institution',
+    href: '#',
+    children: [
+      {
+        title: 'About Us',
+        href: '/about-us/',
+        grandChildren: [
+          { title: 'Mission & Values', href: '/mission-values/' },
+          { title: 'History', href: '/history/' },
+          { title: 'Affiliations', href: '/affiliations/' }
+        ]
+      },
+      { title: 'Principals’ Messages', href: '/principals-message/' },
+      { title: 'Administration', href: '/administration/' },
+      { title: 'Message from Chairman', href: '/message-from-the-chairman-crescent-educational-trust/' },
+      { title: 'Board of Trustees', href: '/board-of-trustees-2/' },
+      {
+        title: 'Schools of Renaissance',
+        href: '#',
+        grandChildren: [
+          { title: 'School of Art', href: '/school-of-art/' },
+          { title: 'School of Music', href: '/school-of-music/' },
+          { title: 'The Crescent Finishing School', href: '/the-finishing-school/' },
+          { title: 'Gentlemen’s League', href: '/gentlemens-league/' },
+          { title: 'The Quran School', href: '/the-quran-school/' },
+          { title: 'Robotics', href: '/robotics/' },
+          { title: 'School of Linguistics', href: '/school-of-linguistics/' }
+        ]
+      }
+    ]
+  },
+  {
+    title: 'Academics',
+    href: '#',
+    children: [
+      { title: 'Crescent Early Years & Primary Section', href: '/crescent-early-years_primary-section/' },
+      { title: 'Middle School', href: '/middle-school/' },
+      { title: 'IB Middle Years Programme (MYP)', href: '/ib-myp-dp-cp/' },
+      { title: 'IB Diploma Programme (DP)', href: '/ib-diploma-programme-dp/' },
+      { title: 'IB Career-related Programme (CP)', href: '/ib-career-related-programme-cp/' },
+      { title: 'Senior School', href: '/senior-school/' },
+      { title: 'Cambridge Section', href: '/cambridge-section/' },
+      { title: 'The Crescent College', href: '/the-crescent-college/' }
+    ]
+  },
+  {
+    title: 'Life at Crescent',
+    href: '#',
+    children: [
+      { title: 'Facilities', href: '/facilities/' },
+      { title: 'General Rules & Discipline', href: '/general-rules/' }
+    ]
+  },
+  {
+    title: 'Professional Development',
+    href: '/professional-development/',
+    children: [
+      { title: 'Cambridge Professional Development Qualifications', href: '/cambridge-professional-development-qualifications/' },
+      { title: 'Cambridge CELTA/Delta', href: '/cambridge-celta-delta/' },
+      { title: 'International Certificate of Learning & Teaching (ICoLT)', href: '/international-certificate-of-learning-and-teaching-icolt/' },
+      { title: 'Futuristic Leaders & Strategic Headship (FLASH)', href: '/futuristic-leaders-and-strategic-headship-flash/' }
+    ]
+  },
+  {
+    title: 'Admissions',
+    href: '#',
+    children: [
+      { title: 'Am I Eligible?', href: '/am-i-eligible/early-years/' },
+      { title: 'Required Documents', href: '/required-documents/' },
+      { title: 'Online Application Form', href: '/online-application-form/' },
+      { title: 'Merit List', href: '/merit-list/' },
+      { title: 'Hall of Fame', href: '/hall-of-fame/' }
+    ]
+  },
+  {
+    title: 'Alumni',
+    href: '/alumni/'
+  },
+  {
+    title: 'Careers',
+    href: '/careers/'
+  },
+  {
+    title: 'Contact Us',
+    href: '/contact-2/'
+  }
+];
 ---
+
 <header class="site-header">
+  <!-- Top Bar -->
   <div class="top-bar">
     <div class="container top-bar-inner">
-      <div class="contact-links">
-        <a href="tel:04237421361">042-37421361-4 | 042-35960725-26</a>
-        <span class="sep">|</span>
-        <a href="mailto:info@crescentschool.edu.pk">info@crescentschool.edu.pk</a>
+      <div class="top-contacts">
+        <div class="contact-item">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1v3.5a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.68 1 1 0 01-.24 1.02l-2.23 2.09z"/>
+          </svg>
+          <a href="tel:04237421361">042-37421361-4</a>
+          <span class="sep">|</span>
+          <a href="tel:04235960725">042-35960725-26</a>
+        </div>
+        <div class="contact-item">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+          <a href="mailto:info@crescentschool.edu.pk">info@crescentschool.edu.pk</a>
+        </div>
       </div>
-      <div class="top-actions">
-        <a href="/online-application-form/" class="btn-apply">Admission Enquiry</a>
+
+      <div class="top-social-actions">
+        <div class="social-links">
+          <a href="https://www.facebook.com/CrescentSchoolOfficial/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://twitter.com/crescentschool1" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/school/crescent-school-official/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 2a2 2 0 110 4 2 2 0 010-4z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/crescent.school.official/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"/></svg>
+          </a>
+        </div>
+        <a href="/online-application-form/" class="btn-top-enquiry">Admission Enquiry</a>
+        <a href="/online-application-form/" class="btn-top-apply">Apply Now</a>
       </div>
     </div>
   </div>
-  <div class="main-nav">
+
+  <!-- Main Navigation Bar -->
+  <div class="nav-wrapper">
     <div class="container nav-inner">
-      <a href="/" class="brand-logo">
-        <img src={getMediaUrl('/images/cs_logo.png')} alt="Crescent School Logo" />
+      <a href="/" class="brand-logo" aria-label="Crescent School Homepage">
+        <img src={getMediaUrl('/images/cs_logo.png')} alt="Crescent School Logo" width="220" height="60" />
       </a>
-      <nav class="primary-menu">
-        <a href="/">Home</a>
-        <a href="/about-us/">About Us</a>
-        <a href="/the-finishing-school/">Finishing School</a>
-        <a href="/crescent-early-years_primary-section/">Academics</a>
-        <a href="/professional-development/">Professional Development</a>
-        <a href="/am-i-eligible/early-years/">Admissions</a>
-        <a href="/hall-of-fame/">Achievements</a>
-        <a href="/alumni/">Alumni</a>
-        <a href="/contact-2/">Contact Us</a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          {menuItems.map(item => (
+            <li class={`nav-item ${item.children ? 'has-dropdown' : ''}`}>
+              <a href={item.href} class="nav-link">
+                <span>{item.title}</span>
+                {item.children && (
+                  <svg class="chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                )}
+              </a>
+
+              {item.children && (
+                <ul class="dropdown-menu">
+                  {item.children.map(child => (
+                    <li class={`dropdown-item ${child.grandChildren ? 'has-subdropdown' : ''}`}>
+                      <a href={child.href} class="dropdown-link">
+                        <span>{child.title}</span>
+                        {child.grandChildren && (
+                          <svg class="chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                          </svg>
+                        )}
+                      </a>
+
+                      {child.grandChildren && (
+                        <ul class="subdropdown-menu">
+                          {child.grandChildren.map(gc => (
+                            <li class="subdropdown-item">
+                              <a href={gc.href} class="subdropdown-link">{gc.title}</a>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ul>
       </nav>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button class="mobile-toggle" aria-label="Toggle Mobile Navigation" id="mobileMenuBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <img src={getMediaUrl('/images/cs_logo.png')} alt="Crescent School Logo" height="42" />
+      <button class="mobile-close" id="mobileCloseBtn">&times;</button>
+    </div>
+    <div class="mobile-drawer-body">
+      {menuItems.map(item => (
+        <div class="mobile-nav-group">
+          <div class="mobile-item-row">
+            <a href={item.href} class="mobile-main-link">{item.title}</a>
+          </div>
+          {item.children && (
+            <div class="mobile-sub-group">
+              {item.children.map(child => (
+                <div>
+                  <a href={child.href} class="mobile-sub-link">{child.title}</a>
+                  {child.grandChildren && (
+                    <div class="mobile-grandchild-group">
+                      {child.grandChildren.map(gc => (
+                        <a href={gc.href} class="mobile-grandchild-link">• {gc.title}</a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
     </div>
   </div>
 </header>
 
+<script>
+  // Mobile drawer interactive toggle
+  const mobileBtn = document.getElementById('mobileMenuBtn');
+  const closeBtn = document.getElementById('mobileCloseBtn');
+  const drawer = document.getElementById('mobileDrawer');
+
+  mobileBtn?.addEventListener('click', () => {
+    drawer?.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+
+  closeBtn?.addEventListener('click', () => {
+    drawer?.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+</script>
+
 <style>
+  .site-header {
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+  }
+
+  /* Top Bar */
   .top-bar {
-    background: var(--primary-dark);
+    background: #00132b;
     color: #e2e8f0;
     font-size: 13px;
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
+
   .top-bar-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
   }
-  .top-bar a {
-    color: #e2e8f0;
+
+  .top-contacts {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
   }
-  .top-bar a:hover {
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .icon {
+    width: 14px;
+    height: 14px;
+    color: var(--accent-gold);
+    flex-shrink: 0;
+  }
+
+  .contact-item a {
+    color: #cbd5e1;
+    font-size: 12.5px;
+  }
+
+  .contact-item a:hover {
     color: var(--accent-gold);
   }
+
   .sep {
-    margin: 0 8px;
-    opacity: 0.4;
+    margin: 0 4px;
+    opacity: 0.35;
   }
-  .btn-apply {
-    background: var(--accent-gold);
-    color: var(--primary-dark) !important;
+
+  .top-social-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .social-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .social-icon {
+    width: 14px;
+    height: 14px;
+    color: #cbd5e1;
+    transition: var(--transition-fast);
+  }
+
+  .social-links a:hover .social-icon {
+    color: var(--accent-gold);
+    transform: translateY(-1px);
+  }
+
+  .btn-top-enquiry {
+    background: transparent;
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold) !important;
+    font-size: 11px;
     font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 4px;
     text-transform: uppercase;
-    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 3px;
+    letter-spacing: 0.3px;
   }
-  .main-nav {
+
+  .btn-top-enquiry:hover {
+    background: var(--accent-gold);
+    color: #00132b !important;
+  }
+
+  .btn-top-apply {
+    background: var(--accent-gold);
+    color: #00132b !important;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 3px;
+    letter-spacing: 0.3px;
+  }
+
+  .btn-top-apply:hover {
+    background: var(--accent-gold-hover);
+  }
+
+  /* Main Navigation */
+  .nav-wrapper {
     background: var(--primary-color);
-    padding: 14px 0;
-    border-bottom: 3px solid var(--accent-gold);
+    box-shadow: 0 4px 14px rgba(0, 20, 50, 0.18);
     position: sticky;
     top: 0;
-    z-index: 1000;
-    box-shadow: var(--shadow-md);
+    border-bottom: 3px solid var(--accent-gold);
   }
+
   .nav-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    padding: 10px 20px;
   }
-  .brand-logo img {
-    height: 58px;
-    width: auto;
-  }
-  .primary-menu {
+
+  .brand-logo {
     display: flex;
     align-items: center;
-    gap: 18px;
-    flex-wrap: wrap;
+    padding: 4px 0;
   }
-  .primary-menu a {
+
+  .brand-logo img {
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  /* Desktop Menu */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    list-style: none;
+  }
+
+  .nav-item {
+    position: relative;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 12px 11px;
     color: #ffffff;
-    font-size: 14px;
+    font-size: 13.5px;
     font-weight: 600;
+    letter-spacing: 0.2px;
     text-transform: uppercase;
-    letter-spacing: 0.3px;
+    transition: var(--transition-fast);
   }
-  .primary-menu a:hover {
+
+  .nav-link:hover,
+  .nav-item:hover > .nav-link {
     color: var(--accent-gold);
+  }
+
+  .chevron-down {
+    width: 12px;
+    height: 12px;
+    transition: transform 0.2s ease;
+  }
+
+  .nav-item:hover > .nav-link .chevron-down {
+    transform: rotate(180deg);
+  }
+
+  /* Dropdown Menus */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #ffffff;
+    min-width: 250px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+    border-top: 3px solid var(--accent-gold);
+    border-radius: 0 0 6px 6px;
+    list-style: none;
+    padding: 8px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 100;
+  }
+
+  .nav-item:hover > .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown-item {
+    position: relative;
+  }
+
+  .dropdown-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary-color);
+    transition: var(--transition-fast);
+    border-left: 3px solid transparent;
+  }
+
+  .dropdown-link:hover,
+  .dropdown-item:hover > .dropdown-link {
+    background: #f8fafc;
+    color: var(--primary-dark);
+    border-left-color: var(--accent-gold);
+    padding-left: 22px;
+  }
+
+  .chevron-right {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* Nested Sub-dropdowns */
+  .subdropdown-menu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background: #ffffff;
+    min-width: 240px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+    border-top: 3px solid var(--accent-gold);
+    border-radius: 4px;
+    list-style: none;
+    padding: 8px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10px);
+    transition: all 0.2s ease;
+  }
+
+  .dropdown-item:hover > .subdropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+
+  .subdropdown-link {
+    display: block;
+    padding: 8px 16px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--text-dark);
+    border-left: 3px solid transparent;
+  }
+
+  .subdropdown-link:hover {
+    background: #f1f5f9;
+    color: var(--primary-color);
+    border-left-color: var(--accent-gold);
+  }
+
+  /* Mobile Navigation Styles */
+  .mobile-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 6px;
+  }
+
+  .mobile-toggle svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .mobile-drawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 320px;
+    max-width: 85vw;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: -6px 0 24px rgba(0, 0, 0, 0.3);
+    transition: right 0.35s ease;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-drawer.active {
+    right: 0;
+  }
+
+  .mobile-drawer-header {
+    background: var(--primary-color);
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .mobile-close {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 28px;
+    cursor: pointer;
+  }
+
+  .mobile-drawer-body {
+    padding: 16px;
+    overflow-y: auto;
+    flex: 1;
+  }
+
+  .mobile-nav-group {
+    border-bottom: 1px solid #e2e8f0;
+    padding: 10px 0;
+  }
+
+  .mobile-main-link {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+
+  .mobile-sub-group {
+    padding-left: 12px;
+    margin-top: 6px;
+  }
+
+  .mobile-sub-link {
+    display: block;
+    padding: 4px 0;
+    font-size: 13px;
+    color: #334155;
+    font-weight: 600;
+  }
+
+  .mobile-grandchild-group {
+    padding-left: 12px;
+  }
+
+  .mobile-grandchild-link {
+    display: block;
+    font-size: 12px;
+    color: #64748b;
+    padding: 2px 0;
+  }
+
+  @media (max-width: 1080px) {
+    .desktop-nav {
+      display: none;
+    }
+    .mobile-toggle {
+      display: block;
+    }
+    .top-contacts {
+      display: none;
+    }
   }
 </style>

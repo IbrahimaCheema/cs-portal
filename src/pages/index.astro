@@ -1,11 +1,1016 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getMediaUrl } from '../utils/media';
+
+const heroSlides = [
+  {
+    image: '/images/hero_slider_1.jpg',
+    tagline: 'Faith • Unity • Discipline',
+    title: 'Rich History Exceeding Fifty Years',
+    desc: 'With a rich history exceeding fifty years, the Crescent Model Higher Secondary School has maintained its glorious tradition of providing quality education, trained staff, and a merit-based and need-blind admission policy.',
+    highlights: ['Providing Quality Education', 'Dedicated Faculty', 'Merit Based & Need Blind Admission Policy']
+  },
+  {
+    image: '/images/hero_slider_2.jpg',
+    tagline: 'Academic Distinction',
+    title: 'The Crescent College',
+    desc: 'Preparing future leaders in sciences, commerce, and computer studies with state-of-the-art laboratory facilities and academic mentorship.',
+    highlights: ['Pre-Medical & Pre-Engineering', 'ICS & I.Com Programmes', 'Exceptional Board Results']
+  },
+  {
+    image: '/images/hero_slider_3.jpg',
+    tagline: 'Holistic Development',
+    title: 'Nurturing Minds Since 1968',
+    desc: 'Empowering over 9,000 students across Boys and Girls campuses with intellectual, moral, and spiritual growth.',
+    highlights: ['Character Building', 'State-of-the-Art Sports Complex', 'Leadership Opportunities']
+  },
+  {
+    image: '/images/hero_slider_4.png',
+    tagline: 'Girls Campus Excellence',
+    title: 'Empowering Young Women',
+    desc: 'A safe, nurturing, and high-achieving educational sanctuary dedicated to girl child education and leadership.',
+    highlights: ['Comprehensive STEM Labs', 'Art & Linguistic Academies', 'Global Accreditations']
+  }
+];
+
+const schoolWings = [
+  {
+    name: 'Crescent Early Years',
+    badge: 'Playgroup to Prep',
+    logo: '/images/logo_early_years.png',
+    desc: 'Foundational learning based on playful inquiry, social-emotional development, and early cognitive mastery in dedicated nurturing spaces.',
+    link: '/crescent-early-years_primary-section/'
+  },
+  {
+    name: 'The Crescent School',
+    badge: 'Primary to Matriculation',
+    logo: '/images/logo_school.png',
+    desc: 'Rigorous national curriculum enriched with character education, STEM foundations, and an outstanding legacy of top board positions.',
+    link: '/middle-school/'
+  },
+  {
+    name: 'The Crescent College',
+    badge: 'Intermediate (HSSC)',
+    logo: '/images/logo_college.png',
+    desc: 'Premier college education offering F.Sc (Pre-Medical/Pre-Engineering), ICS, and I.Com with top university admissions placement.',
+    link: '/the-crescent-college/'
+  },
+  {
+    name: 'Cambridge & IB Section',
+    badge: 'O/A Levels & IB MYP/DP/CP',
+    logo: '/images/logo_cambridge.png',
+    desc: 'World-recognized international qualifications including Cambridge CAIE O & A Levels and International Baccalaureate (IB) programmes.',
+    link: '/cambridge-section/'
+  }
+];
+
+const stats = [
+  { value: '55+', label: 'Years of Legacy', sub: 'Established in 1968' },
+  { value: '9,000+', label: 'Active Students', sub: 'One of Pakistan\'s Largest Not-for-Profits' },
+  { value: '500+', label: 'Qualified Educators', sub: 'Trained Faculty & Cambridge Mentors' },
+  { value: '100%', label: 'Merit & Need-Blind', sub: 'Scholarships for Deserving Talent' }
+];
+
+const achievements = [
+  { image: '/images/achievement_1.jpeg', title: 'Top Board Positions & High Honors' },
+  { image: '/images/achievement_2.jpeg', title: 'Outstanding Academic Distinction' },
+  { image: '/images/achievement_3.jpeg', title: 'National & Regional Competitions' },
+  { image: '/images/achievement_4.jpeg', title: 'Excellence in Extracurriculars & Debate' }
+];
+
+const partners = [
+  { name: 'IB World School', image: '/images/partner_ib.jpg' },
+  { name: 'Pearson Edexcel', image: '/images/partner_pearson.png' },
+  { name: 'Gavel Clubs', image: '/images/partner_gavel.png' },
+  { name: 'DSP', image: '/images/partner_dsp.png' },
+  { name: 'USEFP', image: '/images/partner_usefp.png' },
+  { name: 'Alliance Française', image: '/images/partner_alliance.png' },
+  { name: 'Rizq Foundation', image: '/images/partner_rizq.png' },
+  { name: 'ITTI', image: '/images/partner_itti.png' },
+  { name: 'IML', image: '/images/partner_iml.png' },
+  { name: 'ICoTS', image: '/images/partner_icots.png' },
+  { name: 'Orange Tree', image: '/images/partner_orange.png' }
+];
 ---
-<Layout title="Crescent School – Faith – Unity – Discipline">
-  <section class="page_hero_banner">
+
+<Layout 
+  title="Crescent School – Faith – Unity – Discipline | Lahore"
+  description="Official portal of Crescent Model Higher Secondary School (Crescent School), Lahore. Founded in 1968, fostering over 9,000 students in Cambridge O/A Levels, IB Programmes, Matriculation, and Intermediate College."
+>
+  <!-- 1. Hero Carousel Section -->
+  <section class="hero-carousel-section" aria-label="Campus Highlights">
+    <div class="carousel-container" id="heroCarousel">
+      {heroSlides.map((slide, idx) => (
+        <div class={`carousel-slide ${idx === 0 ? 'active' : ''}`} style={`background-image: linear-gradient(rgba(0, 18, 38, 0.72), rgba(0, 33, 71, 0.85)), url('${getMediaUrl(slide.image)}');`}>
+          <div class="container slide-content">
+            <span class="slide-tagline">{slide.tagline}</span>
+            <h1 class="slide-title">{slide.title}</h1>
+            <p class="slide-desc">{slide.desc}</p>
+            
+            <div class="slide-highlights">
+              {slide.highlights.map(hl => (
+                <div class="highlight-badge">
+                  <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>{hl}</span>
+                </div>
+              ))}
+            </div>
+
+            <div class="slide-actions">
+              <a href="/online-application-form/" class="btn-primary">Apply for Admission</a>
+              <a href="/about-us/" class="btn-secondary">Explore Our Legacy</a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Carousel Controls -->
+    <div class="carousel-nav">
+      <button class="nav-arrow prev" id="heroPrev" aria-label="Previous Slide">&#10094;</button>
+      <div class="carousel-dots" id="heroDots">
+        {heroSlides.map((_, idx) => (
+          <button class={`dot ${idx === 0 ? 'active' : ''}`} data-index={idx} aria-label={`Slide ${idx + 1}`}></button>
+        ))}
+      </div>
+      <button class="nav-arrow next" id="heroNext" aria-label="Next Slide">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- 2. Four Wings / Academic Pillars Grid -->
+  <section class="academic-wings-section">
     <div class="container">
-      <h1 class="hero_page_title">Crescent School Portal — Local Staging Ready</h1>
-      <p class="hero_subtitle">Workspace infrastructure initialized on the Astro 4.15 + Local/R2 Hybrid Architecture. Ready for step-by-step page cloning.</p>
+      <div class="section-header">
+        <h2 class="section-title">Four Pillars of Academic Excellence</h2>
+        <div class="title-decorator"></div>
+        <p class="section-subtitle">
+          From early childhood inquiry to internationally accredited college credentials, Crescent School provides tailored pedagogical pathways for every learner.
+        </p>
+      </div>
+
+      <div class="wings-grid">
+        {schoolWings.map(wing => (
+          <div class="wing-card">
+            <div class="wing-badge">{wing.badge}</div>
+            <div class="wing-logo-wrap">
+              <img src={getMediaUrl(wing.logo)} alt={wing.name} class="wing-logo" width="90" height="90" loading="lazy" />
+            </div>
+            <h3 class="wing-title">{wing.name}</h3>
+            <p class="wing-desc">{wing.desc}</p>
+            <a href={wing.link} class="wing-link">
+              <span>Learn More</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Welcome to Our School & Legacy Section -->
+  <section class="welcome-section">
+    <div class="container welcome-grid">
+      <div class="welcome-images">
+        <div class="image-wrapper main-img">
+          <img src={getMediaUrl('/images/welcome_early_years.jpg')} alt="Crescent Students in Classroom" loading="lazy" />
+        </div>
+        <div class="image-wrapper overlay-img">
+          <img src={getMediaUrl('/images/welcome_side.jpg')} alt="Campus Architecture" loading="lazy" />
+          <div class="experience-badge">
+            <span class="exp-num">55+</span>
+            <span class="exp-text">Years of Scholastic Excellence</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="welcome-text-block">
+        <span class="sub-label">A Glorious Tradition Since 1968</span>
+        <h2 class="welcome-heading">Welcome to Crescent Model Higher Secondary School</h2>
+        <div class="welcome-divider"></div>
+        
+        <p class="lead-text">
+          The journey of Crescent Model School started in 1968 with a small group of leading educationists with big dreams of providing affordable education to the young generation of Pakistan.
+        </p>
+        
+        <p class="body-text">
+          A handful of students has now turned into a student body of <strong>9,000+</strong>, one of the largest Not-for-Profit schools in Pakistan which is no less than a miracle. With a rich history exceeding fifty years, the Crescent Model Higher Secondary School has maintained its glorious tradition of providing quality education, trained staff, and merit-based and need-blind admission policy.
+        </p>
+
+        <p class="body-text">
+          We strive to provide quality education for the next generations and enlighten our students intellectually, morally, and spiritually during their years with us. And that is our vision for 2050.
+        </p>
+
+        <div class="welcome-cta-group">
+          <a href="/about-us/" class="btn-primary">Read More About Us</a>
+          <a href="/principals-message/" class="btn-outline">Principals' Messages</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Numerical Impact / Vital Statistics -->
+  <section class="stats-section">
+    <div class="container stats-grid">
+      {stats.map(s => (
+        <div class="stat-box">
+          <div class="stat-value">{s.value}</div>
+          <div class="stat-label">{s.label}</div>
+          <div class="stat-sub">{s.sub}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 5. High Achievements Showcase -->
+  <section class="achievements-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">High Achievements</h2>
+        <div class="title-decorator"></div>
+        <p class="section-subtitle">
+          Celebrating outstanding accolades, board distinctions, and student triumphs across academics, sports, and leadership.
+        </p>
+      </div>
+
+      <div class="achievements-grid">
+        {achievements.map((item, i) => (
+          <div class="achievement-card">
+            <div class="achieve-img-wrap">
+              <img src={getMediaUrl(item.image)} alt={item.title} loading="lazy" />
+              <div class="achieve-overlay">
+                <span class="achieve-badge">Distinction #{i + 1}</span>
+              </div>
+            </div>
+            <div class="achieve-info">
+              <h4 class="achieve-title">{item.title}</h4>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="achieve-footer-cta">
+        <a href="/hall-of-fame/" class="btn-primary">View Hall of Fame & Merit Lists</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Accreditations & Educational Partners -->
+  <section class="partners-section">
+    <div class="container">
+      <div class="partners-header">
+        <span class="partners-badge">Global Recognition</span>
+        <h3 class="partners-title">Accreditations, Affiliations & Educational Collaborations</h3>
+      </div>
+      
+      <div class="partners-logo-strip">
+        {partners.map(p => (
+          <div class="partner-item" title={p.name}>
+            <img src={getMediaUrl(p.image)} alt={p.name} loading="lazy" width="100" height="70" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Admission Prompt Banner -->
+  <section class="admission-banner-section">
+    <div class="container banner-inner">
+      <div class="banner-text">
+        <h2>Begin Your Journey with Crescent School</h2>
+        <p>Admissions open for Early Years, Junior School, Senior School, O/A Levels, and College. Experience holistic, value-driven education.</p>
+      </div>
+      <div class="banner-buttons">
+        <a href="/online-application-form/" class="btn-banner-apply">Online Admission Enquiry</a>
+        <a href="/am-i-eligible/early-years/" class="btn-banner-eligibility">Check Eligibility Criteria</a>
+      </div>
     </div>
   </section>
 </Layout>
+
+<script>
+  // Simple Hero Carousel Script
+  const slides = document.querySelectorAll<HTMLElement>('.carousel-slide');
+  const dots = document.querySelectorAll<HTMLElement>('.carousel-dots .dot');
+  const prevBtn = document.getElementById('heroPrev');
+  const nextBtn = document.getElementById('heroNext');
+  let currentIdx = 0;
+  let timer: number;
+
+  function showSlide(index: number) {
+    if (!slides.length) return;
+    slides.forEach(s => s.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+
+    currentIdx = (index + slides.length) % slides.length;
+    slides[currentIdx].classList.add('active');
+    dots[currentIdx]?.classList.add('active');
+  }
+
+  function startAutoPlay() {
+    stopAutoPlay();
+    timer = window.setInterval(() => {
+      showSlide(currentIdx + 1);
+    }, 6000);
+  }
+
+  function stopAutoPlay() {
+    if (timer) clearInterval(timer);
+  }
+
+  prevBtn?.addEventListener('click', () => {
+    showSlide(currentIdx - 1);
+    startAutoPlay();
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    showSlide(currentIdx + 1);
+    startAutoPlay();
+  });
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', (e) => {
+      const idx = parseInt((e.target as HTMLElement).getAttribute('data-index') || '0', 10);
+      showSlide(idx);
+      startAutoPlay();
+    });
+  });
+
+  startAutoPlay();
+</script>
+
+<style>
+  /* Hero Carousel Styles */
+  .hero-carousel-section {
+    position: relative;
+    background: #001226;
+    overflow: hidden;
+  }
+
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    min-height: 580px;
+  }
+
+  .carousel-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s;
+  }
+
+  .carousel-slide.active {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+    min-height: 580px;
+  }
+
+  .slide-content {
+    padding: 80px 20px;
+    max-width: 860px;
+  }
+
+  .slide-tagline {
+    display: inline-block;
+    background: var(--accent-gold);
+    color: var(--primary-dark);
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 5px 14px;
+    border-radius: 4px;
+    margin-bottom: 18px;
+  }
+
+  .slide-title {
+    font-size: clamp(32px, 4.5vw, 48px);
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  }
+
+  .slide-desc {
+    font-size: 16.5px;
+    color: #e2e8f0;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    max-width: 720px;
+  }
+
+  .slide-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+
+  .highlight-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 6px 14px;
+    border-radius: 30px;
+    color: #ffffff;
+    font-size: 13.5px;
+    font-weight: 600;
+  }
+
+  .check-icon {
+    width: 14px;
+    height: 14px;
+    color: var(--accent-gold);
+  }
+
+  .slide-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--accent-gold);
+    color: #00132b !important;
+    font-weight: 700;
+    padding: 12px 26px;
+    border-radius: 4px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    transition: var(--transition-fast);
+    box-shadow: 0 4px 14px rgba(253, 200, 0, 0.3);
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-gold-hover);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: #ffffff !important;
+    border: 2px solid #ffffff;
+    font-weight: 700;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    transition: var(--transition-fast);
+  }
+
+  .btn-secondary:hover {
+    background: #ffffff;
+    color: var(--primary-color) !important;
+  }
+
+  /* Carousel Navigation */
+  .carousel-nav {
+    position: absolute;
+    bottom: 24px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    z-index: 10;
+  }
+
+  .nav-arrow {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-fast);
+  }
+
+  .nav-arrow:hover {
+    background: var(--accent-gold);
+    color: #001226;
+  }
+
+  .carousel-dots {
+    display: flex;
+    gap: 8px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-fast);
+  }
+
+  .dot.active {
+    background: var(--accent-gold);
+    width: 28px;
+    border-radius: 6px;
+  }
+
+  /* Academic Pillars */
+  .academic-wings-section {
+    padding: 75px 0 65px;
+    background: #ffffff;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 45px;
+  }
+
+  .section-subtitle {
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 15.5px;
+    color: var(--text-muted);
+  }
+
+  .wings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 26px;
+  }
+
+  .wing-card {
+    background: var(--bg-light);
+    border-radius: var(--radius-md);
+    padding: 32px 24px 28px;
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .wing-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 28px rgba(0, 33, 71, 0.12);
+    border-color: var(--accent-gold);
+    background: #ffffff;
+  }
+
+  .wing-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(0, 33, 71, 0.08);
+    color: var(--primary-color);
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 12px;
+  }
+
+  .wing-logo-wrap {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .wing-logo {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .wing-title {
+    font-size: 19px;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    font-family: var(--font-heading);
+  }
+
+  .wing-desc {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex: 1;
+  }
+
+  .wing-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--primary-color);
+  }
+
+  .wing-link svg {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.2s ease;
+  }
+
+  .wing-card:hover .wing-link svg {
+    transform: translateX(4px);
+    color: var(--accent-gold-hover);
+  }
+
+  /* Welcome Section */
+  .welcome-section {
+    padding: 85px 0;
+    background: #f8fafc;
+  }
+
+  .welcome-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .welcome-images {
+    position: relative;
+  }
+
+  .main-img img {
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+  }
+
+  .overlay-img {
+    position: absolute;
+    bottom: -35px;
+    right: -25px;
+    width: 55%;
+  }
+
+  .overlay-img img {
+    border-radius: var(--radius-md);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+    border: 5px solid #ffffff;
+    height: 220px;
+    object-fit: cover;
+  }
+
+  .experience-badge {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    background: var(--primary-color);
+    color: #ffffff;
+    padding: 12px 18px;
+    border-radius: var(--radius-sm);
+    border-left: 4px solid var(--accent-gold);
+    box-shadow: var(--shadow-md);
+  }
+
+  .exp-num {
+    display: block;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--accent-gold);
+    font-family: var(--font-heading);
+    line-height: 1;
+  }
+
+  .exp-text {
+    font-size: 11px;
+    color: #cbd5e1;
+    text-transform: uppercase;
+  }
+
+  .sub-label {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--primary-light);
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .welcome-heading {
+    font-size: clamp(26px, 3vw, 36px);
+    color: var(--primary-color);
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+
+  .welcome-divider {
+    width: 50px;
+    height: 3px;
+    background: var(--accent-gold);
+    margin-bottom: 22px;
+  }
+
+  .lead-text {
+    font-size: 16px;
+    color: var(--primary-dark);
+    font-weight: 600;
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+
+  .body-text {
+    font-size: 14.5px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .welcome-cta-group {
+    display: flex;
+    gap: 16px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+
+  .btn-outline {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color) !important;
+    font-weight: 700;
+    padding: 10px 22px;
+    border-radius: 4px;
+    font-size: 13.5px;
+    text-transform: uppercase;
+    transition: var(--transition-fast);
+  }
+
+  .btn-outline:hover {
+    background: var(--primary-color);
+    color: #ffffff !important;
+  }
+
+  /* Vital Statistics */
+  .stats-section {
+    background: var(--primary-gradient);
+    color: #ffffff;
+    padding: 60px 0;
+    border-top: 3px solid var(--accent-gold);
+    border-bottom: 3px solid var(--accent-gold);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    text-align: center;
+  }
+
+  .stat-value {
+    font-size: 42px;
+    font-weight: 800;
+    font-family: var(--font-heading);
+    color: var(--accent-gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+  }
+
+  .stat-sub {
+    font-size: 12.5px;
+    color: #cbd5e1;
+  }
+
+  /* Achievements Section */
+  .achievements-section {
+    padding: 80px 0;
+    background: #ffffff;
+  }
+
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .achievement-card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
+    transition: var(--transition-fast);
+  }
+
+  .achievement-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .achieve-img-wrap {
+    position: relative;
+    height: 240px;
+    background: #f1f5f9;
+  }
+
+  .achieve-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .achieve-overlay {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+  }
+
+  .achieve-badge {
+    background: var(--primary-color);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 4px;
+    border-left: 2px solid var(--accent-gold);
+  }
+
+  .achieve-info {
+    padding: 16px;
+  }
+
+  .achieve-title {
+    font-size: 14.5px;
+    color: var(--primary-color);
+    line-height: 1.4;
+  }
+
+  .achieve-footer-cta {
+    text-align: center;
+  }
+
+  /* Partners Section */
+  .partners-section {
+    padding: 50px 0;
+    background: #f8fafc;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .partners-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .partners-badge {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--primary-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .partners-title {
+    font-size: 20px;
+    color: var(--primary-color);
+    margin-top: 4px;
+  }
+
+  .partners-logo-strip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .partner-item {
+    background: #ffffff;
+    padding: 12px 18px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-fast);
+  }
+
+  .partner-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .partner-item img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(20%);
+  }
+
+  .partner-item:hover img {
+    filter: none;
+  }
+
+  /* Admission Prompt Banner */
+  .admission-banner-section {
+    background: var(--primary-dark);
+    padding: 60px 0;
+    border-top: 4px solid var(--accent-gold);
+  }
+
+  .banner-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 28px;
+  }
+
+  .banner-text h2 {
+    color: #ffffff;
+    font-size: 26px;
+    margin-bottom: 8px;
+  }
+
+  .banner-text p {
+    color: #cbd5e1;
+    font-size: 14.5px;
+    max-width: 650px;
+  }
+
+  .banner-buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn-banner-apply {
+    background: var(--accent-gold);
+    color: #001226 !important;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 13.5px;
+    text-transform: uppercase;
+  }
+
+  .btn-banner-apply:hover {
+    background: var(--accent-gold-hover);
+  }
+
+  .btn-banner-eligibility {
+    background: transparent;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 13.5px;
+  }
+
+  .btn-banner-eligibility:hover {
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  @media (max-width: 900px) {
+    .welcome-grid {
+      grid-template-columns: 1fr;
+    }
+    .overlay-img {
+      position: static;
+      width: 100%;
+      margin-top: 16px;
+    }
+    .overlay-img img {
+      border: none;
+      height: 240px;
+    }
+    .experience-badge {
+      display: none;
+    }
+  }
+</style>
