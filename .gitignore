@@ -1,0 +1,35 @@
+# build output
+dist/
+.astro/
+.wrangler/
+
+# dependencies
+node_modules/
+
+# logs
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+__pycache__/
+*.py[cod]
+
+# environment variables
+.env
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# 🖼️ NEVER UPLOAD HEAVY MEDIA / ASSETS TO GIT (Served via Local Public in dev / Cloudflare R2 in prod)
+public/images/
+public/documents/
+public/*.png
+public/*.jpg
+public/*.jpeg
+public/*.webp
+public/*.gif
+!public/favicon*
+!public/apple-touch-icon*

@@ -1,0 +1,106 @@
+---
+import { getMediaUrl } from '../utils/media';
+---
+<header class="site-header">
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="contact-links">
+        <a href="tel:04237421361">042-37421361-4 | 042-35960725-26</a>
+        <span class="sep">|</span>
+        <a href="mailto:info@crescentschool.edu.pk">info@crescentschool.edu.pk</a>
+      </div>
+      <div class="top-actions">
+        <a href="/online-application-form/" class="btn-apply">Admission Enquiry</a>
+      </div>
+    </div>
+  </div>
+  <div class="main-nav">
+    <div class="container nav-inner">
+      <a href="/" class="brand-logo">
+        <img src={getMediaUrl('/images/cs_logo.png')} alt="Crescent School Logo" />
+      </a>
+      <nav class="primary-menu">
+        <a href="/">Home</a>
+        <a href="/about-us/">About Us</a>
+        <a href="/the-finishing-school/">Finishing School</a>
+        <a href="/crescent-early-years_primary-section/">Academics</a>
+        <a href="/professional-development/">Professional Development</a>
+        <a href="/am-i-eligible/early-years/">Admissions</a>
+        <a href="/hall-of-fame/">Achievements</a>
+        <a href="/alumni/">Alumni</a>
+        <a href="/contact-2/">Contact Us</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<style>
+  .top-bar {
+    background: var(--primary-dark);
+    color: #e2e8f0;
+    font-size: 13px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .top-bar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .top-bar a {
+    color: #e2e8f0;
+  }
+  .top-bar a:hover {
+    color: var(--accent-gold);
+  }
+  .sep {
+    margin: 0 8px;
+    opacity: 0.4;
+  }
+  .btn-apply {
+    background: var(--accent-gold);
+    color: var(--primary-dark) !important;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+  .main-nav {
+    background: var(--primary-color);
+    padding: 14px 0;
+    border-bottom: 3px solid var(--accent-gold);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+  }
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .brand-logo img {
+    height: 58px;
+    width: auto;
+  }
+  .primary-menu {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .primary-menu a {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  .primary-menu a:hover {
+    color: var(--accent-gold);
+  }
+</style>

@@ -1,0 +1,67 @@
+---
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <h3>Crescent School</h3>
+      <p>Faith – Unity – Discipline. Delivering excellence in education, character building, and holistic development since 1968.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="/about-us/">About Us</a></li>
+        <li><a href="/mission-values/">Mission & Values</a></li>
+        <li><a href="/history/">History</a></li>
+        <li><a href="/online-application-form/">Online Application Form</a></li>
+        <li><a href="/careers/">Careers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Info</h4>
+      <p>352-Shadman Colony, Lahore, Pakistan</p>
+      <p>Phone: 042-37421361-4 | 042-35960725-26</p>
+      <p>Email: info@crescentschool.edu.pk</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>&copy; {year} Crescent School. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--primary-dark);
+    color: #cbd5e1;
+    padding-top: 48px;
+    border-top: 4px solid var(--accent-gold);
+  }
+  .footer-inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px;
+    padding-bottom: 36px;
+  }
+  .site-footer h3, .site-footer h4 {
+    color: var(--accent-gold);
+    margin-bottom: 14px;
+  }
+  .site-footer ul li {
+    margin-bottom: 8px;
+  }
+  .site-footer a {
+    color: #cbd5e1;
+  }
+  .site-footer a:hover {
+    color: var(--accent-gold);
+  }
+  .footer-bottom {
+    background: #000f24;
+    padding: 16px 0;
+    text-align: center;
+    font-size: 13px;
+    color: #94a3b8;
+  }
+</style>
