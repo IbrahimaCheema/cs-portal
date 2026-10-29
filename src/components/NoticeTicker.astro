@@ -1,0 +1,317 @@
+---
+export interface NoticeItem {
+  id: number;
+  category: string;
+  text: string;
+  link?: string;
+  linkText?: string;
+}
+
+export interface Props {
+  mode?: 'marquee' | 'carousel';
+  notices?: NoticeItem[];
+}
+
+const defaultNotices: NoticeItem[] = [
+  {
+    id: 1,
+    category: 'Admissions',
+    text: 'Admissions are open for IB MYP, DP & CP.',
+    link: '/online-application-form/',
+    linkText: 'Apply Now'
+  },
+  {
+    id: 2,
+    category: 'Scholarships',
+    text: 'Crescent School offers merit-based scholarships for Matriculation, Cambridge and College.',
+    link: '/admissions/',
+    linkText: 'View Details'
+  },
+  {
+    id: 3,
+    category: 'Important',
+    text: 'Please note that Crescent School does not recommend any particular bookseller and parents are free to buy books from anywhere.'
+  }
+];
+
+const { mode = 'marquee', notices = defaultNotices } = Astro.props;
+---
+
+<div class="notice-ticker-wrapper" role="region" aria-label="School Announcements">
+  <div class="container ticker-container">
+    <!-- Left Static Badge -->
+    <div class="ticker-badge">
+      <span class="live-dot" aria-hidden="true"></span>
+      <span class="badge-text">LATEST NOTICES</span>
+    </div>
+
+    <!-- Scrolling Marquee Track -->
+    <div class="ticker-track-viewport" id="tickerViewport">
+      <div class="ticker-track" id="tickerTrack">
+        <!-- Render duplicated items for seamless infinite 60fps loop -->
+        {notices.concat(notices).map((notice, idx) => (
+          <div class="ticker-item" data-index={idx}>
+            <span class="item-cat">{notice.category}</span>
+            <span class="item-text">{notice.text}</span>
+            {notice.link && (
+              <a href={notice.link} class="item-link">
+                <span>{notice.linkText || 'Read More'}</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            )}
+            <span class="item-sep" aria-hidden="true">&bull;</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Right Controls: Pause / Play Toggle -->
+    <div class="ticker-controls">
+      <button type="button" class="ctrl-btn" id="tickerPauseBtn" aria-label="Pause announcements ticker" title="Pause / Play">
+        <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+        </svg>
+        <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .notice-ticker-wrapper {
+    background: #FFFDF0;
+    border-top: 1px solid rgba(253, 200, 0, 0.4);
+    border-bottom: 2px solid var(--accent-gold);
+    position: relative;
+    z-index: 20;
+    box-shadow: 0 2px 8px rgba(0, 33, 71, 0.04);
+  }
+
+  .ticker-container {
+    display: flex;
+    align-items: center;
+    height: 44px;
+    overflow: hidden;
+  }
+
+  /* Left Badge */
+  .ticker-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--primary-navy);
+    color: #ffffff;
+    padding: 0 14px;
+    height: 100%;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%);
+    padding-right: 22px;
+  }
+
+  .live-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent-gold);
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(253, 200, 0, 0.7);
+    animation: pulseBeacon 1.8s infinite;
+  }
+
+  @keyframes pulseBeacon {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(253, 200, 0, 0.7);
+    }
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 6px rgba(253, 200, 0, 0);
+    }
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(253, 200, 0, 0);
+    }
+  }
+
+  .badge-text {
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    white-space: nowrap;
+  }
+
+  /* Marquee Track */
+  .ticker-track-viewport {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    mask-image: linear-gradient(to right, transparent, black 20px, black calc(100% - 20px), transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 20px, black calc(100% - 20px), transparent);
+  }
+
+  .ticker-track {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    will-change: transform;
+    animation: smoothMarquee 38s linear infinite;
+  }
+
+  .ticker-track:hover,
+  .ticker-track.paused {
+    animation-play-state: paused;
+  }
+
+  @keyframes smoothMarquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 16px;
+    font-size: 13.5px;
+    color: #1e293b;
+    font-weight: 500;
+  }
+
+  .item-cat {
+    display: inline-block;
+    padding: 2px 7px;
+    background: rgba(0, 33, 71, 0.08);
+    color: var(--primary-navy);
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    letter-spacing: 0.04em;
+  }
+
+  .item-text {
+    color: #0f172a;
+    font-weight: 600;
+  }
+
+  .item-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--primary-navy);
+    font-weight: 700;
+    font-size: 12px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    padding: 1px 6px;
+    border-radius: 3px;
+    transition: var(--transition-fast);
+  }
+
+  .item-link svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .item-link:hover {
+    background: var(--accent-gold);
+    color: var(--primary-navy);
+    text-decoration: none;
+  }
+
+  .item-sep {
+    color: var(--accent-gold);
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 10px;
+    opacity: 0.8;
+  }
+
+  /* Controls */
+  .ticker-controls {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    flex-shrink: 0;
+  }
+
+  .ctrl-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #64748b;
+    transition: var(--transition-fast);
+  }
+
+  .ctrl-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .ctrl-btn:hover {
+    background: rgba(0, 33, 71, 0.08);
+    color: var(--primary-navy);
+  }
+
+  @media (max-width: 768px) {
+    .ticker-container {
+      height: 40px;
+    }
+    .ticker-badge {
+      padding: 0 10px;
+      padding-right: 16px;
+    }
+    .badge-text {
+      font-size: 10px;
+    }
+    .ticker-item {
+      font-size: 12.5px;
+      padding: 0 10px;
+    }
+  }
+</style>
+
+<script>
+  // Accessibility & interactive pause toggle
+  const track = document.getElementById('tickerTrack');
+  const pauseBtn = document.getElementById('tickerPauseBtn');
+
+  if (track && pauseBtn) {
+    const pauseIcon = pauseBtn.querySelector('.pause-icon') as HTMLElement | null;
+    const playIcon = pauseBtn.querySelector('.play-icon') as HTMLElement | null;
+
+    let isPaused = false;
+
+    pauseBtn.addEventListener('click', () => {
+      isPaused = !isPaused;
+      if (isPaused) {
+        track.classList.add('paused');
+        if (pauseIcon) pauseIcon.style.display = 'none';
+        if (playIcon) playIcon.style.display = 'block';
+        pauseBtn.setAttribute('aria-label', 'Play announcements ticker');
+      } else {
+        track.classList.remove('paused');
+        if (pauseIcon) pauseIcon.style.display = 'block';
+        if (playIcon) playIcon.style.display = 'none';
+        pauseBtn.setAttribute('aria-label', 'Pause announcements ticker');
+      }
+    });
+  }
+</script>

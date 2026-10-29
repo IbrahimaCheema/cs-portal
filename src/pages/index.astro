@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import NoticeTicker from '../components/NoticeTicker.astro';
 import { getMediaUrl } from '../utils/media';
 
 // Exact 4 Legacy Slider Frames matching user reference images
@@ -94,6 +95,9 @@ const partners = [
   title="Crescent School – Faith – Unity – Discipline | Lahore"
   description="Official portal of Crescent Model Higher Secondary School (Crescent School), Lahore. Founded in 1968, fostering over 9,000 students in Cambridge O/A Levels, IB Programmes, Matriculation, and Intermediate College."
 >
+  <!-- Institutional Announcements Ticker (WCAG 2.2 Accessible, Pausable on Hover/Click, 60fps GPU Marquee) -->
+  <NoticeTicker />
+
   <!-- 1. Legacy Full-Bleed Slider (100% Unobstructed Image Clarity, Minimal Semi-Transparent Text Overlay) -->
   <section class="legacy-slider-section" aria-label="Campus Highlights">
     <div class="slider-wrapper" id="heroCarousel">
