@@ -5,6 +5,7 @@ const siteUrl = 'https://crescentschool.edu.pk';
 
 const pages = [
   '/',
+  // Batch 2
   '/about-us/',
   '/mission-values/',
   '/history/',
@@ -12,7 +13,17 @@ const pages = [
   '/principals-message/',
   '/administration/',
   '/message-from-the-chairman-crescent-educational-trust/',
-  '/board-of-trustees-2/'
+  '/board-of-trustees-2/',
+  // Batch 3
+  '/crescent-early-years_primary-section/',
+  '/middle-school/',
+  '/ib-myp-dp-cp/',
+  '/ib-diploma-programme-dp/',
+  '/ib-career-related-programme-cp/',
+  '/senior-school/',
+  '/cambridge-section/',
+  '/the-crescent-college/',
+  '/facilities/'
 ];
 
 function generateSitemap() {

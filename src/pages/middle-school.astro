@@ -1,0 +1,323 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getMediaUrl } from '../utils/media';
+---
+
+<Layout 
+  title="Middle School – Crescent School"
+  description="Explore the Middle School at Crescent Model Higher Secondary School. Bridging foundational learning to rigorous Cambridge O-Levels and Matriculation through 21st-century 4C skills."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span>Academics</span>
+        <span>/</span>
+        <span class="current">Middle School</span>
+      </div>
+      <h1 class="hero_page_title">Middle School</h1>
+      <p class="hero_subtitle">Empowering young minds through transformative inquiry, academic rigor, and essential 21st-century competencies.</p>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section class="academic_intro_section">
+    <div class="container">
+      <div class="intro_grid">
+        <div class="intro_text">
+          <span class="sub_badge">ACADEMIC CONTINUUM</span>
+          <h2 class="section_heading">Smooth Transition to Secondary Rigor</h2>
+          <div class="lead_text">
+            Our central focus is to help students transition smoothly from Junior School to the rigorously demanding dual streams of Matriculation as well as Cambridge O-Levels.
+          </div>
+          <p class="body_paragraph">
+            We aspire to provide maximum opportunities to students to explore intellectual horizons, make conscious academic choices, and cultivate deep collaborative habits with their peers and mentors.
+          </p>
+          <p class="body_paragraph">
+            The backbone of our academic model is <strong>student-centered classrooms</strong> where learners take an active role in projects that provide them with hands-on, experiential discovery. The syllabus is meticulously structured to enable both students and teachers to know precisely what learning targets must be achieved.
+          </p>
+
+          <div class="highlights_list">
+            <div class="highlight_item">
+              <span class="check_icon">✓</span>
+              <div>
+                <strong>Comprehensive Assessment System:</strong> Balanced blend of ongoing formative evaluations and rigorous summative term examinations.
+              </div>
+            </div>
+            <div class="highlight_item">
+              <span class="check_icon">✓</span>
+              <div>
+                <strong>Reinforcement Coaching Programme:</strong> Dedicated advisory and specialized support clinics to bolster students who need supplemental academic reinforcement.
+              </div>
+            </div>
+            <div class="highlight_item">
+              <span class="check_icon">✓</span>
+              <div>
+                <strong>Vibrant Extracurricular Culture:</strong> Debating, robotics, athletic leagues, and science exhibitions supporting all-around personal maturity.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="intro_media">
+          <div class="media_card">
+            <img 
+              src={getMediaUrl("/images/batch3/5px.jpg")} 
+              alt="Middle School Students" 
+              loading="lazy"
+              onerror="this.src='/images/welcome_early_years.jpg'"
+            />
+            <span class="media_caption">Engaging, collaborative classroom dynamics</span>
+          </div>
+          <div class="media_card">
+            <img 
+              src={getMediaUrl("/images/batch3/6px.jpg")} 
+              alt="Middle School Learning" 
+              loading="lazy"
+              onerror="this.src='/images/hero_slider_2.jpg'"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4Cs of 21st Century Skills -->
+  <section class="skills_4c_section">
+    <div class="container">
+      <div class="section_header_center">
+        <span class="sub_badge">PEDAGOGICAL FRAMEWORK</span>
+        <h2 class="section_title">The 4Cs of 21st-Century Learning</h2>
+        <div class="title-decorator"></div>
+        <p class="section_subtitle">
+          Connecting students to meet global future challenges by mastering the core four pillars of modern intelligence.
+        </p>
+      </div>
+
+      <div class="skills_grid">
+        <div class="skill_card">
+          <div class="skill_badge">01</div>
+          <h3>Communication</h3>
+          <p>Articulating complex ideas clearly through persuasive speech, technical and creative writing, and respectful dialogue across diverse perspectives.</p>
+        </div>
+
+        <div class="skill_card">
+          <div class="skill_badge">02</div>
+          <h3>Collaboration</h3>
+          <p>Working harmoniously in diverse teams, valuing group intelligence, leading project modules, and achieving shared academic goals.</p>
+        </div>
+
+        <div class="skill_card">
+          <div class="skill_badge">03</div>
+          <h3>Creativity</h3>
+          <p>Approaching problems with curiosity, thinking outside conventional boundaries, designing original solutions, and appreciating artistic expression.</p>
+        </div>
+
+        <div class="skill_card">
+          <div class="skill_badge">04</div>
+          <h3>Critical Thinking</h3>
+          <p>Analyzing empirical data, questioning assumptions, evaluating ethical implications, and constructing sound, evidence-based reasoning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Banner Strip -->
+  <section class="banner_strip_section">
+    <div class="container">
+      <div class="banner_wrapper">
+        <img 
+          src={getMediaUrl("/images/batch3/writeup.png")} 
+          alt="Middle School Academic Excellence" 
+          loading="lazy"
+          onerror="this.src='/images/hero_slider_1.jpg'"
+        />
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .sub_badge {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--primary-color);
+    background: rgba(0, 33, 71, 0.08);
+    padding: 5px 12px;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .academic_intro_section {
+    padding: 80px 0;
+    background: var(--bg-white);
+  }
+
+  .intro_grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .section_heading {
+    font-size: clamp(26px, 3.2vw, 36px);
+    color: var(--primary-color);
+    margin-bottom: 18px;
+    line-height: 1.3;
+  }
+
+  .lead_text {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.65;
+    color: var(--primary-light);
+    margin-bottom: 16px;
+  }
+
+  .body_paragraph {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .highlights_list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  .highlight_item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--text-dark);
+  }
+
+  .check_icon {
+    color: var(--accent-gold-hover);
+    font-weight: 800;
+    font-size: 16px;
+  }
+
+  .intro_media {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .media_card {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: #ffffff;
+    border: 4px solid #ffffff;
+  }
+
+  .media_card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+  }
+
+  .media_caption {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    padding: 8px 12px;
+    background: #ffffff;
+    text-align: center;
+  }
+
+  .skills_4c_section {
+    padding: 80px 0 90px;
+    background: var(--bg-light);
+  }
+
+  .section_header_center {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 50px;
+  }
+
+  .section_subtitle {
+    font-size: 16px;
+    color: var(--text-muted);
+  }
+
+  .skills_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 26px;
+  }
+
+  .skill_card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 34px 26px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    border-top: 4px solid var(--accent-gold);
+    transition: all 0.3s ease;
+  }
+
+  .skill_card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .skill_badge {
+    font-size: 26px;
+    font-weight: 800;
+    color: rgba(0, 33, 71, 0.12);
+    margin-bottom: 12px;
+    font-family: var(--font-heading);
+  }
+
+  .skill_card h3 {
+    font-size: 20px;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+  }
+
+  .skill_card p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-muted);
+  }
+
+  .banner_strip_section {
+    padding: 0 0 80px;
+    background: var(--bg-light);
+  }
+
+  .banner_wrapper {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 4px solid #ffffff;
+    background: #ffffff;
+  }
+
+  .banner_wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (max-width: 900px) {
+    .intro_grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
