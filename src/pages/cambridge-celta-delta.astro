@@ -1,0 +1,376 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getMediaUrl } from '../utils/media';
+---
+
+<Layout 
+  title="Cambridge CELTA & Delta – Crescent School"
+  description="Cambridge CELTA (Level 5) and Delta (Level 7) at Crescent School in official partnership with International House Turkey. The world's most prestigious English language teaching qualifications."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <a href="/professional-development/">Professional Development</a>
+        <span>/</span>
+        <span class="current">Cambridge CELTA/Delta</span>
+      </div>
+      <h1 class="hero_page_title">Cambridge CELTA & Delta Qualifications</h1>
+      <p class="hero_subtitle">The global gold standard in English Language Teaching (ELT) accreditation in partnership with International House Turkey.</p>
+    </div>
+  </section>
+
+  <!-- Overview & Partnership Section -->
+  <section class="celta_intro_section">
+    <div class="container">
+      <div class="intro_grid">
+        <div class="intro_text">
+          <span class="sub_badge">INTERNATIONAL HOUSE TURKEY PARTNERSHIP</span>
+          <h2 class="section_heading">World-Class English Language Teaching Accreditation</h2>
+          <div class="lead_text">
+            We are excited to announce our strategic partnership with <strong>International House Turkey</strong>, bringing the prestigious Cambridge CELTA Level 5 (FHEQ) and Delta Level 7 (FHEQ) courses to our teachers and external candidates across Pakistan.
+          </div>
+          <p class="body_paragraph">
+            CELTA and Delta, accredited by Cambridge English, are among the most widely recognized and respected English language teaching qualifications worldwide, renowned for their rigorous training and deep practical classroom focus.
+          </p>
+          <p class="body_paragraph">
+            By offering these internationally benchmarked certifications, Crescent Professional Development Centre is equipping educators with the pedagogical expertise, communicative strategies, and confidence to thrive in elite international schools and global universities worldwide.
+          </p>
+
+          <div class="benefits_list">
+            <div class="b_item">
+              <span class="b_check">✓</span>
+              <div>
+                <strong>Worldwide Employability:</strong> Accepted by universities, British Council centres, and international institutions in over 80 countries.
+              </div>
+            </div>
+            <div class="b_item">
+              <span class="b_check">✓</span>
+              <div>
+                <strong>Supervised Teaching Practice:</strong> Hands-on live lesson delivery with real language learners, followed by detailed tutor feedback.
+              </div>
+            </div>
+            <div class="b_item">
+              <span class="b_check">✓</span>
+              <div>
+                <strong>Open to Internal & External Candidates:</strong> Empowering educators across Pakistan to reach peak pedagogical standards.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="intro_media">
+          <div class="media_card">
+            <img 
+              src={getMediaUrl("/images/batch5/celta_1.jpg")} 
+              alt="Cambridge CELTA Training Session" 
+              loading="lazy"
+              onerror="this.src='/images/batch3/training_centre.jpg'"
+            />
+            <span class="media_caption">CELTA candidate interactive seminar & workshop</span>
+          </div>
+          <div class="media_card">
+            <img 
+              src={getMediaUrl("/images/batch5/delta.jpg")} 
+              alt="Cambridge Delta Professional Diploma" 
+              loading="lazy"
+              onerror="this.src='/images/batch5/celta_2.jpg'"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CELTA vs Delta Comparison -->
+  <section class="qual_compare_section">
+    <div class="container">
+      <div class="section_header_center">
+        <span class="sub_badge">QUALIFICATION LEVELS</span>
+        <h2 class="section_title">CELTA Level 5 vs. Delta Level 7</h2>
+        <div class="title-decorator"></div>
+      </div>
+
+      <div class="compare_grid">
+        <!-- CELTA Card -->
+        <div class="compare_card">
+          <div class="card_header">
+            <span class="level_badge">FHEQ LEVEL 5</span>
+            <h3>Cambridge CELTA</h3>
+            <p class="full_name">Certificate in English Language Teaching to Adults</p>
+          </div>
+          <p class="desc">
+            The ideal qualification for new educators entering English Language Teaching, or experienced teachers seeking internationally certified recognition.
+          </p>
+          <ul class="features_list">
+            <li>• 120 hours of intensive instructional study</li>
+            <li>• 6 hours of assessed real-learner teaching practice</li>
+            <li>• 4 written practical classroom assignments</li>
+            <li>• Language analysis, learner awareness & teaching methodologies</li>
+          </ul>
+        </div>
+
+        <!-- Delta Card -->
+        <div class="compare_card highlight">
+          <div class="card_header">
+            <span class="level_badge gold">FHEQ LEVEL 7 (MASTER'S LEVEL)</span>
+            <h3>Cambridge Delta</h3>
+            <p class="full_name">Diploma in Teaching English to Speakers of Other Languages</p>
+          </div>
+          <p class="desc">
+            An advanced qualification for experienced teachers aiming to become Directors of Studies, Teacher Trainers, Curriculum Developers, and ELT Authors.
+          </p>
+          <ul class="features_list">
+            <li>• Module 1: Understanding Language, Methodology & Resources</li>
+            <li>• Module 2: Developing Professional Practice (Live Assessed Teaching)</li>
+            <li>• Module 3: Extending Practice & ELT Specialism / Management</li>
+            <li>• Rigorous academic and practical research portfolio</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Registration CTA -->
+      <div class="registration_box">
+        <h3>Ready to Transform Your English Teaching Career?</h3>
+        <p>Register for upcoming CELTA and Delta cohorts administered at Crescent School in partnership with International House Turkey.</p>
+        <a href="https://ihturkey.com/celta-delta-pakistan/" target="_blank" rel="noopener" class="btn_register">
+          Visit Official Registration Portal (IH Turkey) →
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .sub_badge {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--primary-color);
+    background: rgba(0, 33, 71, 0.08);
+    padding: 5px 12px;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .celta_intro_section {
+    padding: 80px 0;
+    background: var(--bg-white);
+  }
+
+  .intro_grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .section_heading {
+    font-size: clamp(26px, 3.2vw, 36px);
+    color: var(--primary-color);
+    margin-bottom: 18px;
+    line-height: 1.3;
+  }
+
+  .lead_text {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.65;
+    color: var(--primary-light);
+    margin-bottom: 16px;
+  }
+
+  .body_paragraph {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .benefits_list {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .b_item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-dark);
+  }
+
+  .b_check {
+    color: var(--accent-gold-hover);
+    font-weight: 800;
+    font-size: 16px;
+  }
+
+  .intro_media {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .media_card {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: #ffffff;
+    border: 4px solid #ffffff;
+  }
+
+  .media_card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+  }
+
+  .media_caption {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    padding: 8px 12px;
+    background: #ffffff;
+    text-align: center;
+  }
+
+  .qual_compare_section {
+    padding: 80px 0 100px;
+    background: var(--bg-light);
+  }
+
+  .section_header_center {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+  }
+
+  .compare_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+
+  .compare_card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 38px 30px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+  }
+
+  .compare_card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .compare_card.highlight {
+    border-top: 4px solid var(--accent-gold);
+    background: linear-gradient(135deg, #ffffff 0%, #fdfbf7 100%);
+  }
+
+  .level_badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--accent-teal);
+    background: rgba(3, 106, 109, 0.08);
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+  }
+
+  .level_badge.gold {
+    color: #9a7200;
+    background: rgba(253, 200, 0, 0.2);
+  }
+
+  .compare_card h3 {
+    font-size: 22px;
+    color: var(--primary-color);
+    margin-bottom: 4px;
+  }
+
+  .full_name {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .desc {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+  }
+
+  .features_list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13.5px;
+    color: var(--text-muted);
+    padding-top: 14px;
+    border-top: 1px solid var(--border-light);
+    margin-top: auto;
+  }
+
+  .registration_box {
+    background: linear-gradient(135deg, #002147 0%, #001733 100%);
+    color: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 40px;
+    text-align: center;
+    border-bottom: 4px solid var(--accent-gold);
+    box-shadow: var(--shadow-md);
+  }
+
+  .registration_box h3 {
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+
+  .registration_box p {
+    font-size: 15px;
+    color: #cbd5e1;
+    max-width: 650px;
+    margin: 0 auto 24px;
+  }
+
+  .btn_register {
+    display: inline-block;
+    background: var(--accent-gold);
+    color: var(--primary-dark);
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+  }
+
+  .btn_register:hover {
+    background: var(--accent-gold-hover);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 900px) {
+    .intro_grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

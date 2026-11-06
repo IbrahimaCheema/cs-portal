@@ -31,7 +31,13 @@ const pages = [
   '/gentlemens-league/',
   '/the-quran-school/',
   '/robotics/',
-  '/school-of-linguistics/'
+  '/school-of-linguistics/',
+  // Batch 5: Professional Development (CPD)
+  '/professional-development/',
+  '/cambridge-professional-development-qualifications/',
+  '/cambridge-celta-delta/',
+  '/international-certificate-of-learning-and-teaching-icolt/',
+  '/futuristic-leaders-and-strategic-headship-flash/'
 ];
 
 function generateSitemap() {

@@ -1,0 +1,337 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getMediaUrl } from '../utils/media';
+
+const pdqCourses = [
+  {
+    code: "CICTL",
+    title: "Teaching & Learning",
+    fullTitle: "Cambridge International Certificate in Teaching & Learning",
+    desc: "Focuses on the essential principles of learning and active teaching. Teachers explore reflective practice, formative assessment, collaborative learning strategies, and student-centered lesson planning.",
+    modules: [
+      "Understanding learning processes & cognitive theories",
+      "Designing active, student-centered learning activities",
+      "Formative assessment & effective feedback loops",
+      "Reflective practice & continuous pedagogical inquiry"
+    ]
+  },
+  {
+    code: "CICTDT",
+    title: "Digital Technologies",
+    fullTitle: "Cambridge International Certificate in Teaching with Digital Technologies",
+    desc: "Equips educators to harness digital tools, learning management systems, and educational software meaningfully to deepen conceptual understanding and enhance student engagement.",
+    modules: [
+      "Integrating digital tools into curriculum design",
+      "Facilitating collaborative digital inquiry",
+      "Flipping classrooms & blended learning strategies",
+      "Digital safety, ethics, and interactive assessment"
+    ]
+  },
+  {
+    code: "CICEdL",
+    title: "Educational Leadership",
+    fullTitle: "Cambridge International Certificate in Educational Leadership",
+    desc: "Tailored for current and aspiring school leaders. Focuses on developing leadership capacities, mentoring academic teams, managing strategic change, and elevating school-wide educational standards.",
+    modules: [
+      "Theories of instructional leadership & school culture",
+      "Coaching, mentoring, and faculty development",
+      "Leading institutional change with agility",
+      "Data-driven strategic school improvement plans"
+    ]
+  }
+];
+---
+
+<Layout 
+  title="Cambridge Professional Development Qualifications (PDQs) – Crescent School"
+  description="Explore Cambridge Professional Development Qualifications (PDQs) at Crescent School: CICTL (Teaching & Learning), CICTDT (Digital Technologies), and CICEdL (Educational Leadership)."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <a href="/professional-development/">Professional Development</a>
+        <span>/</span>
+        <span class="current">Cambridge PDQs</span>
+      </div>
+      <h1 class="hero_page_title">Cambridge Professional Development Qualifications</h1>
+      <p class="hero_subtitle">Internationally accredited Cambridge certificates empowering educators to transform classroom practice and lead with excellence.</p>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section class="pdq_intro_section">
+    <div class="container">
+      <div class="intro_grid">
+        <div class="intro_text">
+          <span class="sub_badge">CAMBRIDGE ACCREDITED CENTRE</span>
+          <h2 class="section_heading">Transforming Teaching, Digital Fluency & Leadership</h2>
+          <div class="lead_text">
+            Crescent Professional Development Centre is proud to be an approved <strong>Cambridge Professional Development Centre</strong>, offering internationally recognized Cambridge PDQs.
+          </div>
+          <p class="body_paragraph">
+            We provide three specialized qualification tracks: the <strong>Cambridge International Certificate in Teaching and Learning (CICTL)</strong>, the <strong>Cambridge International Certificate in Teaching with Digital Technologies (CICTDT)</strong>, and the <strong>Cambridge International Certificate in Educational Leadership (CICEdL)</strong>.
+          </p>
+          <p class="body_paragraph">
+            These programmes are designed to empower educators by deepening pedagogical expertise, integrating cutting-edge digital technologies, and cultivating strategic leadership skills — ensuring teachers and administrators are thoroughly equipped to thrive in modern educational environments and make a lasting impact on young minds.
+          </p>
+
+          <div class="accreditation_banner">
+            <img 
+              src={getMediaUrl("/images/batch5/cambridge_pdq_logo.png")} 
+              alt="Cambridge Professional Development Centre Logo" 
+              loading="lazy" 
+            />
+          </div>
+        </div>
+
+        <div class="intro_media">
+          <div class="media_card">
+            <img 
+              src={getMediaUrl("/images/batch5/cpd_workshop_3.jpg")} 
+              alt="Cambridge PDQ Workshop Session" 
+              loading="lazy"
+              onerror="this.src='/images/batch3/training_centre.jpg'"
+            />
+            <span class="media_caption">Cambridge PDQ seminar and collaborative group presentation</span>
+          </div>
+          <div class="media_card">
+            <img 
+              src={getMediaUrl("/images/batch5/cpd_img_0543.jpg")} 
+              alt="Faculty Collaborative Inquiry" 
+              loading="lazy"
+              onerror="this.src='/images/batch5/cpd_workshop_1.jpg'"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 Specialized Qualifications -->
+  <section class="qualifications_section">
+    <div class="container">
+      <div class="section_header_center">
+        <span class="sub_badge">THREE SPECIALIZED TRACKS</span>
+        <h2 class="section_title">Cambridge PDQ Certification Streams</h2>
+        <div class="title-decorator"></div>
+      </div>
+
+      <div class="qualifications_grid">
+        {pdqCourses.map((course) => (
+          <div class="qual_card">
+            <div class="qual_header">
+              <span class="qual_code">{course.code}</span>
+              <h3>{course.title}</h3>
+              <p class="qual_subtitle">{course.fullTitle}</p>
+            </div>
+            <p class="qual_desc">{course.desc}</p>
+            
+            <div class="modules_box">
+              <h4>Key Focus Areas:</h4>
+              <ul>
+                {course.modules.map((m) => (
+                  <li>✓ {m}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .sub_badge {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--primary-color);
+    background: rgba(0, 33, 71, 0.08);
+    padding: 5px 12px;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .pdq_intro_section {
+    padding: 80px 0;
+    background: var(--bg-white);
+  }
+
+  .intro_grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .section_heading {
+    font-size: clamp(26px, 3.2vw, 36px);
+    color: var(--primary-color);
+    margin-bottom: 18px;
+    line-height: 1.3;
+  }
+
+  .lead_text {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.65;
+    color: var(--primary-light);
+    margin-bottom: 16px;
+  }
+
+  .body_paragraph {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .accreditation_banner {
+    margin-top: 24px;
+    background: var(--bg-light);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    border-left: 4px solid var(--accent-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .accreditation_banner img {
+    max-width: 280px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .intro_media {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .media_card {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: #ffffff;
+    border: 4px solid #ffffff;
+  }
+
+  .media_card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+  }
+
+  .media_caption {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    padding: 8px 12px;
+    background: #ffffff;
+    text-align: center;
+  }
+
+  .qualifications_section {
+    padding: 80px 0 100px;
+    background: var(--bg-light);
+  }
+
+  .section_header_center {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+  }
+
+  .qualifications_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+  }
+
+  .qual_card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 38px 30px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    border-top: 4px solid var(--accent-gold);
+  }
+
+  .qual_card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .qual_header {
+    margin-bottom: 18px;
+  }
+
+  .qual_code {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--accent-teal);
+    background: rgba(3, 106, 109, 0.08);
+    padding: 4px 12px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+  }
+
+  .qual_header h3 {
+    font-size: 22px;
+    color: var(--primary-color);
+    margin-bottom: 4px;
+  }
+
+  .qual_subtitle {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .qual_desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-dark);
+    margin-bottom: 24px;
+  }
+
+  .modules_box {
+    background: var(--bg-light);
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    margin-top: auto;
+  }
+
+  .modules_box h4 {
+    font-size: 14px;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+  }
+
+  .modules_box ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 900px) {
+    .intro_grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

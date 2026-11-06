@@ -1,0 +1,472 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getMediaUrl } from '../utils/media';
+
+const cpdProgrammes = [
+  {
+    title: "Cambridge Professional Development Qualifications (PDQs)",
+    tag: "CAMBRIDGE ACCREDITED",
+    href: "/cambridge-professional-development-qualifications/",
+    desc: "Internationally recognized qualifications for educators: Teaching & Learning (CICTL), Digital Technologies (CICTDT), and Educational Leadership (CICEdL).",
+    icon: "CA"
+  },
+  {
+    title: "Cambridge CELTA & Delta",
+    tag: "GLOBAL ELT BENCHMARK",
+    href: "/cambridge-celta-delta/",
+    desc: "In partnership with International House Turkey, offering CELTA Level 5 and Delta Level 7 (FHEQ) — the world's most prestigious English language teaching credentials.",
+    icon: "CD"
+  },
+  {
+    title: "International Certificate of Learning & Teaching (ICoLT)",
+    tag: "UK UNIVERSITY CO-DESIGNED",
+    href: "/international-certificate-of-learning-and-teaching-icolt/",
+    desc: "An intensive 18-day transformative programme co-developed with educators from the University of Strathclyde, Glasgow (UK) emphasizing innovative pedagogy.",
+    icon: "IC"
+  },
+  {
+    title: "Futuristic Leaders & Strategic Headship (FLASH)",
+    tag: "EXECUTIVE LEADERSHIP",
+    href: "/futuristic-leaders-and-strategic-headship-flash/",
+    desc: "Mandatory leadership academy cultivating strategic vision, agile decision-making, and change leadership for newly appointed and middle-tier school heads.",
+    icon: "FL"
+  },
+  {
+    title: "Preparing for Reflective Practice (PRP)",
+    tag: "IN-HOUSE FOUNDATION",
+    href: "#prp",
+    desc: "A foundational in-house professional course empowering faculty with critical self-assessment tools, pedagogical frameworks, and reflective classroom inquiry.",
+    icon: "PR"
+  }
+];
+
+const partners = [
+  { name: "University of Strathclyde, Glasgow (UK)", role: "ICoLT & PGCert / MSc Academic Partner" },
+  { name: "International House Turkey", role: "CELTA & Delta Official Centre Partner" },
+  { name: "Cambridge Assessment International Education", role: "Accredited Cambridge PDQ Centre" },
+  { name: "Aga Khan University", role: "Holistic Science Learning Program (Master Trainers)" },
+  { name: "LUMS (Lahore University of Management Sciences)", role: "Educational Management & Executive Leadership" },
+  { name: "Oxford Teachers Academy", role: "Pedagogical Excellence & ELT Methodologies" }
+];
+---
+
+<Layout 
+  title="Professional Development (CPD) – Crescent School"
+  description="Discover the Crescent Professional Development Centre. Cambridge PDQs, CELTA/Delta, University of Strathclyde ICoLT, and FLASH leadership training for educators across Pakistan."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span class="current">Professional Development</span>
+      </div>
+      <h1 class="hero_page_title">Crescent Professional Development (CPD)</h1>
+      <p class="hero_subtitle">Empowering educators with world-class international certifications, transformative pedagogy, and strategic leadership headship.</p>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section class="cpd_intro_section">
+    <div class="container">
+      <div class="intro_grid">
+        <div class="intro_text">
+          <span class="sub_badge">HUMAN RESOURCE EMPOWERMENT</span>
+          <h2 class="section_heading">A Collaborative Culture Rooted in Innovation & Research</h2>
+          <div class="lead_text">
+            With Crescent Professional Development (CPD) programmes, we empower our educators by fostering an environment conducive to continuous learning, collaborative inquiry, and evidence-based practice.
+          </div>
+          <p class="body_paragraph">
+            We provide need-based, futuristic training for all our academic staff. By closing pedagogical gaps and leveraging agile frameworks, we facilitate organic institutional growth and foster vibrant professional learning communities (PLCs) where every teacher contributes to achieving the school's vision.
+          </p>
+          <p class="body_paragraph">
+            The Crescent Professional Development Centre serves not only our internal faculty of 600+ teachers, but also trains external educators, vice principals, and school heads from across Pakistan through internationally accredited programmes.
+          </p>
+
+          <div class="highlights_box">
+            <div class="hl_item">
+              <span class="hl_check">✓</span>
+              <div>
+                <strong>Global University Collaborations:</strong> University of Strathclyde (UK), International House Turkey, Cambridge CAIE, and Aga Khan University.
+              </div>
+            </div>
+            <div class="hl_item">
+              <span class="hl_check">✓</span>
+              <div>
+                <strong>Dual Focus on Pedagogy & Leadership:</strong> From foundational reflective teaching to executive strategic headship.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="intro_media">
+          <div class="media_card">
+            <img 
+              src={getMediaUrl("/images/batch5/cpd_workshop_1.jpg")} 
+              alt="CPD Teacher Training Workshop" 
+              loading="lazy"
+              onerror="this.src='/images/batch3/training_centre.jpg'"
+            />
+            <span class="media_caption">Active faculty workshop at Crescent Training Centre</span>
+          </div>
+          <div class="media_card">
+            <img 
+              src={getMediaUrl("/images/batch5/cambridge_pdq_logo.png")} 
+              alt="Cambridge Professional Development Centre" 
+              loading="lazy"
+              style="padding: 24px; object-fit: contain; max-height: 120px;"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flagship Programmes Grid -->
+  <section class="programmes_section">
+    <div class="container">
+      <div class="section_header_center">
+        <span class="sub_badge">ACCREDITED QUALIFICATIONS</span>
+        <h2 class="section_title">Our Flagship CPD Programmes</h2>
+        <div class="title-decorator"></div>
+        <p class="section_subtitle">
+          Structured, internationally validated pathways for classroom teachers, curriculum coordinators, and senior educational administrators.
+        </p>
+      </div>
+
+      <div class="programmes_grid">
+        {cpdProgrammes.map((prog) => (
+          <div class="programme_card">
+            <div class="prog_header">
+              <span class="prog_tag">{prog.tag}</span>
+              <div class="prog_icon">{prog.icon}</div>
+            </div>
+            <h3>{prog.title}</h3>
+            <p>{prog.desc}</p>
+            {prog.href !== "#prp" ? (
+              <a href={prog.href} class="prog_link">
+                Explore Programme Details →
+              </a>
+            ) : (
+              <span class="prog_inhouse">Mandatory In-House Course</span>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- International Academic Collaborations -->
+  <section class="partners_section">
+    <div class="container">
+      <div class="partners_box">
+        <span class="sub_badge">GLOBAL NETWORK</span>
+        <h2>Institutional Collaborations & Accreditations</h2>
+        <div class="title-decorator"></div>
+        <p class="partners_lead">
+          Crescent Model Higher Secondary School regularly collaborates with prestigious international universities and certifying councils to deliver PGCert, MSc, ICoLT, CELTA, Delta, and Cambridge PDQs.
+        </p>
+
+        <div class="partners_grid">
+          {partners.map((partner) => (
+            <div class="partner_card">
+              <h4>{partner.name}</h4>
+              <p>{partner.role}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="logos_banner">
+          <img 
+            src={getMediaUrl("/images/batch5/tt_logos.jpg")} 
+            alt="International Training Partners" 
+            loading="lazy"
+            onerror="this.src='/images/batch5/cambridge_pdq_logo.png'"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .sub_badge {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--primary-color);
+    background: rgba(0, 33, 71, 0.08);
+    padding: 5px 12px;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .cpd_intro_section {
+    padding: 80px 0;
+    background: var(--bg-white);
+  }
+
+  .intro_grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .section_heading {
+    font-size: clamp(26px, 3.2vw, 36px);
+    color: var(--primary-color);
+    margin-bottom: 18px;
+    line-height: 1.3;
+  }
+
+  .lead_text {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.65;
+    color: var(--primary-light);
+    margin-bottom: 16px;
+  }
+
+  .body_paragraph {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .highlights_box {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hl_item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-dark);
+  }
+
+  .hl_check {
+    color: var(--accent-gold-hover);
+    font-weight: 800;
+    font-size: 16px;
+  }
+
+  .intro_media {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .media_card {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: #ffffff;
+    border: 4px solid #ffffff;
+  }
+
+  .media_card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+  }
+
+  .media_caption {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    padding: 8px 12px;
+    background: #ffffff;
+    text-align: center;
+  }
+
+  .programmes_section {
+    padding: 80px 0 100px;
+    background: var(--bg-light);
+  }
+
+  .section_header_center {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 50px;
+  }
+
+  .section_subtitle {
+    font-size: 16px;
+    color: var(--text-muted);
+  }
+
+  .programmes_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+  }
+
+  .programme_card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 34px 28px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    border-top: 4px solid var(--accent-gold);
+  }
+
+  .programme_card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .prog_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .prog_tag {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--accent-teal);
+    background: rgba(3, 106, 109, 0.08);
+    padding: 4px 10px;
+    border-radius: 12px;
+  }
+
+  .prog_icon {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-gradient);
+    color: var(--accent-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 13px;
+  }
+
+  .programme_card h3 {
+    font-size: 19px;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    line-height: 1.35;
+  }
+
+  .programme_card p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-muted);
+    margin-bottom: 22px;
+    flex: 1;
+  }
+
+  .prog_link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--primary-color);
+    transition: color 0.2s ease;
+  }
+
+  .prog_link:hover {
+    color: var(--accent-gold-hover);
+  }
+
+  .prog_inhouse {
+    font-size: 12.5px;
+    color: #64748b;
+    font-style: italic;
+  }
+
+  .partners_section {
+    padding: 0 0 90px;
+    background: var(--bg-light);
+  }
+
+  .partners_box {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 50px 40px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
+    text-align: center;
+  }
+
+  .partners_box h2 {
+    font-size: clamp(24px, 3vw, 32px);
+    color: var(--primary-color);
+    margin-bottom: 12px;
+  }
+
+  .partners_lead {
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: var(--text-muted);
+    max-width: 800px;
+    margin: 0 auto 36px;
+  }
+
+  .partners_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    text-align: left;
+    margin-bottom: 40px;
+  }
+
+  .partner_card {
+    background: var(--bg-light);
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    border-left: 3px solid var(--accent-gold);
+  }
+
+  .partner_card h4 {
+    font-size: 15px;
+    color: var(--primary-color);
+    margin-bottom: 4px;
+  }
+
+  .partner_card p {
+    font-size: 12.5px;
+    color: var(--text-muted);
+  }
+
+  .logos_banner {
+    border-top: 1px solid var(--border-light);
+    padding-top: 30px;
+  }
+
+  .logos_banner img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+
+  @media (max-width: 900px) {
+    .intro_grid {
+      grid-template-columns: 1fr;
+    }
+
+    .partners_box {
+      padding: 30px 20px;
+    }
+  }
+</style>
