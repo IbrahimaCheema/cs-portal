@@ -1,0 +1,306 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getMediaUrl } from '../utils/media';
+---
+
+<Layout 
+  title="Robotics & STEM Innovation – Crescent School"
+  description="Discover the Robotics Academy at Crescent School. Inspiring young engineers through mechanical design, Python programming, autonomous robotics, and FIRST LEGO League competitions."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span>Our Institution</span>
+        <span>/</span>
+        <span>Schools of Renaissance</span>
+        <span>/</span>
+        <span class="current">Robotics</span>
+      </div>
+      <h1 class="hero_page_title">Robotics & STEM Innovation</h1>
+      <p class="hero_subtitle">Empowering the next generation of engineers, coders, and innovators through hands-on autonomous robotics and artificial intelligence.</p>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section class="robotics_intro_section">
+    <div class="container">
+      <div class="intro_grid">
+        <div class="intro_text">
+          <span class="sub_badge">ENGINEERING TOMORROW</span>
+          <h2 class="section_heading">Design, Construct & Program Autonomous Machines</h2>
+          <div class="lead_text">
+            Robotics is the interdisciplinary branch of engineering that specializes in the entire creative design, mechanical fabrication, sensor integration, and intelligent programming of robotic systems.
+          </div>
+          <p class="body_paragraph">
+            At Crescent School, our advanced Robotics Academy aims at bringing together mechanical design, electrical circuitry, and computer science. We train students from early primary through senior years to solve real-world industrial and humanitarian challenges using smart robotics.
+          </p>
+          <p class="body_paragraph">
+            Equipped with modern 3D printers, sensor testbeds, Spike Prime, and Arduino microcontrollers, our students learn how to turn abstract algorithms into kinetic, intelligent physical actions.
+          </p>
+
+          <div class="robotics_highlights">
+            <div class="rh_item">
+              <span class="rh_check">✓</span>
+              <div>
+                <strong>FIRST LEGO League (FLL) Champions:</strong> Consistent national award-winners representing Pakistan in global competitive robotics olympiads.
+              </div>
+            </div>
+            <div class="rh_item">
+              <span class="rh_check">✓</span>
+              <div>
+                <strong>From Visual Blocks to Python & C++:</strong> Smooth pedagogical progression from Scratch/Block-based logic to native text-based programming.
+              </div>
+            </div>
+            <div class="rh_item">
+              <span class="rh_check">✓</span>
+              <div>
+                <strong>Sensor & Kinematics Mastery:</strong> Hands-on integration of ultrasonic distance locators, infrared line-trackers, color scanners, and gyroscopic stabilizers.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="intro_media">
+          <div class="media_card">
+            <img 
+              src={getMediaUrl("/images/batch4/robotics_lab_1.jpg")} 
+              alt="Crescent Robotics Laboratory" 
+              loading="lazy"
+              onerror="this.src='/images/batch3/robotics.jpg'"
+            />
+            <span class="media_caption">Students fabricating and testing autonomous mission rovers</span>
+          </div>
+          <div class="media_card">
+            <img 
+              src={getMediaUrl("/images/batch4/robotics_lab_2.jpg")} 
+              alt="Robotics Competition Arenas" 
+              loading="lazy"
+              onerror="this.src='/images/batch3/computer_lab.jpg'"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Competencies Grid -->
+  <section class="stem_pillars_section">
+    <div class="container">
+      <div class="section_header_center">
+        <span class="sub_badge">TECHNICAL STREAMS</span>
+        <h2 class="section_title">Core Pillars of STEM Robotics</h2>
+        <div class="title-decorator"></div>
+      </div>
+
+      <div class="stem_grid">
+        <div class="stem_card">
+          <div class="stem_icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+          </div>
+          <h3>Mechanical Engineering</h3>
+          <p>Gear ratios, planetary transmissions, torque versus speed trade-offs, structural balance, and chassis reinforcement.</p>
+        </div>
+
+        <div class="stem_card">
+          <div class="stem_icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"/>
+              <polyline points="8 6 2 12 8 18"/>
+            </svg>
+          </div>
+          <h3>Autonomous Coding</h3>
+          <p>Writing algorithmic loops, conditional branching, interrupt service routines, and state-machine decision logic.</p>
+        </div>
+
+        <div class="stem_card">
+          <div class="stem_icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <h3>Electronics & Sensors</h3>
+          <p>Interpreting analog/digital sensor streams, PID line-following algorithms, ultrasonic collision avoidance, and motor encoders.</p>
+        </div>
+
+        <div class="stem_card">
+          <div class="stem_icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="8" r="7"/>
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+            </svg>
+          </div>
+          <h3>Competitive Arena Drills</h3>
+          <p>Timed 2.5-minute mission runs on international tournament mats, cultivating nerves of steel and rapid debugging under pressure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .sub_badge {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--primary-color);
+    background: rgba(0, 33, 71, 0.08);
+    padding: 5px 12px;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .robotics_intro_section {
+    padding: 80px 0;
+    background: var(--bg-white);
+  }
+
+  .intro_grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .section_heading {
+    font-size: clamp(26px, 3.2vw, 36px);
+    color: var(--primary-color);
+    margin-bottom: 18px;
+    line-height: 1.3;
+  }
+
+  .lead_text {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.65;
+    color: var(--primary-light);
+    margin-bottom: 16px;
+  }
+
+  .body_paragraph {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .robotics_highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  .rh_item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-dark);
+  }
+
+  .rh_check {
+    color: var(--accent-gold-hover);
+    font-weight: 800;
+    font-size: 16px;
+  }
+
+  .intro_media {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .media_card {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: #ffffff;
+    border: 4px solid #ffffff;
+  }
+
+  .media_card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+  }
+
+  .media_caption {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    padding: 8px 12px;
+    background: #ffffff;
+    text-align: center;
+  }
+
+  .stem_pillars_section {
+    padding: 80px 0 100px;
+    background: var(--bg-light);
+  }
+
+  .section_header_center {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+  }
+
+  .stem_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 26px;
+  }
+
+  .stem_card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 34px 26px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    border-top: 4px solid var(--accent-gold);
+  }
+
+  .stem_card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .stem_icon {
+    width: 48px;
+    height: 48px;
+    background: var(--primary-gradient);
+    color: var(--accent-gold);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+
+  .stem_card h3 {
+    font-size: 19px;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+  }
+
+  .stem_card p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 900px) {
+    .intro_grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

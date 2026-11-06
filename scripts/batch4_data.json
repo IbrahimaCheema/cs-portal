@@ -1,0 +1,366 @@
+{
+  "school-of-art": {
+    "title": "School of Art – Crescent School",
+    "url": "https://crescentschool.edu.pk/school-of-art/",
+    "images": [
+      {
+        "src": "https://crescentschool.edu.pk/wp-content/uploads/2021/09/school-of-arts.jpg",
+        "alt": "school-of-arts",
+        "filename": "school-of-arts.jpg"
+      },
+      {
+        "src": "https://crescentschool.edu.pk/wp-content/uploads/2021/09/school-of-arts2.jpg",
+        "alt": "school-of-arts2",
+        "filename": "school-of-arts2.jpg"
+      }
+    ],
+    "texts": [
+      {
+        "tag": "h1",
+        "text": "School of Art"
+      },
+      {
+        "tag": "h3",
+        "text": "\" Every artist was first an amateur \"Ralph Waldo Emerson"
+      },
+      {
+        "tag": "p",
+        "text": "Arts don’t just develop a child’s creativity—the skills they learn because of them spill over into academic achievement. Also holding a paintbrush and scribbling with a crayon are important elements in developing a child’s fine motor skills.\n\nStudents need to know more about the world than just what they can learn through text and numbers. Art education teaches students how to interpret, criticize, use visual information and how to make choices based on it."
+      },
+      {
+        "tag": "h3",
+        "text": "The School of Art is a place where students feel free to express themselves and explore their outlook and inner world by means of art. It is a place where creative and original young people study, meet, communicate and work on various projects. The School of Art has an open enrollment. Students can join a class at any time of the semester or session. Class sizes are kept small so teachers can give each student individual attention."
+      },
+      {
+        "tag": "h4",
+        "text": "The objectives of the School of Arts are to: Discover students’ artistic talent and educate them as professionals Adhere to the already-existing art movements, but also experiment, seek new forms, and question established norms Nurture aspiring artists"
+      },
+      {
+        "tag": "p",
+        "text": "The objectives of the School of Arts are to:"
+      },
+      {
+        "tag": "li",
+        "text": "Discover students’ artistic talent and educate them as professionals"
+      },
+      {
+        "tag": "li",
+        "text": "Adhere to the already-existing art movements, but also experiment, seek new forms, and question established norms"
+      },
+      {
+        "tag": "li",
+        "text": "Nurture aspiring artists"
+      },
+      {
+        "tag": "h3",
+        "text": "The Program includes Calligraphy Mixed Media Photography Wire Work Computer Graphic Block /Line Printing Digital Video Art"
+      }
+    ]
+  },
+  "school-of-music": {
+    "title": "School of Music – Crescent School",
+    "url": "https://crescentschool.edu.pk/school-of-music/",
+    "images": [
+      {
+        "src": "https://www.crescentschool.edu.pk/wp-content/uploads/2021/09/mac.jpg",
+        "alt": "mac",
+        "filename": "mac.jpg"
+      },
+      {
+        "src": "https://www.crescentschool.edu.pk/wp-content/uploads/2021/09/mac2.jpg",
+        "alt": "mac2",
+        "filename": "mac2.jpg"
+      },
+      {
+        "src": "https://www.crescentschool.edu.pk/wp-content/uploads/2020/11/gospel.png",
+        "alt": "",
+        "filename": "gospel.png"
+      },
+      {
+        "src": "https://www.crescentschool.edu.pk/wp-content/uploads/2020/11/karaoke.png",
+        "alt": "",
+        "filename": "karaoke.png"
+      },
+      {
+        "src": "https://www.crescentschool.edu.pk/wp-content/uploads/2020/11/sheet-music.png",
+        "alt": "",
+        "filename": "sheet-music.png"
+      }
+    ],
+    "texts": [
+      {
+        "tag": "h1",
+        "text": "School of Music"
+      },
+      {
+        "tag": "p",
+        "text": "” Music gives a soul to the universe, wings to the mind, flight to the imagination and life to everything ”"
+      },
+      {
+        "tag": "p",
+        "text": "Students who have early musical training develop the areas of the brain related to language and reasoning. The left side of the brain is better developed with music, and songs can help imprint information on young minds. Just like sports, students develop motor skills when playing music.The School of Music helps make our students better-rounded, disciplined and creative. It provides affordable and professional music trainings and services to the students."
+      },
+      {
+        "tag": "p",
+        "text": "The Curriculum focuses at:"
+      },
+      {
+        "tag": "li",
+        "text": "identification of different musical elements such as tone, pitch, chords, rhythm and melody"
+      },
+      {
+        "tag": "li",
+        "text": "empowering them to create and compose music"
+      },
+      {
+        "tag": "li",
+        "text": "enabling students to sing with rhythm and melody, using multiple tones and pitches"
+      },
+      {
+        "tag": "li",
+        "text": "teaching them to perform in different types of music ensemble"
+      },
+      {
+        "tag": "p",
+        "text": "The classes are being conducted after school by our highly professional team of musicians and teachers. Students are being prepared to participate in a range of singing competitions being held at school, inter-school and national level."
+      },
+      {
+        "tag": "h3",
+        "text": "We prepare students in the following domains"
+      },
+      {
+        "tag": "h3",
+        "text": "Instruments"
+      },
+      {
+        "tag": "p",
+        "text": "keyboard, violin, flute, drum, guitar"
+      },
+      {
+        "tag": "h3",
+        "text": "Singing"
+      },
+      {
+        "tag": "p",
+        "text": "vocalist, solo and choir"
+      },
+      {
+        "tag": "h3",
+        "text": "Presentation"
+      },
+      {
+        "tag": "p",
+        "text": "classical, folk, semi-classical, ghazal, pop"
+      }
+    ]
+  },
+  "the-finishing-school": {
+    "title": "The Crescent Finishing School – Crescent School",
+    "url": "https://crescentschool.edu.pk/the-finishing-school/",
+    "images": [
+      {
+        "src": "https://www.crescentschool.edu.pk/wp-content/uploads/2021/12/finishing-school.png",
+        "alt": "finishing-school",
+        "filename": "finishing-school.png"
+      },
+      {
+        "src": "https://www.crescentschool.edu.pk/wp-content/uploads/2021/12/finishing-scholl-2.png",
+        "alt": "finishing-scholl-2",
+        "filename": "finishing-scholl-2.png"
+      },
+      {
+        "src": "https://www.crescentschool.edu.pk/wp-content/uploads/2021/12/finishing-school-3.png",
+        "alt": "finishing-school-3",
+        "filename": "finishing-school-3.png"
+      }
+    ],
+    "texts": [
+      {
+        "tag": "h1",
+        "text": "The Crescent Finishing School"
+      },
+      {
+        "tag": "div",
+        "text": "The school is run under the supervision of certified coaches from The International Etiquette and Protocol Academy of London, with the goal to give students necessary building blocks for a solid future and, to enable them to feel comfortable and self-assured on any occasion."
+      },
+      {
+        "tag": "div",
+        "text": "Participants of the programme learn the power of etiquette, also, how and why it is a valuable life-long skill that works to their own benefit. They also learn and practice leadership, social, dining and communication skills through engaging age-appropriate, interactive programmes, workshops and dining tutorials. The Finishing School offers programmes thrice a year. A Special course for mothers is also offered. The School also offers special summer break programmes to make long summer days a fun-filled learning experience."
+      }
+    ]
+  },
+  "gentlemens-league": {
+    "title": "Gentlemen’s League – Crescent School",
+    "url": "https://crescentschool.edu.pk/gentlemens-league/",
+    "images": [
+      {
+        "src": "http://www.crescentschool.edu.pk/wp-content/uploads/2021/07/nnn.jpg",
+        "alt": "nnn",
+        "filename": "nnn.jpg"
+      },
+      {
+        "src": "http://www.crescentschool.edu.pk/wp-content/uploads/2020/11/league.jpg",
+        "alt": "league",
+        "filename": "league.jpg"
+      },
+      {
+        "src": "http://www.crescentschool.edu.pk/wp-content/uploads/2020/11/fence.png",
+        "alt": "",
+        "filename": "fence.png"
+      },
+      {
+        "src": "http://www.crescentschool.edu.pk/wp-content/uploads/2020/11/target.png",
+        "alt": "",
+        "filename": "target.png"
+      },
+      {
+        "src": "http://www.crescentschool.edu.pk/wp-content/uploads/2020/11/riding.png",
+        "alt": "",
+        "filename": "riding.png"
+      },
+      {
+        "src": "http://www.crescentschool.edu.pk/wp-content/uploads/2020/11/golf-field.png",
+        "alt": "",
+        "filename": "golf-field.png"
+      }
+    ],
+    "texts": [
+      {
+        "tag": "h1",
+        "text": "Gentlemen’s League"
+      },
+      {
+        "tag": "p",
+        "text": "” Being a true gentleman never goes out of style “A gentleman is aware of his overall look, activities and way of interacting with others. He shows real strength through his personality, attitude and integrity."
+      },
+      {
+        "tag": "p",
+        "text": "The Gentleman’s League works on the manners, etiquettes and different sports supervised by coaches trained by ‘ International Etiquette & Protocol Academy of London. ’"
+      },
+      {
+        "tag": "h3",
+        "text": "Students learn :"
+      },
+      {
+        "tag": "li",
+        "text": "effective social and communication skills"
+      },
+      {
+        "tag": "li",
+        "text": "greeting skills"
+      },
+      {
+        "tag": "li",
+        "text": "telephonic etiquettes"
+      },
+      {
+        "tag": "li",
+        "text": "basic table/ dining manners"
+      },
+      {
+        "tag": "h3",
+        "text": "Physical Activities"
+      },
+      {
+        "tag": "h3",
+        "text": "Fencing"
+      },
+      {
+        "tag": "h3",
+        "text": "Archery"
+      },
+      {
+        "tag": "h3",
+        "text": "Horse – riding"
+      }
+    ]
+  },
+  "the-quran-school": {
+    "title": "The Quran School – Crescent School",
+    "url": "https://crescentschool.edu.pk/the-quran-school/",
+    "images": [
+      {
+        "src": "https://www.crescentschool.edu.pk/wp-content/uploads/2021/09/quran.jpg",
+        "alt": "quran",
+        "filename": "quran.jpg"
+      },
+      {
+        "src": "https://www.crescentschool.edu.pk/wp-content/uploads/2021/09/quran-1.jpg",
+        "alt": "quran-1",
+        "filename": "quran-1.jpg"
+      },
+      {
+        "src": "https://www.crescentschool.edu.pk/wp-content/uploads/2021/12/quran.png",
+        "alt": "quran",
+        "filename": "quran.png"
+      }
+    ],
+    "texts": [
+      {
+        "tag": "h1",
+        "text": "The Quran School"
+      },
+      {
+        "tag": "div",
+        "text": "The Prophet (SAW) said, “Such a person who recites the Quran and masters it by heart, will be with the noble righteous scribes (in Heaven). And such a person exerts himself to learn the Quran by heart, and recites it with great difficulty, will have a double reward.”"
+      },
+      {
+        "tag": "div",
+        "text": "Sahih al-Bukhari"
+      },
+      {
+        "tag": "div",
+        "text": "Our Quran School supports students make connections between topics they learn in class and the real-life Islamic values that apply to them. In addition to spiritual benefits and rewards, memorizing the Quran also brings many other health benefits from mental health to physical health. It also increases their academic performance and memory."
+      },
+      {
+        "tag": "div",
+        "text": "Students have an option to begin Quran School from class 4 and 5. The target is to memorize Quran in 3 years. During these 3 years, students attend regular English and Mathematics lessons and also have the option of attending Science lessons."
+      },
+      {
+        "tag": "div",
+        "text": "This is a wonderful opportunity for students to memorize Quran without losing academic year."
+      }
+    ]
+  },
+  "robotics": {
+    "title": "ROBOTICS – Crescent School",
+    "url": "https://crescentschool.edu.pk/robotics/",
+    "images": [
+      {
+        "src": "https://crescentschool.edu.pk/wp-content/uploads/2023/10/HIZ_1422-scaled.jpg",
+        "alt": "HIZ_1422",
+        "filename": "HIZ_1422-scaled.jpg"
+      },
+      {
+        "src": "https://crescentschool.edu.pk/wp-content/uploads/2023/10/HIZ_1398-1-scaled.jpg",
+        "alt": "HIZ_1398 (1)",
+        "filename": "HIZ_1398-1-scaled.jpg"
+      }
+    ],
+    "texts": [
+      {
+        "tag": "h1",
+        "text": "ROBOTICS"
+      },
+      {
+        "tag": "h1",
+        "text": "Robotics is the branch of engineering that specializes in the entire creative, construction and application process of robots. It aims at bringing innovative learning methodologies into the classrooms to maximize student learning and creativity. The use of technology, when linked to active learning strategies, contributes to better outcomes in Mathematics & Science."
+      }
+    ]
+  },
+  "school-of-linguistics": {
+    "title": "School of Linguistics – Crescent School",
+    "url": "https://crescentschool.edu.pk/school-of-linguistics/",
+    "images": [],
+    "texts": [
+      {
+        "tag": "h1",
+        "text": "School of Linguistics"
+      },
+      {
+        "tag": "h1",
+        "text": "Keeping the need for intellectual understanding in mind, German, Mandarin and French languages have been added for students to help them develop their world views."
+      }
+    ]
+  }
+}

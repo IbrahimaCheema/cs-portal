@@ -1,0 +1,307 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getMediaUrl } from '../utils/media';
+---
+
+<Layout 
+  title="The Crescent Finishing School – Crescent School"
+  description="Explore The Crescent Finishing School for young women. Certified coaches from The International Etiquette and Protocol Academy of London imparting executive poise, dining protocol, and social grace."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span>Our Institution</span>
+        <span>/</span>
+        <span>Schools of Renaissance</span>
+        <span>/</span>
+        <span class="current">The Finishing School</span>
+      </div>
+      <h1 class="hero_page_title">The Crescent Finishing School</h1>
+      <p class="hero_subtitle">Cultivating executive poise, international dining protocol, personal branding, and social grace for tomorrow's women leaders.</p>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section class="finishing_intro_section">
+    <div class="container">
+      <div class="intro_grid">
+        <div class="intro_text">
+          <span class="sub_badge">LONDON CERTIFIED CURRICULUM</span>
+          <h2 class="section_heading">The Power of Etiquette as a Lifelong Asset</h2>
+          <div class="lead_text">
+            The school is run under the direct supervision of certified coaches trained by <strong>The International Etiquette and Protocol Academy of London</strong>.
+          </div>
+          <p class="body_paragraph">
+            Participants of the programme learn the undeniable power of modern etiquette, discovering how and why refined social grace is an invaluable lifelong competency that opens doors to diplomatic, professional, and personal leadership.
+          </p>
+          <p class="body_paragraph">
+            Our immersive curriculum transforms natural poise into magnetic executive presence. From formal state-dinner table protocols to confident public address, our students master the subtle arts of social and corporate distinction.
+          </p>
+
+          <div class="academy_badges">
+            <div class="badge_item">
+              <span class="badge_check">✓</span>
+              <div>
+                <strong>Global Protocol Standards:</strong> Aligned with European and Commonwealth diplomatic guidelines.
+              </div>
+            </div>
+            <div class="badge_item">
+              <span class="badge_check">✓</span>
+              <div>
+                <strong>Hands-on Banqueting Practice:</strong> Real-world table setting, multi-course formal dining, and hosting etiquette.
+              </div>
+            </div>
+            <div class="badge_item">
+              <span class="badge_check">✓</span>
+              <div>
+                <strong>Confidence & Emotional Intelligence:</strong> Mastering assertiveness, active listening, and social diplomacy.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="intro_media">
+          <div class="media_card">
+            <img 
+              src={getMediaUrl("/images/batch4/finishing_school_1.png")} 
+              alt="The Crescent Finishing School" 
+              loading="lazy"
+              onerror="this.src='/images/welcome_side.jpg'"
+            />
+          </div>
+          <div class="media_card">
+            <img 
+              src={getMediaUrl("/images/batch4/finishing_school_2.png")} 
+              alt="Etiquette and Protocol Workshops" 
+              loading="lazy"
+              onerror="this.src='/images/hero_slider_1.jpg'"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Pillars -->
+  <section class="modules_section">
+    <div class="container">
+      <div class="section_header_center">
+        <span class="sub_badge">EXECUTIVE MODULES</span>
+        <h2 class="section_title">Curriculum Modules & Masterclasses</h2>
+        <div class="title-decorator"></div>
+      </div>
+
+      <div class="modules_grid">
+        <div class="module_card">
+          <div class="mod_num">01</div>
+          <h3>Formal Dining & Table Protocol</h3>
+          <p>Navigating multi-course formal state dinners, cutlery navigation (Continental vs. American style), glassware etiquette, napkin codes, and gracious hosting.</p>
+        </div>
+
+        <div class="module_card">
+          <div class="mod_num">02</div>
+          <h3>Deportment, Posture & Poise</h3>
+          <p>Graceful walking, sitting posture, entering and exiting rooms with dignity, hand gestures, and projecting an aura of composed confidence.</p>
+        </div>
+
+        <div class="module_card">
+          <div class="mod_num">03</div>
+          <h3>The Art of Conversation</h3>
+          <p>Executive small talk, networking diplomacy, professional telephone and video conference etiquette, and delivering memorable presentations.</p>
+        </div>
+
+        <div class="module_card">
+          <div class="mod_num">04</div>
+          <h3>Wardrobe & Personal Branding</h3>
+          <p>Decoding dress codes (Black Tie, Business Formal, Smart Casual), color coordination, personal grooming standards, and modesty with elegance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Banner Strip -->
+  <section class="banner_strip_section">
+    <div class="container">
+      <div class="banner_card">
+        <img 
+          src={getMediaUrl("/images/batch4/finishing_school_3.png")} 
+          alt="Finishing School Graduation" 
+          loading="lazy"
+          onerror="this.src='/images/hero_slider_2.jpg'"
+        />
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .sub_badge {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--primary-color);
+    background: rgba(0, 33, 71, 0.08);
+    padding: 5px 12px;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .finishing_intro_section {
+    padding: 80px 0;
+    background: var(--bg-white);
+  }
+
+  .intro_grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .section_heading {
+    font-size: clamp(26px, 3.2vw, 36px);
+    color: var(--primary-color);
+    margin-bottom: 18px;
+    line-height: 1.3;
+  }
+
+  .lead_text {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.65;
+    color: var(--primary-light);
+    margin-bottom: 16px;
+  }
+
+  .body_paragraph {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .academy_badges {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  .badge_item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-dark);
+  }
+
+  .badge_check {
+    color: var(--accent-gold-hover);
+    font-weight: 800;
+    font-size: 16px;
+  }
+
+  .intro_media {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .media_card {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: #ffffff;
+    border: 4px solid #ffffff;
+  }
+
+  .media_card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .modules_section {
+    padding: 80px 0;
+    background: var(--bg-light);
+  }
+
+  .section_header_center {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+  }
+
+  .modules_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 26px;
+  }
+
+  .module_card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 34px 26px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    border-top: 4px solid var(--accent-gold);
+    transition: all 0.3s ease;
+  }
+
+  .module_card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .mod_num {
+    font-size: 26px;
+    font-weight: 800;
+    color: rgba(0, 33, 71, 0.12);
+    margin-bottom: 12px;
+    font-family: var(--font-heading);
+  }
+
+  .module_card h3 {
+    font-size: 19px;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+  }
+
+  .module_card p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-muted);
+  }
+
+  .banner_strip_section {
+    padding: 0 0 80px;
+    background: var(--bg-light);
+  }
+
+  .banner_card {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 4px solid #ffffff;
+    background: #ffffff;
+  }
+
+  .banner_card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (max-width: 900px) {
+    .intro_grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

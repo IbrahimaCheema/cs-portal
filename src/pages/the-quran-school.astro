@@ -1,0 +1,326 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getMediaUrl } from '../utils/media';
+---
+
+<Layout 
+  title="The Quran School (Hifz-e-Quran) – Crescent School"
+  description="Discover The Quran School at Crescent Model Higher Secondary School. Comprehensive Hifz-e-Quran programme in 3 years with Tajweed, Islamic ethics, and synchronized mainstream schooling."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span>Our Institution</span>
+        <span>/</span>
+        <span>Schools of Renaissance</span>
+        <span>/</span>
+        <span class="current">The Quran School</span>
+      </div>
+      <h1 class="hero_page_title">The Quran School</h1>
+      <p class="hero_subtitle">Illuminating hearts and intellects through Holy Quran memorization, authentic Tajweed, and living Islamic virtues.</p>
+    </div>
+  </section>
+
+  <!-- Hadith & Spiritual Introduction -->
+  <section class="quran_intro_section">
+    <div class="container">
+      <div class="hadith_banner_box">
+        <div class="arabic_calligraphy">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+        <p class="hadith_text">
+          "Such a person who recites the Quran and masters it by heart, will be with the noble righteous scribes (in Heaven)."
+        </p>
+        <span class="hadith_source">— Prophet Muhammad ﷺ (Sahih al-Bukhari)</span>
+      </div>
+
+      <div class="intro_grid">
+        <div class="intro_text">
+          <span class="sub_badge">SPIRITUAL & ACADEMIC HARMONY</span>
+          <h2 class="section_heading">Memorization with Tajweed & Modern Academics</h2>
+          <div class="lead_text">
+            Our Quran School supports students in establishing deep, transformative connections between the Holy Book and real-life ethical values that guide them every day.
+          </div>
+          <p class="body_paragraph">
+            Students have the prestigious option to begin the Quran School from <strong>Class 4 and Class 5</strong>. The targeted goal is to complete the memorization of the entire Holy Quran within <strong>three focused years</strong>.
+          </p>
+          <p class="body_paragraph">
+            Crucially, during these three intensive years, students continue their full mainstream academic progression in Mathematics, English, General Science, and Urdu through customized scheduling — ensuring zero compromise on their future Cambridge or Board schooling pathways.
+          </p>
+
+          <div class="hifz_pillars_box">
+            <h3>Pillars of the Quran School:</h3>
+            <ul class="hifz_list">
+              <li>✓ <strong>Expert Certified Huffaz & Qaris:</strong> Direct mentorship from recognized scholars adhering to strict Classical Tajweed and Tarteel rules.</li>
+              <li>✓ <strong>Structured Daur (Revision Cycles):</strong> Daily revision quotas ensuring durable, lifetime retention of memorized Surahs.</li>
+              <li>✓ <strong>Concurrent Academic Synchrony:</strong> Parallel tutoring keeping students completely up-to-date with mainstream grade curricula.</li>
+              <li>✓ <strong>Tarbiyah & Character Mentorship:</strong> Instilling modesty, filial piety, honesty, compassion, and civic responsibility.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="intro_media">
+          <div class="media_card">
+            <img 
+              src={getMediaUrl("/images/batch4/quran_main.jpg")} 
+              alt="The Quran School Students" 
+              loading="lazy"
+              onerror="this.src='/images/welcome_side.jpg'"
+            />
+            <span class="media_caption">Students engaged in Hifz recitation with personalized teacher attention</span>
+          </div>
+          <div class="media_card">
+            <img 
+              src={getMediaUrl("/images/batch4/quran_sub.jpg")} 
+              alt="Quran School Classrooms" 
+              loading="lazy"
+              onerror="this.src='/images/hero_slider_1.jpg'"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programme Highlights -->
+  <section class="hifz_model_section">
+    <div class="container">
+      <div class="section_header_center">
+        <span class="sub_badge">3-YEAR HIFZ JOURNEY</span>
+        <h2 class="section_title">Structured 3-Year Curriculum Roadmap</h2>
+        <div class="title-decorator"></div>
+      </div>
+
+      <div class="roadmap_grid">
+        <div class="roadmap_card">
+          <div class="roadmap_stage">YEAR 1</div>
+          <h3>Nazra, Tajweed & Foundation</h3>
+          <p>Perfecting Makharij (pronunciation points), rules of Tajweed (Noon Sakin, Meem Sakin, Madd), and memorizing initial Juz with absolute precision.</p>
+        </div>
+
+        <div class="roadmap_card">
+          <div class="roadmap_stage">YEAR 2</div>
+          <h3>Accelerated Memorization</h3>
+          <p>Steady daily Sabbaq (new lesson) progression, Sabqi (recent revision), and intensive Manzil consolidation across intermediate Surahs.</p>
+        </div>
+
+        <div class="roadmap_card highlight">
+          <div class="roadmap_stage gold">YEAR 3</div>
+          <h3>Takmeel & Grand Revision (Daur)</h3>
+          <p>Completion of the Holy Quran, comprehensive multi-Juz daily recitations, certification examinations, and smooth full-time reintegration into Middle School.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .sub_badge {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--primary-color);
+    background: rgba(0, 33, 71, 0.08);
+    padding: 5px 12px;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .quran_intro_section {
+    padding: 70px 0 90px;
+    background: var(--bg-white);
+  }
+
+  .hadith_banner_box {
+    background: linear-gradient(135deg, #002147 0%, #001733 100%);
+    color: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 60px;
+    border-bottom: 4px solid var(--accent-gold);
+    box-shadow: var(--shadow-md);
+  }
+
+  .arabic_calligraphy {
+    font-size: 28px;
+    color: var(--accent-gold);
+    margin-bottom: 16px;
+    font-family: serif;
+    letter-spacing: 2px;
+  }
+
+  .hadith_text {
+    font-size: clamp(20px, 2.8vw, 26px);
+    font-family: var(--font-heading);
+    font-style: italic;
+    color: #ffffff;
+    margin-bottom: 12px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+  }
+
+  .hadith_source {
+    font-size: 15px;
+    color: var(--accent-gold);
+    font-weight: 600;
+  }
+
+  .intro_grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .section_heading {
+    font-size: clamp(26px, 3.2vw, 36px);
+    color: var(--primary-color);
+    margin-bottom: 18px;
+    line-height: 1.3;
+  }
+
+  .lead_text {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.65;
+    color: var(--primary-light);
+    margin-bottom: 16px;
+  }
+
+  .body_paragraph {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .hifz_pillars_box {
+    margin-top: 26px;
+    background: var(--bg-light);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    border-left: 4px solid var(--accent-gold);
+  }
+
+  .hifz_pillars_box h3 {
+    font-size: 17px;
+    color: var(--primary-color);
+    margin-bottom: 14px;
+  }
+
+  .hifz_list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-dark);
+  }
+
+  .intro_media {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .media_card {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: #ffffff;
+    border: 4px solid #ffffff;
+  }
+
+  .media_card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+  }
+
+  .media_caption {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    padding: 8px 12px;
+    background: #ffffff;
+    text-align: center;
+  }
+
+  .hifz_model_section {
+    padding: 80px 0 100px;
+    background: var(--bg-light);
+  }
+
+  .section_header_center {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+  }
+
+  .roadmap_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+  }
+
+  .roadmap_card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 38px 28px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+  }
+
+  .roadmap_card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .roadmap_card.highlight {
+    border-top: 4px solid var(--accent-gold);
+    background: linear-gradient(135deg, #ffffff 0%, #fdfbf7 100%);
+  }
+
+  .roadmap_stage {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--primary-color);
+    background: rgba(0, 33, 71, 0.08);
+    padding: 4px 12px;
+    border-radius: 12px;
+    margin-bottom: 14px;
+  }
+
+  .roadmap_stage.gold {
+    color: #9a7200;
+    background: rgba(253, 200, 0, 0.2);
+  }
+
+  .roadmap_card h3 {
+    font-size: 20px;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+  }
+
+  .roadmap_card p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 900px) {
+    .intro_grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

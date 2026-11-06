@@ -1,0 +1,346 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getMediaUrl } from '../utils/media';
+---
+
+<Layout 
+  title="School of Art – Crescent School"
+  description="Discover the School of Art at Crescent School. Inspiring young artists to discover creative self-expression, professional fine art techniques, and contemporary design."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span>Our Institution</span>
+        <span>/</span>
+        <span>Schools of Renaissance</span>
+        <span>/</span>
+        <span class="current">School of Art</span>
+      </div>
+      <h1 class="hero_page_title">School of Art</h1>
+      <p class="hero_subtitle">Nurturing creative imagination, fine arts mastery, and visual intelligence in state-of-the-art studio spaces.</p>
+    </div>
+  </section>
+
+  <!-- Quote & Philosophical Introduction -->
+  <section class="art_intro_section">
+    <div class="container">
+      <div class="quote_banner_box">
+        <div class="quote_mark">“</div>
+        <p class="quote_text">Every artist was first an amateur.</p>
+        <span class="quote_author">— Ralph Waldo Emerson</span>
+      </div>
+
+      <div class="intro_grid">
+        <div class="intro_text">
+          <span class="sub_badge">CREATIVE SANCTUARY</span>
+          <h2 class="section_heading">Where Imagination Meets Masterful Expression</h2>
+          <div class="lead_text">
+            Arts don't just develop a child's creativity — the cognitive and manual skills they learn through visual arts spill over powerfully into broad academic achievement.
+          </div>
+          <p class="body_paragraph">
+            The School of Art is a place where students feel completely free to express themselves, explore their aesthetic outlook, and give voice to their inner world by means of visual media. It serves as an incubator for creative confidence and refined artistic discernment.
+          </p>
+          <p class="body_paragraph">
+            From holding a paintbrush for the very first time to mastering oil painting on canvas, classical watercolors, clay sculpting, printmaking, and digital graphic design, our students are guided by renowned master artists and experienced pedagogical mentors.
+          </p>
+
+          <div class="objectives_block">
+            <h3>Core Objectives of the School of Art:</h3>
+            <ul class="objectives_list">
+              <li>✓ <strong>Discover & Polish Raw Talent:</strong> Unearth intrinsic artistic inclinations and mentor students with professional studio methodologies.</li>
+              <li>✓ <strong>Academic & International Alignment:</strong> Fully integrated with Cambridge IGCSE / O-Level & A-Level Art and Design syllabi.</li>
+              <li>✓ <strong>Annual Art Exhibitions:</strong> Regular campus galleries showcasing student canvases, sculptures, and installation art to public acclaim.</li>
+              <li>✓ <strong>Portfolio Mentorship:</strong> Direct preparation for entrance into elite national and international design universities (NCA, BNU, Indus Valley, Central Saint Martins).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="intro_media">
+          <div class="media_card">
+            <img 
+              src={getMediaUrl("/images/batch4/school-of-arts.jpg")} 
+              alt="Crescent School of Art Studio" 
+              loading="lazy"
+              onerror="this.src='/images/welcome_side.jpg'"
+            />
+            <span class="media_caption">Students engaged in fine art canvas painting in our light-filled studio</span>
+          </div>
+          <div class="media_card">
+            <img 
+              src={getMediaUrl("/images/batch4/school-of-arts2.jpg")} 
+              alt="Art Exhibition & Creative Work" 
+              loading="lazy"
+              onerror="this.src='/images/hero_slider_2.jpg'"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Studio Disciplines -->
+  <section class="disciplines_section">
+    <div class="container">
+      <div class="section_header_center">
+        <span class="sub_badge">STUDIO WORKSHOPS</span>
+        <h2 class="section_title">Artistic Mediums & Studio Disciplines</h2>
+        <div class="title-decorator"></div>
+      </div>
+
+      <div class="disciplines_grid">
+        <div class="discipline_card">
+          <div class="discipline_icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+              <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+              <path d="M2 2l7.586 7.586"/>
+              <circle cx="11" cy="11" r="2"/>
+            </svg>
+          </div>
+          <h3>Drawing & Sketching</h3>
+          <p>Perspective drawing, graphite shading, charcoal work, still life compositions, and anatomical life drawing studies.</p>
+        </div>
+
+        <div class="discipline_card">
+          <div class="discipline_icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="13.5" cy="6.5" r=".5"/>
+              <circle cx="17.5" cy="10.5" r=".5"/>
+              <circle cx="8.5" cy="7.5" r=".5"/>
+              <circle cx="6.5" cy="12.5" r=".5"/>
+              <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.563-2.512 5.563-5.563C22 6.5 17.5 2 12 2z"/>
+            </svg>
+          </div>
+          <h3>Painting & Color Theory</h3>
+          <p>Mastery over watercolours, gouache, acrylics, and classical oil painting on canvas exploring harmony and contrast.</p>
+        </div>
+
+        <div class="discipline_card">
+          <div class="discipline_icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+              <polyline points="2 17 12 22 22 17"/>
+              <polyline points="2 12 12 17 22 12"/>
+            </svg>
+          </div>
+          <h3>Sculpture & Ceramics</h3>
+          <p>Three-dimensional tactile expression with clay modeling, pottery wheel techniques, papier-mâché, and relief casting.</p>
+        </div>
+
+        <div class="discipline_card">
+          <div class="discipline_icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+          </div>
+          <h3>Printmaking & Graphics</h3>
+          <p>Linocut printmaking, woodblock techniques, screen printing, typography, and contemporary digital visual illustration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .sub_badge {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--primary-color);
+    background: rgba(0, 33, 71, 0.08);
+    padding: 5px 12px;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .art_intro_section {
+    padding: 70px 0 90px;
+    background: var(--bg-white);
+  }
+
+  .quote_banner_box {
+    background: linear-gradient(135deg, #002147 0%, #001733 100%);
+    color: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    border-bottom: 4px solid var(--accent-gold);
+    box-shadow: var(--shadow-md);
+  }
+
+  .quote_mark {
+    font-size: 60px;
+    line-height: 1;
+    color: var(--accent-gold);
+    font-family: serif;
+    margin-bottom: 6px;
+  }
+
+  .quote_text {
+    font-size: clamp(22px, 3vw, 28px);
+    font-family: var(--font-heading);
+    font-style: italic;
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+
+  .quote_author {
+    font-size: 15px;
+    color: var(--accent-gold);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  .intro_grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .section_heading {
+    font-size: clamp(26px, 3.2vw, 36px);
+    color: var(--primary-color);
+    margin-bottom: 18px;
+    line-height: 1.3;
+  }
+
+  .lead_text {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.65;
+    color: var(--primary-light);
+    margin-bottom: 16px;
+  }
+
+  .body_paragraph {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .objectives_block {
+    margin-top: 26px;
+    background: var(--bg-light);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    border-left: 4px solid var(--accent-gold);
+  }
+
+  .objectives_block h3 {
+    font-size: 17px;
+    color: var(--primary-color);
+    margin-bottom: 14px;
+  }
+
+  .objectives_list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-dark);
+  }
+
+  .intro_media {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .media_card {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: #ffffff;
+    border: 4px solid #ffffff;
+  }
+
+  .media_card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .media_caption {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    padding: 8px 12px;
+    background: #ffffff;
+    text-align: center;
+  }
+
+  .disciplines_section {
+    padding: 80px 0 100px;
+    background: var(--bg-light);
+  }
+
+  .section_header_center {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+  }
+
+  .disciplines_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 26px;
+  }
+
+  .discipline_card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 34px 26px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    border-top: 4px solid var(--accent-gold);
+  }
+
+  .discipline_card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .discipline_icon {
+    width: 48px;
+    height: 48px;
+    background: var(--primary-gradient);
+    color: var(--accent-gold);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+
+  .discipline_card h3 {
+    font-size: 19px;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+  }
+
+  .discipline_card p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 900px) {
+    .intro_grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

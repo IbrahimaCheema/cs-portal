@@ -5,7 +5,7 @@ const siteUrl = 'https://crescentschool.edu.pk';
 
 const pages = [
   '/',
-  // Batch 2
+  // Batch 2: Governance & Institution
   '/about-us/',
   '/mission-values/',
   '/history/',
@@ -14,7 +14,7 @@ const pages = [
   '/administration/',
   '/message-from-the-chairman-crescent-educational-trust/',
   '/board-of-trustees-2/',
-  // Batch 3
+  // Batch 3: Academic Sections & IB/Cambridge
   '/crescent-early-years_primary-section/',
   '/middle-school/',
   '/ib-myp-dp-cp/',
@@ -23,7 +23,15 @@ const pages = [
   '/senior-school/',
   '/cambridge-section/',
   '/the-crescent-college/',
-  '/facilities/'
+  '/facilities/',
+  // Batch 4: Schools of Renaissance
+  '/school-of-art/',
+  '/school-of-music/',
+  '/the-finishing-school/',
+  '/gentlemens-league/',
+  '/the-quran-school/',
+  '/robotics/',
+  '/school-of-linguistics/'
 ];
 
 function generateSitemap() {
