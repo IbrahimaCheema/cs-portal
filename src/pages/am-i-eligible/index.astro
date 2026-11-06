@@ -1,0 +1,586 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getMediaUrl } from '../../utils/media';
+
+const sections = [
+  { id: "early-years", name: "Early Years (Pre-K to K2)", href: "/am-i-eligible/early-years/" },
+  { id: "junior", name: "Junior School (PYP 1 to 5)", href: "/am-i-eligible/", active: true },
+  { id: "middle", name: "Middle School (Class 6 to 8)", href: "/am-i-eligible/middle-school/" },
+  { id: "senior", name: "Senior School (Matric)", href: "/am-i-eligible/senior-school/" },
+  { id: "cambridge", name: "Cambridge (O & A Level)", href: "/am-i-eligible/cambridge/" },
+  { id: "college", name: "The Crescent College", href: "/am-i-eligible/college/" },
+  { id: "ib", name: "IB (MYP / DP / CP)", href: "/am-i-eligible/ib/" }
+];
+
+const eligibilityTable = [
+  { classGrade: "PYP 1 (Grade 1)", ageRange: "5 to 6 years", cutoff: "Calculated as of August 1st" },
+  { classGrade: "PYP 2 (Grade 2)", ageRange: "6 to 7 years", cutoff: "Calculated as of August 1st" },
+  { classGrade: "PYP 3 (Grade 3)", ageRange: "7 to 8 years", cutoff: "Calculated as of August 1st" },
+  { classGrade: "PYP 4 (Grade 4)", ageRange: "8 to 9 years", cutoff: "Calculated as of August 1st" },
+  { classGrade: "PYP 5 (Grade 5)", ageRange: "9 to 10 years", cutoff: "Calculated as of August 1st" }
+];
+
+const documentChecklist = [
+  "Previous school's latest official result card / progress report",
+  "School leaving certificate (SLC) of the previous recognized institution",
+  "Computerized National Identity Card (CNIC) photocopies of both parents",
+  "NADRA Birth Certificate / Child Registration Certificate (B-Form)",
+  "Two recent passport-size photographs of the applicant (blue background)"
+];
+---
+
+<Layout 
+  title="Am I Eligible? Junior School Criteria – Crescent School"
+  description="Check age eligibility criteria, grade requirements, and admissions prerequisites for Junior School (PYP 1 to 5) at Crescent School Lahore."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <a href="/online-application-form/">Admission</a>
+        <span>/</span>
+        <span class="current">Am I Eligible?</span>
+      </div>
+      <h1 class="hero_page_title">Am I Eligible? – Admissions Criteria</h1>
+      <p class="hero_subtitle">Comprehensive age benchmarks, entry prerequisites, and verification guidelines across all Crescent academic sections.</p>
+    </div>
+  </section>
+
+  <!-- Section Navigation Tabs -->
+  <section class="eligibility_nav_strip">
+    <div class="container">
+      <nav class="eligibility_tabs" aria-label="Eligibility Sections">
+        {sections.map(sec => (
+          <a 
+            href={sec.href} 
+            class={`eligibility_tab_btn ${sec.active ? 'active' : ''}`}
+          >
+            {sec.name}
+          </a>
+        ))}
+      </nav>
+    </div>
+  </section>
+
+  <!-- Main Content Body -->
+  <section class="eligibility_main_section">
+    <div class="container">
+      <div class="eligibility_layout">
+        <!-- Left Column: Criteria & Details -->
+        <div class="eligibility_content">
+          <span class="sub_badge">JUNIOR SCHOOL (PYP 1 TO 5)</span>
+          <h2 class="section_heading">Age Criteria & Admission Benchmarks</h2>
+          <p class="lead_text">
+            For entry into the Junior School at Crescent School, age is calculated strictly as of <strong>August 1st</strong> of the admission year in accordance with Punjab Education Department & IB standards.
+          </p>
+
+          <!-- Criteria Table -->
+          <div class="table_responsive_wrapper">
+            <table class="styled_criteria_table">
+              <thead>
+                <tr>
+                  <th>Class / Grade</th>
+                  <th>Age Range Benchmark</th>
+                  <th>Assessment Basis</th>
+                </tr>
+              </thead>
+              <tbody>
+                {eligibilityTable.map(row => (
+                  <tr>
+                    <td class="grade_name"><strong>{row.classGrade}</strong></td>
+                    <td class="age_value"><span class="badge_age">{row.ageRange}</span></td>
+                    <td class="cutoff_text">{row.cutoff}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Required Documents Summary -->
+          <div class="required_docs_card">
+            <div class="docs_header">
+              <span class="docs_icon">📁</span>
+              <h3>Required Documents for Submission</h3>
+            </div>
+            <ul class="docs_checklist">
+              {documentChecklist.map(doc => (
+                <li>
+                  <span class="chk_mark">✓</span>
+                  <span>{doc}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="docs_footer">
+              <a href="/required-documents/" class="text_link">View complete document submission instructions &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Visuals & Interactive Age Checker -->
+        <div class="eligibility_sidebar">
+          <div class="hero_visual_card">
+            <img 
+              src={getMediaUrl("/images/batch6/eligible_junior.jpg")} 
+              alt="Junior School Classroom Learning" 
+              loading="lazy"
+              onerror="this.src='/images/batch3/junior_section.jpg'"
+            />
+            <div class="visual_caption">
+              Junior school students engaged in collaborative inquiry and STEM activities.
+            </div>
+          </div>
+
+          <!-- Quick Age Calculator Card -->
+          <div class="calculator_card">
+            <div class="calc_header">
+              <span class="calc_icon">🧮</span>
+              <h4>Interactive Age Calculator</h4>
+            </div>
+            <p class="calc_desc">Select your child's date of birth to instantly identify eligible grade levels for the upcoming academic session:</p>
+            <div class="calc_form">
+              <label for="dob_input">Child's Date of Birth:</label>
+              <input type="date" id="dob_input" class="calc_input" />
+              <button type="button" id="btn_calc" class="btn_calc">Check Eligibility</button>
+            </div>
+            <div id="calc_result" class="calc_result" style="display: none;">
+              <!-- Dynamic JS Result -->
+            </div>
+          </div>
+
+          <!-- Call To Action Card -->
+          <div class="sidebar_cta_card">
+            <h4>Ready to Apply?</h4>
+            <p>Admissions for the upcoming academic session are now open. Complete your online registration today.</p>
+            <a href="/online-application-form/" class="btn_apply_gold">Submit Online Application</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Interactive Age Calculator Script
+  const dobInput = document.getElementById('dob_input') as HTMLInputElement;
+  const btnCalc = document.getElementById('btn_calc');
+  const calcResult = document.getElementById('calc_result');
+
+  if (btnCalc && dobInput && calcResult) {
+    btnCalc.addEventListener('click', () => {
+      const val = dobInput.value;
+      if (!val) {
+        calcResult.style.display = 'block';
+        calcResult.innerHTML = '<span class="warn">Please select a valid date of birth.</span>';
+        return;
+      }
+
+      const birthDate = new Date(val);
+      // Cutoff date is August 1st of 2026
+      const cutoffDate = new Date('2026-08-01');
+      
+      let years = cutoffDate.getFullYear() - birthDate.getFullYear();
+      let months = cutoffDate.getMonth() - birthDate.getMonth();
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
+
+      const ageFloat = years + (months / 12);
+      let eligibleGrade = '';
+
+      if (ageFloat >= 2.5 && ageFloat < 3.3) {
+        eligibleGrade = 'Pre Kindergarten (Early Years)';
+      } else if (ageFloat >= 3.3 && ageFloat < 4.3) {
+        eligibleGrade = 'Kindergarten 1 (Early Years)';
+      } else if (ageFloat >= 4.3 && ageFloat < 5.3) {
+        eligibleGrade = 'Kindergarten 2 (Early Years)';
+      } else if (ageFloat >= 5.0 && ageFloat < 6.0) {
+        eligibleGrade = 'PYP 1 / Grade 1 (Junior School)';
+      } else if (ageFloat >= 6.0 && ageFloat < 7.0) {
+        eligibleGrade = 'PYP 2 / Grade 2 (Junior School)';
+      } else if (ageFloat >= 7.0 && ageFloat < 8.0) {
+        eligibleGrade = 'PYP 3 / Grade 3 (Junior School)';
+      } else if (ageFloat >= 8.0 && ageFloat < 9.0) {
+        eligibleGrade = 'PYP 4 / Grade 4 (Junior School)';
+      } else if (ageFloat >= 9.0 && ageFloat < 10.0) {
+        eligibleGrade = 'PYP 5 / Grade 5 (Junior School)';
+      } else if (ageFloat >= 10.0 && ageFloat < 11.0) {
+        eligibleGrade = 'Class 6 (Middle School)';
+      } else if (ageFloat >= 11.0 && ageFloat < 12.0) {
+        eligibleGrade = 'Class 7 (Middle School)';
+      } else if (ageFloat >= 12.0 && ageFloat < 13.0) {
+        eligibleGrade = 'Class 8 (Middle School)';
+      } else if (ageFloat >= 13.0 && ageFloat < 15.0) {
+        eligibleGrade = 'Senior School / Class 9 & 10 (Matric)';
+      } else if (ageFloat >= 14.5 && ageFloat < 17.0) {
+        eligibleGrade = 'Cambridge O/A-Levels or The Crescent College';
+      } else {
+        eligibleGrade = 'Please contact the Admission Office for special age waivers.';
+      }
+
+      calcResult.style.display = 'block';
+      calcResult.innerHTML = `
+        <div class="result_box">
+          <p>Age on Aug 1, 2026: <strong>${years} years, ${months} months</strong></p>
+          <div class="eligible_badge">Eligible for: <strong>${eligibleGrade}</strong></div>
+        </div>
+      `;
+    });
+  }
+</script>
+
+<style>
+  .sub_badge {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--primary-color);
+    background: rgba(0, 33, 71, 0.08);
+    padding: 5px 12px;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  /* Nav Strip */
+  .eligibility_nav_strip {
+    background: #f0f4f8;
+    border-bottom: 1px solid var(--border-light);
+    padding: 12px 0;
+  }
+
+  .eligibility_tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .eligibility_tab_btn {
+    padding: 8px 16px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--primary-color);
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .eligibility_tab_btn:hover {
+    background: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+  }
+
+  .eligibility_tab_btn.active {
+    background: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Layout */
+  .eligibility_main_section {
+    padding: 70px 0;
+    background: var(--bg-white);
+  }
+
+  .eligibility_layout {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 45px;
+    align-items: start;
+  }
+
+  .section_heading {
+    font-size: clamp(24px, 2.8vw, 32px);
+    color: var(--primary-color);
+    margin-bottom: 16px;
+  }
+
+  .lead_text {
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    margin-bottom: 24px;
+  }
+
+  /* Criteria Table */
+  .table_responsive_wrapper {
+    overflow-x: auto;
+    margin-bottom: 35px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
+  }
+
+  .styled_criteria_table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    text-align: left;
+    font-size: 14px;
+  }
+
+  .styled_criteria_table th {
+    background: var(--primary-color);
+    color: #ffffff;
+    padding: 14px 18px;
+    font-weight: 600;
+    font-size: 13.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .styled_criteria_table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-dark);
+  }
+
+  .styled_criteria_table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .styled_criteria_table tr:nth-child(even) {
+    background: #fbfcfe;
+  }
+
+  .badge_age {
+    display: inline-block;
+    background: rgba(0, 33, 71, 0.08);
+    color: var(--primary-color);
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  /* Required Docs Card */
+  .required_docs_card {
+    background: #fcfcfd;
+    border: 1px solid var(--border-light);
+    border-left: 4px solid var(--accent-gold);
+    border-radius: var(--radius-md);
+    padding: 28px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .docs_header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .docs_icon {
+    font-size: 24px;
+  }
+
+  .docs_header h3 {
+    font-size: 18px;
+    color: var(--primary-color);
+    margin: 0;
+  }
+
+  .docs_checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .docs_checklist li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-dark);
+  }
+
+  .chk_mark {
+    color: #0b8043;
+    font-weight: 800;
+    font-size: 15px;
+  }
+
+  .text_link {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 13.5px;
+    text-decoration: none;
+  }
+
+  .text_link:hover {
+    color: var(--accent-gold-hover);
+    text-decoration: underline;
+  }
+
+  /* Sidebar */
+  .eligibility_sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .hero_visual_card {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 4px solid #ffffff;
+    background: #ffffff;
+  }
+
+  .hero_visual_card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .visual_caption {
+    padding: 10px 14px;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    background: #ffffff;
+  }
+
+  /* Calculator Card */
+  .calculator_card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 26px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .calc_header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .calc_icon {
+    font-size: 22px;
+  }
+
+  .calc_header h4 {
+    font-size: 17px;
+    color: var(--primary-color);
+    margin: 0;
+  }
+
+  .calc_desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+
+  .calc_form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .calc_form label {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+
+  .calc_input {
+    padding: 10px 12px;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+  }
+
+  .btn_calc {
+    background: var(--primary-color);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 10px;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  .btn_calc:hover {
+    background: var(--primary-light);
+  }
+
+  .calc_result {
+    margin-top: 14px;
+    padding: 12px;
+    background: #f8fafc;
+    border-radius: var(--radius-sm);
+    font-size: 13.5px;
+  }
+
+  .eligible_badge {
+    margin-top: 6px;
+    background: #e6f4ea;
+    color: #137333;
+    padding: 6px 10px;
+    border-radius: 4px;
+  }
+
+  /* CTA Card */
+  .sidebar_cta_card {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+    color: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 28px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+  }
+
+  .sidebar_cta_card h4 {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .sidebar_cta_card p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .btn_apply_gold {
+    display: block;
+    background: var(--accent-gold);
+    color: var(--primary-dark);
+    font-weight: 700;
+    font-size: 13px;
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+  }
+
+  .btn_apply_gold:hover {
+    background: var(--accent-gold-hover);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 900px) {
+    .eligibility_layout {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

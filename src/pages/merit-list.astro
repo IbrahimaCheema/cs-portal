@@ -1,0 +1,413 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getMediaUrl } from '../utils/media';
+
+const meritLists = [
+  {
+    grade: "Class 9 Boys",
+    category: "senior",
+    session: "Session 2025-26",
+    image: "/images/batch6/merit_class9.jpg",
+    desc: "Official merit selection list for Class 9 (Matriculation Section)."
+  },
+  {
+    grade: "Class 8 Boys",
+    category: "middle",
+    session: "Session 2025-26",
+    image: "/images/batch6/merit_class8.jpg",
+    desc: "Official merit selection list for Class 8 (Middle School Section)."
+  },
+  {
+    grade: "Class 7 Boys",
+    category: "middle",
+    session: "Session 2025-26",
+    image: "/images/batch6/merit_class7.jpg",
+    desc: "Official merit selection list for Class 7 (Middle School Section)."
+  },
+  {
+    grade: "Class 6 Boys",
+    category: "middle",
+    session: "Session 2025-26",
+    image: "/images/batch6/merit_class6.jpg",
+    desc: "Official merit selection list for Class 6 (Middle School Section)."
+  },
+  {
+    grade: "Class 5 Boys",
+    category: "junior",
+    session: "Session 2025-26",
+    image: "/images/batch6/merit_class5.jpg",
+    desc: "Official merit selection list for Class 5 (Junior Section)."
+  },
+  {
+    grade: "Class 4 Boys",
+    category: "junior",
+    session: "Session 2025-26",
+    image: "/images/batch6/merit_class4.jpg",
+    desc: "Official merit selection list for Class 4 (Junior Section)."
+  },
+  {
+    grade: "Class 3 Boys",
+    category: "junior",
+    session: "Session 2025-26",
+    image: "/images/batch6/merit_class3.jpg",
+    desc: "Official merit selection list for Class 3 (Junior Section)."
+  },
+  {
+    grade: "Class 2 Boys",
+    category: "junior",
+    session: "Session 2025-26",
+    image: "/images/batch6/merit_class2.jpg",
+    desc: "Official merit selection list for Class 2 (Junior Section)."
+  },
+  {
+    grade: "IB MYP 1",
+    category: "ib",
+    session: "Session 2025-26",
+    image: "/images/batch6/merit_myp1.jpg",
+    desc: "Official merit selection roster for IB Middle Years Programme 1."
+  },
+  {
+    grade: "Kindergarten 2 (Prep)",
+    category: "early-years",
+    session: "Session 2025-26",
+    image: "/images/batch6/merit_k2.jpeg",
+    desc: "Official merit selection list for Kindergarten 2 (Early Years)."
+  },
+  {
+    grade: "Kindergarten 1 (Nursery)",
+    category: "early-years",
+    session: "Session 2025-26",
+    image: "/images/batch6/merit_nursery.jpg",
+    desc: "Official merit selection list for Kindergarten 1 (Early Years)."
+  },
+  {
+    grade: "Playgroup / Pre-K",
+    category: "early-years",
+    session: "Session 2025-26",
+    image: "/images/batch6/merit_pg.jpeg",
+    desc: "Official merit selection roster for Playgroup / Pre-Kindergarten."
+  }
+];
+---
+
+<Layout 
+  title="Merit Lists: Session 2025-26 – Crescent School"
+  description="Check official admission merit lists for Session 2025-26 at Crescent Model Higher Secondary School Lahore. Class 2 to 9, IB MYP, and Early Years."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <a href="/online-application-form/">Admission</a>
+        <span>/</span>
+        <span class="current">Merit List</span>
+      </div>
+      <h1 class="hero_page_title">Merit Lists: Session 2025-26</h1>
+      <p class="hero_subtitle">Official merit announcements and successful candidate rosters across all academic sections.</p>
+    </div>
+  </section>
+
+  <!-- Instructions Banner -->
+  <section class="instructions_strip">
+    <div class="container">
+      <div class="instructions_card">
+        <div class="inst_icon">📋</div>
+        <div class="inst_text">
+          <h3>Instructions for Selected Candidates</h3>
+          <p>
+            Parents of selected candidates are requested to collect the Admission Fee Challenge Voucher from the Accounts Office within <strong>5 working days</strong> of the merit announcement. Please ensure original documents are presented at the time of fee voucher collection.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Merit List Filter & Gallery -->
+  <section class="merit_gallery_section">
+    <div class="container">
+      <!-- Filter Controls -->
+      <div class="filter_bar">
+        <button type="button" class="filter_btn active" data-filter="all">All Lists ({meritLists.length})</button>
+        <button type="button" class="filter_btn" data-filter="early-years">Early Years (Pre-K, K1, K2)</button>
+        <button type="button" class="filter_btn" data-filter="junior">Junior School (Classes 2-5)</button>
+        <button type="button" class="filter_btn" data-filter="middle">Middle School (Classes 6-8)</button>
+        <button type="button" class="filter_btn" data-filter="senior">Senior School (Class 9)</button>
+        <button type="button" class="filter_btn" data-filter="ib">IB Continuum</button>
+      </div>
+
+      <!-- Grid of Merit Cards -->
+      <div class="merit_grid" id="merit_grid">
+        {meritLists.map(item => (
+          <div class="merit_card" data-category={item.category}>
+            <div class="card_image_wrapper">
+              <img 
+                src={getMediaUrl(item.image)} 
+                alt={`${item.grade} Merit List`}
+                loading="lazy"
+                onerror="this.src='/images/batch3/training_centre.jpg'"
+              />
+              <span class="session_badge">{item.session}</span>
+            </div>
+            <div class="card_content">
+              <h4>{item.grade}</h4>
+              <p>{item.desc}</p>
+              <div class="card_actions">
+                <a href={getMediaUrl(item.image)} target="_blank" rel="noopener noreferrer" class="btn_view_full">
+                  🔍 View Full Roster
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Help & Enquiries -->
+  <section class="merit_help_section">
+    <div class="container">
+      <div class="help_box">
+        <h3>Questions Regarding Admission Roster?</h3>
+        <p>If your roll number does not appear or you require further assistance regarding waiting lists, contact the Admissions Secretariat.</p>
+        <div class="help_contacts">
+          <span>📞 Phone: <strong>042 3742 1361-4</strong></span>
+          <span>✉️ Email: <strong>info@crescentschool.edu.pk</strong></span>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Filter logic
+  const filterBtns = document.querySelectorAll('.filter_btn');
+  const cards = document.querySelectorAll('.merit_card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        if (filter === 'all' || cat === filter) {
+          (card as HTMLElement).style.display = 'block';
+        } else {
+          (card as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .instructions_strip {
+    padding: 40px 0 0;
+    background: var(--bg-light);
+  }
+
+  .instructions_card {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-left: 5px solid var(--primary-color);
+    border-radius: var(--radius-md);
+    padding: 24px 30px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .inst_icon {
+    font-size: 36px;
+    flex-shrink: 0;
+  }
+
+  .inst_text h3 {
+    font-size: 18px;
+    color: var(--primary-color);
+    margin: 0 0 6px 0;
+  }
+
+  .inst_text p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-dark);
+    margin: 0;
+  }
+
+  .merit_gallery_section {
+    padding: 40px 0 70px;
+    background: var(--bg-light);
+  }
+
+  .filter_bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 35px;
+    justify-content: center;
+  }
+
+  .filter_btn {
+    padding: 8px 18px;
+    font-size: 13.5px;
+    font-weight: 600;
+    background: #ffffff;
+    color: var(--text-dark);
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .filter_btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+  }
+
+  .filter_btn.active {
+    background: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+  }
+
+  .merit_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+  }
+
+  .merit_card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+  }
+
+  .merit_card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .card_image_wrapper {
+    position: relative;
+    height: 220px;
+    background: #f0f4f8;
+    overflow: hidden;
+  }
+
+  .card_image_wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .merit_card:hover .card_image_wrapper img {
+    transform: scale(1.04);
+  }
+
+  .session_badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--primary-color);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  .card_content {
+    padding: 20px;
+  }
+
+  .card_content h4 {
+    font-size: 17px;
+    color: var(--primary-color);
+    margin: 0 0 8px 0;
+  }
+
+  .card_content p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 0 0 16px 0;
+  }
+
+  .card_actions {
+    display: flex;
+  }
+
+  .btn_view_full {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 33, 71, 0.05);
+    color: var(--primary-color);
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 9px 12px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn_view_full:hover {
+    background: var(--primary-color);
+    color: #ffffff;
+  }
+
+  .merit_help_section {
+    padding: 0 0 70px;
+    background: var(--bg-light);
+  }
+
+  .help_box {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 30px;
+    text-align: center;
+    border: 1px solid var(--border-light);
+  }
+
+  .help_box h3 {
+    font-size: 20px;
+    color: var(--primary-color);
+    margin: 0 0 8px 0;
+  }
+
+  .help_box p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin: 0 0 16px 0;
+  }
+
+  .help_contacts {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-size: 14px;
+    color: var(--primary-color);
+  }
+
+  @media (max-width: 768px) {
+    .instructions_card {
+      flex-direction: column;
+      text-align: center;
+    }
+    .help_contacts {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+</style>

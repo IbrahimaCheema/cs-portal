@@ -1,0 +1,389 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getMediaUrl } from '../../utils/media';
+
+const sections = [
+  { id: "early-years", name: "Early Years (Pre-K to K2)", href: "/am-i-eligible/early-years/" },
+  { id: "junior", name: "Junior School (PYP 1 to 5)", href: "/am-i-eligible/" },
+  { id: "middle", name: "Middle School (Class 6 to 8)", href: "/am-i-eligible/middle-school/" },
+  { id: "senior", name: "Senior School (Matric)", href: "/am-i-eligible/senior-school/" },
+  { id: "cambridge", name: "Cambridge (O & A Level)", href: "/am-i-eligible/cambridge/" },
+  { id: "college", name: "The Crescent College", href: "/am-i-eligible/college/" },
+  { id: "ib", name: "IB (MYP / DP / CP)", href: "/am-i-eligible/ib/", active: true }
+];
+
+const ibContinuumTable = [
+  { programme: "IB Primary Years Programme (PYP)", grades: "PYP 1 to PYP 5", ageRange: "5 to 10 years", entry: "August Intake" },
+  { programme: "IB Middle Years Programme (MYP)", grades: "MYP I to MYP III", ageRange: "11 to 14 years", entry: "August Intake" },
+  { programme: "IB Diploma Programme (DP)", grades: "DP 1 & DP 2 (Grades 11-12)", ageRange: "16 to 19 years", entry: "August Intake" },
+  { programme: "IB Career-related Programme (CP)", grades: "CP 1 & CP 2 (Grades 11-12)", ageRange: "16 to 19 years", entry: "August Intake" }
+];
+
+const ibDocs = [
+  "Completed Crescent IB Continuum Application Dossier",
+  "Transcripts / report cards for the last 2 academic years",
+  "Confidential teacher recommendation letters from previous mathematics and English instructors",
+  "Student written personal statement / Statement of Intent (for DP & CP applicants)",
+  "NADRA Birth Certificate (B-Form) or Passport for international applicants",
+  "Four passport size photographs with white background"
+];
+---
+
+<Layout 
+  title="Am I Eligible? International Baccalaureate (IB) – Crescent School"
+  description="Eligibility criteria and admission requirements for IB PYP, MYP, DP, and CP at Crescent Model Higher Secondary School Lahore."
+>
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <a href="/online-application-form/">Admission</a>
+        <span>/</span>
+        <a href="/am-i-eligible/">Am I Eligible?</a>
+        <span>/</span>
+        <span class="current">IB Continuum</span>
+      </div>
+      <h1 class="hero_page_title">IB Continuum Eligibility & Admissions</h1>
+      <p class="hero_subtitle">Entry standards, prerequisite requirements, and evaluation procedures for PYP, MYP, DP, and CP.</p>
+    </div>
+  </section>
+
+  <section class="eligibility_nav_strip">
+    <div class="container">
+      <nav class="eligibility_tabs" aria-label="Eligibility Sections">
+        {sections.map(sec => (
+          <a href={sec.href} class={`eligibility_tab_btn ${sec.active ? 'active' : ''}`}>
+            {sec.name}
+          </a>
+        ))}
+      </nav>
+    </div>
+  </section>
+
+  <section class="eligibility_main_section">
+    <div class="container">
+      <div class="eligibility_layout">
+        <div class="eligibility_content">
+          <span class="sub_badge">IB WORLD SCHOOL PIPELINE</span>
+          <h2 class="section_heading">International Baccalaureate Criteria</h2>
+          <p class="lead_text">
+            Crescent Model Higher Secondary School is an authorized IB World School offering the prestigious IB Continuum. Crescent is proud to offer world-class IB education at one of the most accessible fee structures in the region.
+          </p>
+
+          <div class="table_responsive_wrapper">
+            <table class="styled_criteria_table">
+              <thead>
+                <tr>
+                  <th>Programme</th>
+                  <th>Target Grades</th>
+                  <th>Age Range</th>
+                  <th>Intake Window</th>
+                </tr>
+              </thead>
+              <tbody>
+                {ibContinuumTable.map(row => (
+                  <tr>
+                    <td class="grade_name"><strong>{row.programme}</strong></td>
+                    <td>{row.grades}</td>
+                    <td class="age_value"><span class="badge_age">{row.ageRange}</span></td>
+                    <td class="cutoff_text">{row.entry}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="info_notice_box">
+            <h4>Inquiry-Based Holistic Assessment</h4>
+            <p>
+              Admission into the IB continuum does not rely solely on memorization tests. Applicants are assessed through inquiry tasks, analytical writing, conversational interviews, and cognitive problem-solving scenarios to gauge their alignment with the IB Learner Profile.
+            </p>
+          </div>
+
+          <div class="required_docs_card">
+            <div class="docs_header">
+              <span class="docs_icon">📁</span>
+              <h3>Required Documents for Submission</h3>
+            </div>
+            <ul class="docs_checklist">
+              {ibDocs.map(doc => (
+                <li>
+                  <span class="chk_mark">✓</span>
+                  <span>{doc}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="docs_footer">
+              <a href="/required-documents/" class="text_link">Full Document Submission Guidelines &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="eligibility_sidebar">
+          <div class="hero_visual_card">
+            <img 
+              src={getMediaUrl("/images/batch6/merit_myp1.jpg")} 
+              alt="IB Students Presentation" 
+              loading="lazy"
+              onerror="this.src='/images/batch3/ib_myp_showcase.jpg'"
+            />
+            <div class="visual_caption">
+              IB MYP scholars collaborating on community action and inquiry projects.
+            </div>
+          </div>
+
+          <div class="sidebar_cta_card">
+            <h4>Apply for IB Programmes</h4>
+            <p>Join the next cohort of globally minded thinkers and compassionate leaders.</p>
+            <a href="/online-application-form/" class="btn_apply_gold">Submit Online Application</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .sub_badge {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--primary-color);
+    background: rgba(0, 33, 71, 0.08);
+    padding: 5px 12px;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .eligibility_nav_strip {
+    background: #f0f4f8;
+    border-bottom: 1px solid var(--border-light);
+    padding: 12px 0;
+  }
+  .eligibility_tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+  .eligibility_tab_btn {
+    padding: 8px 16px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--primary-color);
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .eligibility_tab_btn:hover {
+    background: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+  }
+  .eligibility_tab_btn.active {
+    background: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-sm);
+  }
+  .eligibility_main_section {
+    padding: 70px 0;
+    background: var(--bg-white);
+  }
+  .eligibility_layout {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 45px;
+    align-items: start;
+  }
+  .section_heading {
+    font-size: clamp(24px, 2.8vw, 32px);
+    color: var(--primary-color);
+    margin-bottom: 16px;
+  }
+  .lead_text {
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    margin-bottom: 24px;
+  }
+  .table_responsive_wrapper {
+    overflow-x: auto;
+    margin-bottom: 30px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
+  }
+  .styled_criteria_table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    text-align: left;
+    font-size: 14px;
+  }
+  .styled_criteria_table th {
+    background: var(--primary-color);
+    color: #ffffff;
+    padding: 14px 18px;
+    font-weight: 600;
+    font-size: 13.5px;
+    text-transform: uppercase;
+  }
+  .styled_criteria_table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-dark);
+  }
+  .styled_criteria_table tr:last-child td {
+    border-bottom: none;
+  }
+  .badge_age {
+    display: inline-block;
+    background: rgba(0, 33, 71, 0.08);
+    color: var(--primary-color);
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+  .info_notice_box {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-left: 4px solid #3b82f6;
+    border-radius: var(--radius-md);
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  .info_notice_box h4 {
+    color: #1e40af;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  .info_notice_box p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #1e3a8a;
+    margin: 0;
+  }
+  .required_docs_card {
+    background: #fcfcfd;
+    border: 1px solid var(--border-light);
+    border-left: 4px solid var(--accent-gold);
+    border-radius: var(--radius-md);
+    padding: 28px;
+    box-shadow: var(--shadow-sm);
+  }
+  .docs_header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .docs_icon {
+    font-size: 24px;
+  }
+  .docs_header h3 {
+    font-size: 18px;
+    color: var(--primary-color);
+    margin: 0;
+  }
+  .docs_checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .docs_checklist li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-dark);
+  }
+  .chk_mark {
+    color: #0b8043;
+    font-weight: 800;
+    font-size: 15px;
+  }
+  .text_link {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 13.5px;
+    text-decoration: none;
+  }
+  .text_link:hover {
+    color: var(--accent-gold-hover);
+    text-decoration: underline;
+  }
+  .eligibility_sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .hero_visual_card {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 4px solid #ffffff;
+    background: #ffffff;
+  }
+  .hero_visual_card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+  }
+  .visual_caption {
+    padding: 10px 14px;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    background: #ffffff;
+  }
+  .sidebar_cta_card {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+    color: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 28px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+  }
+  .sidebar_cta_card h4 {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  .sidebar_cta_card p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .btn_apply_gold {
+    display: block;
+    background: var(--accent-gold);
+    color: var(--primary-dark);
+    font-weight: 700;
+    font-size: 13px;
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+  }
+  .btn_apply_gold:hover {
+    background: var(--accent-gold-hover);
+    transform: translateY(-2px);
+  }
+  @media (max-width: 900px) {
+    .eligibility_layout {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

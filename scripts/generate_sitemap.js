@@ -37,7 +37,19 @@ const pages = [
   '/cambridge-professional-development-qualifications/',
   '/cambridge-celta-delta/',
   '/international-certificate-of-learning-and-teaching-icolt/',
-  '/futuristic-leaders-and-strategic-headship-flash/'
+  '/futuristic-leaders-and-strategic-headship-flash/',
+  // Batch 6: Admissions & Eligibility
+  '/am-i-eligible/',
+  '/am-i-eligible/early-years/',
+  '/am-i-eligible/middle-school/',
+  '/am-i-eligible/senior-school/',
+  '/am-i-eligible/cambridge/',
+  '/am-i-eligible/college/',
+  '/am-i-eligible/ib/',
+  '/required-documents/',
+  '/online-application-form/',
+  '/merit-list/',
+  '/hall-of-fame/'
 ];
 
 function generateSitemap() {

@@ -1,0 +1,408 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getMediaUrl } from '../utils/media';
+
+const documentSections = [
+  {
+    category: "Montessori & Early Years",
+    tagline: "Pre-Kindergarten, Kindergarten 1 (Nursery), Kindergarten 2 (Prep)",
+    icon: "🌱",
+    docs: [
+      { name: "Application Form", desc: "Completed and signed Crescent School Online Application Form printout." },
+      { name: "NADRA B-Form", desc: "Clear photocopy of NADRA Child Registration Certificate / B-Form." },
+      { name: "Photographs", desc: "Two recent passport-size photographs of the applicant (light blue/white background)." },
+      { name: "Parents' CNIC", desc: "Photocopy of Computerized National Identity Cards of both father and mother / legal guardian." },
+      { name: "Vaccination Record", desc: "Copy of child's immunisation and polio vaccination chart (recommended)." }
+    ]
+  },
+  {
+    category: "Junior, Middle, Senior & Cambridge",
+    tagline: "PYP 1 to 5, Classes 6 to 10 (Matric), and Cambridge O & A Levels",
+    icon: "📚",
+    docs: [
+      { name: "Previous Result Card", desc: "Previous school's latest official detailed report card / progress report." },
+      { name: "School Leaving Certificate", desc: "Original School Leaving Certificate (SLC) / Transfer Certificate countersigned by DEO if required." },
+      { name: "NADRA B-Form", desc: "Photocopy of NADRA Birth Certificate / B-Form." },
+      { name: "Photographs", desc: "Two passport size photographs of the applicant." },
+      { name: "Parents' CNIC", desc: "Photocopies of CNIC of both parents." },
+      { name: "Equivalence Certificate", desc: "For foreign qualification entrants, IBCC Provisional/Permanent Equivalence Certificate." }
+    ]
+  },
+  {
+    category: "The Crescent College (Intermediate)",
+    tagline: "F.Sc Pre-Medical, Pre-Engineering, ICS, I.Com, and F.A.",
+    icon: "🎓",
+    docs: [
+      { name: "College Application Dossier", desc: "Official printed College Admission Form along with undertaking." },
+      { name: "Photographs", desc: "Four latest passport size photographs with white background (unattested)." },
+      { name: "Matric / O-Level Result Card", desc: "Three attested photocopies of Matriculation result card / O-Level result sheet." },
+      { name: "IBCC Equivalence Certificate", desc: "Attested permanent Equivalence Certificate from IBCC (for Cambridge/foreign candidates)." },
+      { name: "Character Certificate", desc: "One attested photocopy of Character Certificate from the head of the school previously attended." },
+      { name: "NADRA CNIC / B-Form", desc: "CNIC of Parents and student's B-Form / CNIC." },
+      { name: "Board Migration / NOC", desc: "Original Migration Certificate / NOC if qualifying Matric from a Board other than BISE Lahore." }
+    ]
+  }
+];
+---
+
+<Layout 
+  title="Required Documents for Admission – Crescent School"
+  description="Comprehensive checklist of required documents for admission to Crescent Early Years, Junior, Middle, Senior, Cambridge, and The Crescent College."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <a href="/online-application-form/">Admission</a>
+        <span>/</span>
+        <span class="current">Required Documents</span>
+      </div>
+      <h1 class="hero_page_title">Required Documents for Admission</h1>
+      <p class="hero_subtitle">Essential verification paperwork, certificates, and submission guidelines for all academic streams.</p>
+    </div>
+  </section>
+
+  <!-- Document Guidelines Intro -->
+  <section class="docs_intro_section">
+    <div class="container">
+      <div class="intro_wrapper">
+        <div class="intro_text">
+          <span class="sub_badge">ADMISSION CHECKLIST</span>
+          <h2 class="section_heading">Verification & Documentation Guidelines</h2>
+          <p class="lead_text">
+            To ensure smooth processing of your child's admission application, please prepare all necessary original and attested photocopies before the scheduled interaction or entrance test.
+          </p>
+          <p class="body_text">
+            Incomplete dossiers or applications without valid NADRA identification cannot be processed for merit compilation. Please review the category-specific requirements below.
+          </p>
+        </div>
+
+        <div class="important_guidelines_box">
+          <h4>Important Submission Rules</h4>
+          <ul>
+            <li>Original documents (B-Form, Result Cards) must be presented for physical verification during the interview.</li>
+            <li>All photocopies submitted with the admission file become part of permanent institutional records and will not be returned.</li>
+            <li>Photographs must be recent (taken within the last 3 months).</li>
+            <li>Foreign applicants must ensure IBCC equivalence certification is in order.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categorized Document Grid -->
+  <section class="docs_grid_section">
+    <div class="container">
+      <div class="sections_stack">
+        {documentSections.map((sec, idx) => (
+          <div class="doc_category_card">
+            <div class="category_header">
+              <span class="category_icon">{sec.icon}</span>
+              <div>
+                <h3>{sec.category}</h3>
+                <p class="category_tagline">{sec.tagline}</p>
+              </div>
+            </div>
+
+            <div class="checklist_grid">
+              {sec.docs.map((doc, dIdx) => (
+                <div class="checklist_item">
+                  <div class="item_number">0{dIdx + 1}</div>
+                  <div class="item_info">
+                    <h4>{doc.name}</h4>
+                    <p>{doc.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Action CTA Strip -->
+  <section class="action_cta_section">
+    <div class="container">
+      <div class="cta_inner_card">
+        <div class="cta_content">
+          <h3>Ready to Submit Your Application?</h3>
+          <p>Complete your online admission form or check detailed age eligibility requirements.</p>
+        </div>
+        <div class="cta_buttons">
+          <a href="/online-application-form/" class="btn_gold">Apply Online Now</a>
+          <a href="/am-i-eligible/early-years/" class="btn_outline">Check Age Eligibility</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .sub_badge {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--primary-color);
+    background: rgba(0, 33, 71, 0.08);
+    padding: 5px 12px;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .docs_intro_section {
+    padding: 70px 0 40px;
+    background: var(--bg-white);
+  }
+
+  .intro_wrapper {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .section_heading {
+    font-size: clamp(24px, 2.8vw, 32px);
+    color: var(--primary-color);
+    margin-bottom: 16px;
+  }
+
+  .lead_text {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--primary-light);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+
+  .body_text {
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: var(--text-muted);
+  }
+
+  .important_guidelines_box {
+    background: #f8fafc;
+    border: 1px solid var(--border-light);
+    border-left: 4px solid var(--accent-gold);
+    border-radius: var(--radius-md);
+    padding: 24px;
+  }
+
+  .important_guidelines_box h4 {
+    font-size: 16px;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+  }
+
+  .important_guidelines_box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .important_guidelines_box li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--text-dark);
+  }
+
+  .important_guidelines_box li::before {
+    content: "•";
+    position: absolute;
+    left: 4px;
+    color: var(--accent-gold-hover);
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  /* Grid Stack */
+  .docs_grid_section {
+    padding: 40px 0 70px;
+    background: var(--bg-light);
+  }
+
+  .sections_stack {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+  }
+
+  .doc_category_card {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 35px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .category_header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 25px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .category_icon {
+    font-size: 32px;
+    background: rgba(0, 33, 71, 0.05);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+  }
+
+  .category_header h3 {
+    font-size: 20px;
+    color: var(--primary-color);
+    margin: 0 0 4px 0;
+  }
+
+  .category_tagline {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .checklist_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .checklist_item {
+    display: flex;
+    gap: 14px;
+    background: #fbfcfe;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    padding: 18px;
+    transition: all 0.2s ease;
+  }
+
+  .checklist_item:hover {
+    background: #ffffff;
+    box-shadow: var(--shadow-sm);
+    border-color: var(--accent-gold);
+  }
+
+  .item_number {
+    font-size: 18px;
+    font-weight: 800;
+    color: rgba(0, 33, 71, 0.2);
+    font-family: var(--font-heading);
+    line-height: 1.2;
+  }
+
+  .item_info h4 {
+    font-size: 15px;
+    color: var(--primary-color);
+    margin: 0 0 6px 0;
+  }
+
+  .item_info p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  /* Action CTA */
+  .action_cta_section {
+    padding: 0 0 70px;
+    background: var(--bg-light);
+  }
+
+  .cta_inner_card {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+    border-radius: var(--radius-md);
+    padding: 35px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    color: #ffffff;
+    box-shadow: var(--shadow-md);
+  }
+
+  .cta_content h3 {
+    color: #ffffff;
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+
+  .cta_content p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .cta_buttons {
+    display: flex;
+    gap: 14px;
+    flex-shrink: 0;
+  }
+
+  .btn_gold {
+    background: var(--accent-gold);
+    color: var(--primary-dark);
+    font-weight: 700;
+    font-size: 13px;
+    padding: 12px 22px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+  }
+
+  .btn_gold:hover {
+    background: var(--accent-gold-hover);
+    transform: translateY(-2px);
+  }
+
+  .btn_outline {
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 12px 22px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+  }
+
+  .btn_outline:hover {
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  @media (max-width: 900px) {
+    .intro_wrapper,
+    .cta_inner_card {
+      grid-template-columns: 1fr;
+      flex-direction: column;
+      text-align: center;
+    }
+    .cta_buttons {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+</style>

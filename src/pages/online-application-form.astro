@@ -1,0 +1,631 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getMediaUrl } from '../utils/media';
+
+const classes = [
+  "Pre Kindergarten", "Kindergarten 1", "Kindergarten 2",
+  "PYP 1", "PYP 2", "PYP 3", "PYP 4", "PYP 5",
+  "MYP I", "MYP II",
+  "Class 6", "Class 7", "Class 8", "Class 9", "Class 10",
+  "F.A. (Girls only)", "F.Sc. Pre-Medical", "F.Sc. Pre-Engineering", "I.C.S", "I.Com",
+  "O Level", "A Level", "IB DP", "IB CP"
+];
+
+const referralSources = [
+  "Facebook", "Instagram", "SMS Notification", "Friend / Colleague", 
+  "Family / Relative", "Crescenterian / Alumni", "Newspaper", "Other"
+];
+---
+
+<Layout 
+  title="Online Application Form – Crescent School"
+  description="Apply online for admission to Crescent Model Higher Secondary School Lahore. Complete the interactive registration form for the upcoming academic session."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <a href="/am-i-eligible/early-years/">Admission</a>
+        <span>/</span>
+        <span class="current">Online Application</span>
+      </div>
+      <h1 class="hero_page_title">Online Admission Application Form</h1>
+      <p class="hero_subtitle">Begin your child's journey of excellence. Complete the official registration form for Session 2026-27.</p>
+    </div>
+  </section>
+
+  <!-- Application Form Section -->
+  <section class="application_section">
+    <div class="container">
+      <div class="app_layout">
+        <!-- Main Form Container -->
+        <div class="form_card">
+          <div class="form_header">
+            <span class="sub_badge">SESSION 2026-2027</span>
+            <h2>Student Registration Dossier</h2>
+            <p>Please fill out all mandatory fields marked with (<span class="req_star">*</span>) accurately as per official NADRA records.</p>
+          </div>
+
+          <form id="admission_form" class="styled_admission_form">
+            <!-- Step 1: Academic Choice -->
+            <div class="form_fieldset">
+              <legend class="fieldset_legend">1. Academic Stream & Class Selection</legend>
+              <div class="form_row_grid">
+                <div class="form_group">
+                  <label for="chosen_class">Choose Class / Grade <span class="req_star">*</span></label>
+                  <select id="chosen_class" name="chosen_class" required class="form_select">
+                    <option value="" disabled selected>-- Select Grade / Stream --</option>
+                    {classes.map(c => (
+                      <option value={c}>{c}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div class="form_group">
+                  <label>Student's Gender <span class="req_star">*</span></label>
+                  <div class="radio_group">
+                    <label class="radio_label">
+                      <input type="radio" name="gender" value="Male" required /> Male
+                    </label>
+                    <label class="radio_label">
+                      <input type="radio" name="gender" value="Female" required /> Female
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2: Student Details -->
+            <div class="form_fieldset">
+              <legend class="fieldset_legend">2. Student Identification</legend>
+              <div class="form_row_grid">
+                <div class="form_group">
+                  <label for="student_name">Student's Full Name <span class="req_star">*</span></label>
+                  <input type="text" id="student_name" name="student_name" placeholder="As written on B-Form" required class="form_input" />
+                </div>
+
+                <div class="form_group">
+                  <label for="dob">Date of Birth <span class="req_star">*</span></label>
+                  <input type="date" id="dob" name="dob" required class="form_input" />
+                </div>
+
+                <div class="form_group">
+                  <label for="bform_num">NADRA B-Form / CRC Number <span class="req_star">*</span></label>
+                  <input type="text" id="bform_num" name="bform_num" placeholder="35202-XXXXXXX-X" required class="form_input" />
+                </div>
+
+                <div class="form_group">
+                  <label for="prev_school">Previous School Attended (if any)</label>
+                  <input type="text" id="prev_school" name="prev_school" placeholder="School name & city" class="form_input" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3: Parents / Guardians Information -->
+            <div class="form_fieldset">
+              <legend class="fieldset_legend">3. Parents / Guardian Credentials</legend>
+              <div class="form_row_grid">
+                <div class="form_group">
+                  <label for="father_name">Father's / Guardian's Full Name <span class="req_star">*</span></label>
+                  <input type="text" id="father_name" name="father_name" required class="form_input" />
+                </div>
+
+                <div class="form_group">
+                  <label for="father_cnic">Father's CNIC Number <span class="req_star">*</span></label>
+                  <input type="text" id="father_cnic" name="father_cnic" placeholder="35201-XXXXXXX-X" required class="form_input" />
+                </div>
+
+                <div class="form_group">
+                  <label for="contact_phone">Primary Contact Mobile <span class="req_star">*</span></label>
+                  <input type="tel" id="contact_phone" name="contact_phone" placeholder="03XX-XXXXXXX" required class="form_input" />
+                </div>
+
+                <div class="form_group">
+                  <label for="parent_email">Official Email Address <span class="req_star">*</span></label>
+                  <input type="email" id="parent_email" name="parent_email" placeholder="example@domain.com" required class="form_input" />
+                </div>
+              </div>
+
+              <div class="form_group full_width">
+                <label for="res_address">Permanent Residential Address <span class="req_star">*</span></label>
+                <textarea id="res_address" name="res_address" rows="3" placeholder="House #, Street, Colony, City" required class="form_textarea"></textarea>
+              </div>
+
+              <div class="form_group">
+                <label for="referral_src">How did you come to know about us? <span class="req_star">*</span></label>
+                <select id="referral_src" name="referral_src" required class="form_select">
+                  <option value="" disabled selected>-- Select Referral Channel --</option>
+                  {referralSources.map(r => (
+                    <option value={r}>{r}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            <!-- Bookseller Disclaimer -->
+            <div class="disclaimer_callout">
+              <div class="disclaimer_icon">ℹ️</div>
+              <p>
+                <strong>Official Advisory:</strong> Please note that Crescent Model Higher Secondary School does not endorse or mandate any particular external bookseller. Parents are completely free to procure syllabi books and uniforms from anywhere. For convenience, items are also made available on campus.
+              </p>
+            </div>
+
+            <!-- Submit Button & Undertaking -->
+            <div class="form_submit_area">
+              <label class="checkbox_label">
+                <input type="checkbox" id="undertaking_agree" required />
+                <span>I solemnly affirm that the information provided is accurate and authentic as per NADRA records.</span>
+              </label>
+
+              <button type="submit" class="btn_submit_application">
+                Submit Admission Application &rarr;
+              </button>
+            </div>
+          </form>
+
+          <!-- Success Alert Message (Client side handled) -->
+          <div id="submission_success_banner" class="success_banner" style="display: none;">
+            <div class="success_icon">✅</div>
+            <h3>Application Successfully Submitted!</h3>
+            <p>Your provisional registration ID has been generated. The Admissions Secretariat will contact you via SMS and Email for the interaction / entry test schedule.</p>
+            <div class="success_actions">
+              <a href="/required-documents/" class="btn_view_docs">Check Required Documents</a>
+              <button type="button" id="btn_new_app" class="btn_reset_app">Submit Another Application</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar Guidelines -->
+        <div class="app_sidebar">
+          <div class="admission_poster_card">
+            <img 
+              src={getMediaUrl("/images/batch6/admission_open_poster.png")} 
+              alt="Admissions Open Announcement" 
+              loading="lazy"
+              onerror="this.src='/images/batch3/training_centre.jpg'"
+            />
+          </div>
+
+          <div class="helpline_card">
+            <h4>Admissions Secretariat</h4>
+            <p>Shadman Campus, Lahore, Pakistan</p>
+            <div class="contact_detail">
+              <span>📞 Phone:</span>
+              <strong>042 3742 1361-4</strong>
+            </div>
+            <div class="contact_detail">
+              <span>📱 UAN / Alternate:</span>
+              <strong>042 3596 0725-26</strong>
+            </div>
+            <div class="contact_detail">
+              <span>✉️ Email:</span>
+              <strong>admissions@crescentschool.edu.pk</strong>
+            </div>
+          </div>
+
+          <div class="timeline_box">
+            <h4>Admission Process Timeline</h4>
+            <div class="timeline_step">
+              <div class="t_num">1</div>
+              <div class="t_text">
+                <strong>Online Submission:</strong> Fill out registration form and print receipt.
+              </div>
+            </div>
+            <div class="timeline_step">
+              <div class="t_num">2</div>
+              <div class="t_text">
+                <strong>Document Verification:</strong> Submit attested dossiers at the Admissions Office.
+              </div>
+            </div>
+            <div class="timeline_step">
+              <div class="t_num">3</div>
+              <div class="t_text">
+                <strong>Test / Interview:</strong> Attend scheduled age interaction or written exam.
+              </div>
+            </div>
+            <div class="timeline_step">
+              <div class="t_num">4</div>
+              <div class="t_text">
+                <strong>Merit List Announcement:</strong> Check roll numbers on the official merit roster.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const form = document.getElementById('admission_form') as HTMLFormElement;
+  const successBanner = document.getElementById('submission_success_banner');
+  const btnNewApp = document.getElementById('btn_new_app');
+
+  if (form && successBanner) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Simulate form processing & display confirmation
+      form.style.display = 'none';
+      successBanner.style.display = 'block';
+      window.scrollTo({ top: successBanner.offsetTop - 100, behavior: 'smooth' });
+    });
+  }
+
+  if (btnNewApp && form && successBanner) {
+    btnNewApp.addEventListener('click', () => {
+      form.reset();
+      form.style.display = 'block';
+      successBanner.style.display = 'none';
+    });
+  }
+</script>
+
+<style>
+  .sub_badge {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--primary-color);
+    background: rgba(0, 33, 71, 0.08);
+    padding: 5px 12px;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .req_star {
+    color: #e53935;
+    font-weight: 700;
+  }
+
+  .application_section {
+    padding: 70px 0;
+    background: var(--bg-light);
+  }
+
+  .app_layout {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .form_card {
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    padding: 40px;
+  }
+
+  .form_header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .form_header h2 {
+    font-size: clamp(22px, 2.5vw, 28px);
+    color: var(--primary-color);
+    margin: 0 0 8px 0;
+  }
+
+  .form_header p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .styled_admission_form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .form_fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .fieldset_legend {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 16px;
+    display: block;
+    border-bottom: 2px solid var(--accent-gold);
+    padding-bottom: 6px;
+  }
+
+  .form_row_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .form_group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form_group.full_width {
+    grid-column: 1 / -1;
+    margin-top: 10px;
+  }
+
+  .form_group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+
+  .form_input,
+  .form_select,
+  .form_textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    background: #fbfcfe;
+    transition: all 0.2s ease;
+  }
+
+  .form_input:focus,
+  .form_select:focus,
+  .form_textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(0, 33, 71, 0.1);
+  }
+
+  .radio_group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    height: 42px;
+  }
+
+  .radio_label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    color: var(--text-dark);
+  }
+
+  /* Disclaimer Box */
+  .disclaimer_callout {
+    background: #fffbeb;
+    border: 1px solid #fef3c7;
+    border-left: 4px solid #f59e0b;
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .disclaimer_icon {
+    font-size: 20px;
+  }
+
+  .disclaimer_callout p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #92400e;
+    margin: 0;
+  }
+
+  /* Submit Area */
+  .form_submit_area {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 10px;
+  }
+
+  .checkbox_label {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-muted);
+    cursor: pointer;
+  }
+
+  .btn_submit_application {
+    background: var(--primary-color);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 28px;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    transition: all 0.2s ease;
+  }
+
+  .btn_submit_application:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Success Banner */
+  .success_banner {
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .success_icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+
+  .success_banner h3 {
+    font-size: 24px;
+    color: #137333;
+    margin-bottom: 12px;
+  }
+
+  .success_banner p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 550px;
+    margin: 0 auto 24px;
+  }
+
+  .success_actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .btn_view_docs {
+    background: var(--primary-color);
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 600;
+  }
+
+  .btn_reset_app {
+    background: transparent;
+    border: 1px solid var(--border-light);
+    color: var(--text-dark);
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    font-size: 13.5px;
+    cursor: pointer;
+  }
+
+  /* Sidebar */
+  .app_sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .admission_poster_card {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
+    background: #ffffff;
+  }
+
+  .admission_poster_card img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .helpline_card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 26px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .helpline_card h4 {
+    font-size: 17px;
+    color: var(--primary-color);
+    margin: 0 0 6px 0;
+  }
+
+  .helpline_card p {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0 0 16px 0;
+  }
+
+  .contact_detail {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+    font-size: 13px;
+  }
+
+  .contact_detail span {
+    color: var(--text-muted);
+    font-size: 12px;
+  }
+
+  .contact_detail strong {
+    color: var(--primary-color);
+    font-size: 14px;
+  }
+
+  .timeline_box {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 26px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .timeline_box h4 {
+    font-size: 17px;
+    color: var(--primary-color);
+    margin: 0 0 18px 0;
+  }
+
+  .timeline_step {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 16px;
+    align-items: flex-start;
+  }
+
+  .timeline_step:last-child {
+    margin-bottom: 0;
+  }
+
+  .t_num {
+    background: var(--primary-color);
+    color: #ffffff;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .t_text {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-dark);
+  }
+
+  .t_text strong {
+    color: var(--primary-color);
+  }
+
+  @media (max-width: 900px) {
+    .app_layout {
+      grid-template-columns: 1fr;
+    }
+    .form_row_grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
