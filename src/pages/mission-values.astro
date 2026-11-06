@@ -1,0 +1,357 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getMediaUrl } from '../utils/media';
+---
+
+<Layout 
+  title="Mission & Values – Crescent School"
+  description="Discover the core mission and enduring values of Crescent Model Higher Secondary School. Inspiring students to rise to their potential through Opportunity, Ambition, Excellence, Respect, and Holistic Personality Development."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span>Our Institution</span>
+        <span>/</span>
+        <a href="/about-us/">About Us</a>
+        <span>/</span>
+        <span class="current">Mission & Values</span>
+      </div>
+      <h1 class="hero_page_title">Mission & Values</h1>
+      <p class="hero_subtitle">Guiding principles and bedrock ideals that inspire every student to rise to their full potential.</p>
+    </div>
+  </section>
+
+  <!-- Mission Statement Section -->
+  <section class="mission_section">
+    <div class="container">
+      <div class="mission_grid">
+        <div class="mission_content">
+          <span class="sub_badge">OUR CORE PURPOSE</span>
+          <h2 class="section_heading">Our Mission</h2>
+          <p class="lead_text">
+            To provide accessible and affordable world-class education for all segments of society, fostering holistic human development and establishing enduring standards of academic and moral excellence.
+          </p>
+          
+          <div class="mission_pillars">
+            <div class="pillar_item">
+              <div class="pillar_icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+              <div class="pillar_text">
+                <h3>Accessible & Affordable Education</h3>
+                <p>Provide high-quality education to children from all backgrounds, underpinned by generous merit and need-based scholarships.</p>
+              </div>
+            </div>
+
+            <div class="pillar_item">
+              <div class="pillar_icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 6v6l4 2"/>
+                </svg>
+              </div>
+              <div class="pillar_text">
+                <h3>Integral Development</h3>
+                <p>Foster intellectual, spiritual, emotional, and physical growth through a rich blend of academics and co-curricular pursuits.</p>
+              </div>
+            </div>
+
+            <div class="pillar_item">
+              <div class="pillar_icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+              </div>
+              <div class="pillar_text">
+                <h3>Preserve & Improve Standards</h3>
+                <p>Continuously benchmark against international pedagogical standards (Cambridge & IB) while honoring national cultural heritage.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mission_media">
+          <div class="media_frame">
+            <img 
+              src={getMediaUrl("/images/batch2/value-mission.jpg")} 
+              alt="Crescent School Mission and Values" 
+              loading="lazy"
+              onerror="this.src='/images/hero_slider_3.jpg'"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values Cards -->
+  <section class="values_section">
+    <div class="container">
+      <div class="section_header_center">
+        <span class="sub_badge">OUR INSPIRATION</span>
+        <h2 class="section_title">Core Values</h2>
+        <div class="title-decorator"></div>
+        <p class="section_subtitle">
+          We are inspired by these timeless values that enable each student of ours to rise to their highest potential and make meaningful contributions to the world.
+        </p>
+      </div>
+
+      <div class="values_grid">
+        <!-- Value 1: Opportunity -->
+        <div class="value_card">
+          <div class="value_number">01</div>
+          <div class="value_icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M16 12l-4-4-4 4M12 8v8"/>
+            </svg>
+          </div>
+          <h3>Opportunity</h3>
+          <p>
+            We strongly believe in giving equal opportunity to all our students regardless of gender or economic background. We ensure every learner has access to modern learning methodologies, digital tools, and a dedicated, passionate faculty.
+          </p>
+        </div>
+
+        <!-- Value 2: Ambition -->
+        <div class="value_card">
+          <div class="value_number">02</div>
+          <div class="value_icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <h3>Ambition</h3>
+          <p>
+            We inspire our students to develop a life-long passion for learning — to hold high aspirations and dream boldly. Through an engaging environment and a culture of high achievement, we instill the confidence to conquer lifelong goals.
+          </p>
+        </div>
+
+        <!-- Value 3: Excellence -->
+        <div class="value_card">
+          <div class="value_number">03</div>
+          <div class="value_icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="8" r="7"/>
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+            </svg>
+          </div>
+          <h3>Excellence</h3>
+          <p>
+            We motivate our students to give their utmost best in every pursuit. Our faculty continually refines modern pedagogy, creating an enabling environment where inherent talents and unique strengths are polished to perfection.
+          </p>
+        </div>
+
+        <!-- Value 4: Respect -->
+        <div class="value_card">
+          <div class="value_number">04</div>
+          <div class="value_icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3>Respect</h3>
+          <p>
+            We foster an academic, emotional, and social haven where individuals learn from and respect one another. We instill civic duty, tolerance, and moral integrity so graduates become responsible, law-abiding pillars of Pakistan.
+          </p>
+        </div>
+
+        <!-- Value 5: Personality Development -->
+        <div class="value_card highlight">
+          <div class="value_number">05</div>
+          <div class="value_icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <h3>Personality Development</h3>
+          <p>
+            We strive to mold students into confident, creative architects of tomorrow. Scholastic and co-scholastic activities are designed to build resilient, disciplined, and visionary youth who understand the power of self-esteem and turn society into a thriving nation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .sub_badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--primary-color);
+    background: rgba(0, 33, 71, 0.08);
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+
+  .mission_section {
+    padding: 80px 0;
+    background: var(--bg-white);
+  }
+
+  .mission_grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .section_heading {
+    font-size: clamp(28px, 3.5vw, 38px);
+    margin-bottom: 18px;
+    color: var(--primary-color);
+  }
+
+  .lead_text {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text-dark);
+    margin-bottom: 30px;
+  }
+
+  .mission_pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .pillar_item {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+
+  .pillar_icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(0, 33, 71, 0.06);
+    color: var(--primary-color);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid var(--border-light);
+  }
+
+  .pillar_text h3 {
+    font-size: 17px;
+    color: var(--primary-color);
+    margin-bottom: 4px;
+  }
+
+  .pillar_text p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+
+  .media_frame {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 5px solid #ffffff;
+  }
+
+  .media_frame img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+  }
+
+  .values_section {
+    padding: 80px 0 100px;
+    background: var(--bg-light);
+  }
+
+  .section_header_center {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 50px;
+  }
+
+  .section_subtitle {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .values_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+  }
+
+  .value_card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 38px 28px;
+    position: relative;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+  }
+
+  .value_card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-gold);
+  }
+
+  .value_card.highlight {
+    background: linear-gradient(135deg, #ffffff 0%, #fdfbf5 100%);
+    border-top: 4px solid var(--accent-gold);
+  }
+
+  .value_number {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-size: 32px;
+    font-weight: 800;
+    color: rgba(0, 33, 71, 0.08);
+    font-family: var(--font-heading);
+  }
+
+  .value_icon {
+    width: 52px;
+    height: 52px;
+    background: var(--primary-gradient);
+    color: var(--accent-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    margin-bottom: 22px;
+  }
+
+  .value_card h3 {
+    font-size: 20px;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+  }
+
+  .value_card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 900px) {
+    .mission_grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

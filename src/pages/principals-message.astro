@@ -1,0 +1,282 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getMediaUrl } from '../utils/media';
+---
+
+<Layout 
+  title="Principals’ Messages – Crescent School"
+  description="Read inspiring leadership messages from the Principals of Crescent Model Higher Secondary School, Boys Campus and Girls Campus. Championing academic rigour, leadership, and moral character."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span>Our Institution</span>
+        <span>/</span>
+        <span class="current">Principals’ Messages</span>
+      </div>
+      <h1 class="hero_page_title">Principals’ Messages</h1>
+      <p class="hero_subtitle">Guiding vision and inspirational words from the executive leadership of our Boys and Girls Campuses.</p>
+    </div>
+  </section>
+
+  <!-- Message 1: Boys Campus -->
+  <section class="principal_message_section">
+    <div class="container">
+      <div class="message_wrapper">
+        <div class="principal_sidebar">
+          <div class="portrait_card">
+            <img 
+              src={getMediaUrl("/images/batch2/Ms-Rabia-Najam-Principal.jpg")} 
+              alt="Ms. Rabia Najam – Principal Boys Campus" 
+              loading="lazy"
+              onerror="this.src='/images/cs_logo.png'"
+            />
+            <div class="portrait_caption">
+              <h3>Ms. Rabia Najam</h3>
+              <span class="role_badge">Principal, Boys Campus</span>
+              <p class="inst_name">Crescent Model Higher Secondary School</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="message_content">
+          <span class="sub_badge">LEADERSHIP STATEMENT</span>
+          <h2 class="message_heading">Principal's Message — Boys Campus</h2>
+          <div class="salutation">Dear Students, Respected Parents & Distinguished Well-Wishers,</div>
+
+          <div class="letter_body">
+            <p>
+              Welcome to the Crescent Family! Thank you for visiting our website to learn more about <strong>The Crescent Model Higher Secondary School</strong>. We place the highest value on our enduring partnership with parents, families, and our wider community, and we warmly invite you to be an active part of our institution's inspiring journey.
+            </p>
+            <p>
+              We consider it an immense honour to work with your children every day and deeply cherish your trust in us. We fundamentally believe that <em>each and every student has a unique gift to share with the world</em>, and our dedicated team is here to unlock their highest potential.
+            </p>
+            <p>
+              We maintain high expectations of our students, and equally high expectations of ourselves to help them learn, mature, and evolve into well-rounded, ethical global citizens and critical thinkers. The Crescent School aims to cultivate profound leadership abilities, emotional resilience, social intelligence, and rigorous academic excellence to prepare young men not merely for examinations, but for flourishing lifelong careers, meaningful relationships, and societal stewardship.
+            </p>
+            <p>
+              We strongly advocate for continuous, transparent collaboration between teachers, parents, and administrative leadership. We continually enhance our communication touchpoints, including interactive academic portals and real-time student tracking.
+            </p>
+            <div class="signoff">
+              <strong>Warm Regards,</strong><br />
+              <span class="sign_name">Ms. Rabia Najam</span><br />
+              <span class="sign_title">Principal, Boys Campus</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Message 2: Girls Campus -->
+  <section class="principal_message_section alternate_bg">
+    <div class="container">
+      <div class="message_wrapper reverse">
+        <div class="principal_sidebar">
+          <div class="portrait_card">
+            <img 
+              src={getMediaUrl("/images/batch2/Ms-Sofia.jpg")} 
+              alt="Ms. Sofia Qadir Khan – Principal Girls Campus" 
+              loading="lazy"
+              onerror="this.src='/images/batch2/Ms-Rabia-Najam-Principal.jpg'"
+            />
+            <div class="portrait_caption">
+              <h3>Ms. Sofia Qadir Khan</h3>
+              <span class="role_badge">Principal, Girls Campus</span>
+              <p class="inst_name">Crescent Model Higher Secondary School</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="message_content">
+          <span class="sub_badge">LEADERSHIP STATEMENT</span>
+          <h2 class="message_heading">Principal's Message — Girls Campus</h2>
+          <div class="salutation">Dear Students and Respected Parents,</div>
+
+          <div class="letter_body">
+            <p>
+              As a proud Principal of this academically accomplished school with a well-respected history of providing exceptional educational outcomes and opportunities to our talented young women since 1987, I warmly welcome you to the Girls Campus of Crescent Model Higher Secondary School.
+            </p>
+            <p>
+              Our aim is to create a supportive, secure, and inclusive environment where students from all socioeconomic strata are encouraged to explore their fullest potential and achieve their personal best in every dimension of school life. Students are challenged and engaged through authentic, experiential learning opportunities that inspire creativity, confidence, and resilience to become independent, ethical lifelong learners.
+            </p>
+            <p>
+              We offer a broad, internationally aligned curriculum and an extensive array of co-curricular opportunities for all our girls to achieve excellence in academic, artistic, cultural, sporting, and community endeavours. We value collaborative learning, positive human relationships, and building capacity amongst our young women to effectively engage with a rapidly evolving world — where problem-solving, critical evaluation, teamwork, communication, and innovation are expected capabilities.
+            </p>
+            <p>
+              We support the holistic wellbeing of our girls and provide a school environment that allows every student to thrive. Our graduates leave with the mindsets, skills, and ethical compass that equip them to become influential leaders and role models in our society.
+            </p>
+            <div class="signoff">
+              <strong>Warm Regards,</strong><br />
+              <span class="sign_name">Ms. Sofia Qadir Khan</span><br />
+              <span class="sign_title">Principal, Girls Campus</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .sub_badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--primary-color);
+    background: rgba(0, 33, 71, 0.08);
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+
+  .principal_message_section {
+    padding: 90px 0;
+    background: var(--bg-white);
+  }
+
+  .principal_message_section.alternate_bg {
+    background: var(--bg-light);
+  }
+
+  .message_wrapper {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 60px;
+    align-items: flex-start;
+  }
+
+  .message_wrapper.reverse {
+    grid-template-columns: 1fr 320px;
+  }
+
+  .message_wrapper.reverse .principal_sidebar {
+    order: 2;
+  }
+
+  .message_wrapper.reverse .message_content {
+    order: 1;
+  }
+
+  .portrait_card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-light);
+    text-align: center;
+  }
+
+  .portrait_card img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .portrait_caption {
+    padding: 24px 20px;
+    border-top: 3px solid var(--accent-gold);
+  }
+
+  .portrait_caption h3 {
+    font-size: 20px;
+    color: var(--primary-color);
+    margin-bottom: 6px;
+  }
+
+  .role_badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent-teal);
+    background: rgba(3, 106, 109, 0.08);
+    padding: 4px 12px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+  }
+
+  .inst_name {
+    font-size: 12.5px;
+    color: var(--text-muted);
+  }
+
+  .message_content {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 40px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .message_heading {
+    font-size: clamp(26px, 3.2vw, 34px);
+    color: var(--primary-color);
+    margin-bottom: 14px;
+  }
+
+  .salutation {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--primary-light);
+    margin-bottom: 22px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border-light);
+  }
+
+  .letter_body p {
+    font-size: 15.5px;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+  }
+
+  .signoff {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-light);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .sign_name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: var(--font-heading);
+  }
+
+  .sign_title {
+    font-size: 13.5px;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 900px) {
+    .message_wrapper,
+    .message_wrapper.reverse {
+      grid-template-columns: 1fr;
+    }
+
+    .message_wrapper.reverse .principal_sidebar {
+      order: 1;
+    }
+
+    .message_wrapper.reverse .message_content {
+      order: 2;
+    }
+
+    .portrait_card {
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    .message_content {
+      padding: 24px 20px;
+    }
+  }
+</style>

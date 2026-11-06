@@ -1,0 +1,292 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getMediaUrl } from '../utils/media';
+
+const earlyYearsTeam = [
+  { name: "Ms. Rabia Najam", role: "Principal", image: "/images/batch2/Ms-Rabia-Najam-Principal.jpg" },
+  { name: "Ms. Zenab Ali", role: "Vice Principal – IB PYP", image: "/images/batch2/Ms-Zenab-Ali-IB-PYP-Coordinator.jpg" },
+  { name: "Ms. Maliha Athar", role: "Senior Headmistress", image: "/images/batch2/Ms-Maliha-Athar-Senior-Headmistress.jpg" },
+  { name: "Ms. Shazia Gardezi", role: "Headmistress", image: "/images/batch2/Ms-Shazia-Shahid-Gardezi-Headmistress.jpg" },
+  { name: "Ms. Maria Khalid", role: "Art Coordinator", image: "/images/batch2/Ms-Maria-Khalid-Art-Coordinator.jpg" }
+];
+
+const boysCampusTeam = [
+  { name: "Ms. Rabia Najam", role: "Principal", image: "/images/batch2/Ms-Rabia-Najam-Principal.jpg" },
+  { name: "Ms. Uzma Sajid", role: "Vice Principal - Admissions & Programmes", image: "/images/batch2/WhatsApp-Image-2026-09-24-at-9.01.03-AM-500x500.jpeg" },
+  { name: "Ms. Samina Ikram", role: "Vice Principal - Programmes", image: "/images/batch2/Ms-Samina-Ikram-Vice-Principal-Middle-Section.jpg" },
+  { name: "Ms. Zenab Ali", role: "Vice Principal – IB PYP", image: "/images/batch2/Ms-Zenab-Ali-IB-PYP-Coordinator.jpg" },
+  { name: "Mr. Rizwan Akram", role: "Senior Headmaster – Senior Section", image: "/images/batch2/Mr-Rizwan-Akram-Headmaster-Senior-Section.jpg" },
+  { name: "Ms. Uzma Waqas", role: "Headmistress – Middle Section", image: "/images/batch2/Uzma_Waqas-500x500.jpg" },
+  { name: "Ms. Shazia Zahid", role: "Headmistress – Cambridge Section", image: "/images/batch2/shazia_zahid_hm_boys-camb-500x500.jpg" },
+  { name: "Ms. Lala Rukh", role: "Headmistress – Upper Primary", image: "/images/batch2/lala-rukh-500x500.jpg" },
+  { name: "Ms. Farghana Usman", role: "Headmistress – Lower Primary", image: "/images/batch2/Ms-Farghana-Usman-Headmistress-Classes-I-II.jpg" },
+  { name: "Mr. Anwar Saeed", role: "Deputy Headmaster – Cambridge Section", image: "/images/batch2/Mr-Anwar-Saeed-Deputy-Headmaster-Cambridge-Section.jpg" }
+];
+
+const girlsCampusTeam = [
+  { name: "Ms. Sofia Qadir Khan", role: "Principal", image: "/images/batch2/Ms-Sofia.jpg" },
+  { name: "Dr. Syeda Manal Akbar", role: "Vice Principal – IB PYP", image: "/images/batch2/vp-ib-girls-500x500.jpg" },
+  { name: "Ms. Tauqeer Nawaz", role: "Headmistress – Senior & College Section", image: "/images/batch2/Ms-Tauqeer-Nawaz-Headmistress-Senior-College-Section.jpg" },
+  { name: "Ms. Ambreen Younas", role: "Headmistress – Cambridge Section", image: "/images/batch2/Ms-Ambreen-Younas-Headmistress-Cambridge-Section.jpg" },
+  { name: "Ms. Shehla Sajid", role: "Headmistress – Middle Section", image: "/images/batch2/Ms-Shehla-Sajid-Manager-Communication.jpg" },
+  { name: "Ms. Benish Rashid", role: "Headmistress – Upper Primary", image: "/images/batch2/Ms-Benish-Rashid-Headmitress-Classes-I-II.jpg" },
+  { name: "Ms. Anila Roofi", role: "Art Coordinator", image: "/images/batch2/Ms-Anila-Roofi-Art-Coordinator.jpg" }
+];
+
+const departmentsTeam = [
+  { name: "Lt. Col. (R) Muhammad Ali", role: "General Manager Administration", image: "/images/batch2/Lt-Col-R-Muhammad-Ali-Vice-Principal-College.jpg" },
+  { name: "Ms. Seemab Khalil", role: "Chief Financial Officer", image: "/images/batch2/Ms-Seemab-Khalil-General-Manager-Accounts-Finance.jpg" },
+  { name: "Ms. Amina Chughtai", role: "General Manager Training", image: "/images/batch2/amina_chughtai-500x500.jpg" },
+  { name: "Ms. Asma Amanat", role: "General Manager MYP/DP", image: "/images/batch2/gm-myp-600-407x500.jpeg" },
+  { name: "Ms. Nadia Sajid", role: "Senior Manager Academics", image: "/images/batch2/Ms-Nadia-Sajid-Manager-Academicss.jpg" },
+  { name: "Mr. Rizwan Ahmed", role: "Senior Manager Sports", image: "/images/batch2/Manager_Sports-500x500.jpg" },
+  { name: "Mr. Omer Aziz", role: "Manager Human Resources", image: "/images/batch2/Manager_HR-500x500.jpg" },
+  { name: "Mr. Irfan Butt", role: "Manager Administration", image: "/images/batch2/Manager_Administration-500x500.jpg" },
+  { name: "Mr. Abdul Rauf Zafar", role: "Manager Information Technology", image: "/images/batch2/Manager_IT-500x500.jpg" },
+  { name: "Mr. Nazir Ahmed", role: "Manager Facilities", image: "/images/batch2/Nazir-sb-Manager-500x500.jpg" }
+];
+---
+
+<Layout 
+  title="Administration & Academic Leadership – Crescent School"
+  description="Meet the distinguished administrative team and academic leadership of Crescent Model Higher Secondary School across Early Years, Boys Campus, Girls Campus, and Central Operations."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span>Our Institution</span>
+        <span>/</span>
+        <span class="current">Administration</span>
+      </div>
+      <h1 class="hero_page_title">Administrative & Academic Leadership</h1>
+      <p class="hero_subtitle">Seasoned educational leaders, curriculum directors, and operational heads steering institutional excellence.</p>
+    </div>
+  </section>
+
+  <!-- Interactive / Categorized Team Section -->
+  <section class="admin_section">
+    <div class="container">
+      
+      <!-- Section 1: Early Years -->
+      <div class="category_block">
+        <div class="category_header">
+          <span class="sub_badge">FOUNDATIONAL STAGE</span>
+          <h2 class="category_title">Crescent Early Years & Primary Leadership</h2>
+          <div class="title-decorator left"></div>
+        </div>
+        <div class="team_grid">
+          {earlyYearsTeam.map((member) => (
+            <div class="member_card">
+              <div class="member_photo">
+                <img 
+                  src={getMediaUrl(member.image)} 
+                  alt={member.name} 
+                  loading="lazy" 
+                  onerror="this.src='/images/cs_logo.png'"
+                />
+              </div>
+              <div class="member_info">
+                <h3>{member.name}</h3>
+                <p class="member_role">{member.role}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Section 2: Boys Campus -->
+      <div class="category_block">
+        <div class="category_header">
+          <span class="sub_badge">SHADMAN MAIN CAMPUS</span>
+          <h2 class="category_title">Boys Campus Leadership</h2>
+          <div class="title-decorator left"></div>
+        </div>
+        <div class="team_grid">
+          {boysCampusTeam.map((member) => (
+            <div class="member_card">
+              <div class="member_photo">
+                <img 
+                  src={getMediaUrl(member.image)} 
+                  alt={member.name} 
+                  loading="lazy" 
+                  onerror="this.src='/images/cs_logo.png'"
+                />
+              </div>
+              <div class="member_info">
+                <h3>{member.name}</h3>
+                <p class="member_role">{member.role}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Section 3: Girls Campus -->
+      <div class="category_block">
+        <div class="category_header">
+          <span class="sub_badge">FEMALE EMPOWERMENT COMPLEX</span>
+          <h2 class="category_title">Girls Campus Leadership</h2>
+          <div class="title-decorator left"></div>
+        </div>
+        <div class="team_grid">
+          {girlsCampusTeam.map((member) => (
+            <div class="member_card">
+              <div class="member_photo">
+                <img 
+                  src={getMediaUrl(member.image)} 
+                  alt={member.name} 
+                  loading="lazy" 
+                  onerror="this.src='/images/cs_logo.png'"
+                />
+              </div>
+              <div class="member_info">
+                <h3>{member.name}</h3>
+                <p class="member_role">{member.role}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Section 4: Central Departments -->
+      <div class="category_block">
+        <div class="category_header">
+          <span class="sub_badge">EXECUTIVE OPERATIONS</span>
+          <h2 class="category_title">Central Administration & Department Heads</h2>
+          <div class="title-decorator left"></div>
+        </div>
+        <div class="team_grid">
+          {departmentsTeam.map((member) => (
+            <div class="member_card">
+              <div class="member_photo">
+                <img 
+                  src={getMediaUrl(member.image)} 
+                  alt={member.name} 
+                  loading="lazy" 
+                  onerror="this.src='/images/cs_logo.png'"
+                />
+              </div>
+              <div class="member_info">
+                <h3>{member.name}</h3>
+                <p class="member_role">{member.role}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .sub_badge {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--primary-color);
+    background: rgba(0, 33, 71, 0.08);
+    padding: 5px 12px;
+    border-radius: 16px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  .admin_section {
+    padding: 80px 0 100px;
+    background: var(--bg-light);
+  }
+
+  .category_block {
+    margin-bottom: 70px;
+  }
+
+  .category_block:last-child {
+    margin-bottom: 0;
+  }
+
+  .category_header {
+    margin-bottom: 30px;
+  }
+
+  .category_title {
+    font-size: clamp(24px, 3vw, 30px);
+    color: var(--primary-color);
+    margin-bottom: 8px;
+  }
+
+  .title-decorator.left {
+    margin: 0 0 24px 0;
+  }
+
+  .team_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 24px;
+  }
+
+  .member_card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .member_card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-gold);
+  }
+
+  .member_photo {
+    width: 100%;
+    height: 250px;
+    background: #f1f5f9;
+    overflow: hidden;
+  }
+
+  .member_photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.4s ease;
+  }
+
+  .member_card:hover .member_photo img {
+    transform: scale(1.05);
+  }
+
+  .member_info {
+    padding: 20px 16px;
+    text-align: center;
+    border-top: 3px solid var(--accent-gold);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .member_info h3 {
+    font-size: 16px;
+    color: var(--primary-color);
+    margin-bottom: 6px;
+    font-family: var(--font-heading);
+    line-height: 1.35;
+  }
+
+  .member_role {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+</style>

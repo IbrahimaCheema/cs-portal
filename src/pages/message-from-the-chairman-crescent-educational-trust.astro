@@ -1,0 +1,223 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getMediaUrl } from '../utils/media';
+---
+
+<Layout 
+  title="Message from the Chairman – Crescent Educational Trust"
+  description="Read the official message from Justice (R) Karamat Nazir Bhandari, Chairman of the Crescent Educational Trust, on sustaining accessible excellence and transformative philanthropic schooling since 1968."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span>Our Institution</span>
+        <span>/</span>
+        <span class="current">Message from Chairman</span>
+      </div>
+      <h1 class="hero_page_title">Message from the Chairman</h1>
+      <p class="hero_subtitle">Guiding vision and strategic stewardship from the Chairman of the Crescent Educational Trust.</p>
+    </div>
+  </section>
+
+  <!-- Main Chairman Message Section -->
+  <section class="chairman_message_section">
+    <div class="container">
+      <div class="chairman_wrapper">
+        
+        <!-- Sidebar Portrait -->
+        <div class="chairman_sidebar">
+          <div class="portrait_card">
+            <img 
+              src={getMediaUrl("/images/batch2/Justice-R-Karamat-Nazir-Bhandari.png")} 
+              alt="Justice (R) Karamat Nazir Bhandari" 
+              loading="lazy"
+              onerror="this.src='/images/cs_logo.png'"
+            />
+            <div class="portrait_caption">
+              <h3>Justice (R) Karamat Nazir Bhandari</h3>
+              <span class="role_badge">Chairman</span>
+              <p class="trust_name">Crescent Educational Trust</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chairman Letter Content -->
+        <div class="chairman_content">
+          <span class="sub_badge">TRUSTEESHIP & VISION</span>
+          <h2 class="content_heading">Message from the Chairman — Crescent Educational Trust</h2>
+          <div class="trust_salutation">To Our Respected Community, Benefactors, Parents & Students,</div>
+
+          <div class="letter_body">
+            <p>
+              Education is the vehicle through which our young generations come to realize their highest ambitions and lifelong goals. A quality education enables students of varied socioeconomic backgrounds to achieve their fullest academic attainment and subsequently meet the evolving challenges and rigorous demands of a highly competitive and globalized world.
+            </p>
+            <p>
+              At Crescent, we fundamentally believe that <strong>every life has equal value</strong> and each person is worthy of the opportunity to secure a dignified, accomplished, and prosperous future. As one who received such a chance and has succeeded in life because of philanthropic and institutional support, I intimately understand how transformative and invaluable these opportunities truly are.
+            </p>
+            <p>
+              The <strong>Crescent Educational Trust</strong> has been providing hundreds of thousands of children with world-class education since 1968. With students fired with determination to excel, a competent and dedicated faculty, a meticulously calibrated curriculum, and modern, expansive infrastructure, our institution has grown to become an undeniable reckoning force in the nation's educational landscape.
+            </p>
+            <p>
+              Our vital source of sustained strength and institutional growth is provided by the unwavering generosity of our trustees, alumni, benefactors, and community partners. Your faith in our mission empowers us to continue extending generous scholarships and developing state-of-the-art academic wings for both boys and girls.
+            </p>
+            <p class="closing_blessing">
+              I pray and wish you continuous good health, peace, and prosperity.
+            </p>
+
+            <div class="signoff">
+              <strong>Warmest Regards,</strong><br />
+              <span class="sign_name">Justice (R) Karamat Nazir Bhandari</span><br />
+              <span class="sign_title">Chairman, Crescent Educational Trust</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .sub_badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--primary-color);
+    background: rgba(0, 33, 71, 0.08);
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+
+  .chairman_message_section {
+    padding: 90px 0;
+    background: var(--bg-light);
+  }
+
+  .chairman_wrapper {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 60px;
+    align-items: flex-start;
+  }
+
+  .portrait_card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-light);
+    text-align: center;
+  }
+
+  .portrait_card img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+    background: #f1f5f9;
+  }
+
+  .portrait_caption {
+    padding: 24px 20px;
+    border-top: 3px solid var(--accent-gold);
+  }
+
+  .portrait_caption h3 {
+    font-size: 19px;
+    color: var(--primary-color);
+    margin-bottom: 6px;
+    line-height: 1.35;
+  }
+
+  .role_badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent-teal);
+    background: rgba(3, 106, 109, 0.08);
+    padding: 4px 12px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+  }
+
+  .trust_name {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .chairman_content {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 45px 40px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .content_heading {
+    font-size: clamp(26px, 3.2vw, 34px);
+    color: var(--primary-color);
+    margin-bottom: 14px;
+  }
+
+  .trust_salutation {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--primary-light);
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--border-light);
+  }
+
+  .letter_body p {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--text-dark);
+    margin-bottom: 22px;
+  }
+
+  .closing_blessing {
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+
+  .signoff {
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-light);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .sign_name {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: var(--font-heading);
+  }
+
+  .sign_title {
+    font-size: 13.5px;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 900px) {
+    .chairman_wrapper {
+      grid-template-columns: 1fr;
+    }
+
+    .portrait_card {
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    .chairman_content {
+      padding: 28px 20px;
+    }
+  }
+</style>

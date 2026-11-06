@@ -4,7 +4,15 @@ import path from 'path';
 const siteUrl = 'https://crescentschool.edu.pk';
 
 const pages = [
-  '/'
+  '/',
+  '/about-us/',
+  '/mission-values/',
+  '/history/',
+  '/affiliations/',
+  '/principals-message/',
+  '/administration/',
+  '/message-from-the-chairman-crescent-educational-trust/',
+  '/board-of-trustees-2/'
 ];
 
 function generateSitemap() {

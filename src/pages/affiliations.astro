@@ -1,0 +1,203 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getMediaUrl } from '../utils/media';
+
+const affiliations = [
+  { name: "BISE Lahore", category: "National Board", logo: "/images/batch2/bise.png", desc: "Board of Intermediate and Secondary Education, Lahore - Matriculation & Intermediate affiliation." },
+  { name: "British Council Partner School", category: "International Examination", logo: "/images/batch2/british.jpg", desc: "Strategic partner in delivering world-class Cambridge International qualifications and teacher training." },
+  { name: "Cambridge Assessment International Education", category: "Global Curriculum", logo: "/images/batch2/cambridge.jpg", desc: "Official Cambridge International School offering Cambridge Primary, Checkpoint, IGCSE, O-Levels, and A-Levels." },
+  { name: "International Baccalaureate (IB)", category: "Global Continuum", logo: "/images/partner_ib.jpg", desc: "Authorized IB World School delivering the Middle Years Programme (MYP), Diploma Programme (DP), and Career-related Programme (CP)." },
+  { name: "WWF Pakistan", category: "Environmental Stewardship", logo: "/images/batch2/WWF-Pakistyan.jpg", desc: "Green School Certification promoting sustainable development, conservation, and eco-initiatives." },
+  { name: "Toastmasters International", category: "Leadership & Oratory", logo: "/images/batch2/toastmaster.png", desc: "Fostering persuasive communication, impromptu speaking, and executive leadership through active Gavel Clubs." },
+  { name: "The Duke of Edinburgh's Award", category: "Youth Leadership", logo: "/images/batch2/the-duke.jpg", desc: "Global framework recognizing youth community service, expedition skills, physical recreation, and leadership." },
+  { name: "Leader in Me (FranklinCovey)", category: "Character Building", logo: "/images/batch2/leader-in-me.jpg", desc: "Whole-school transformation process empowering students with essential life and leadership competencies." },
+  { name: "College Board (USA)", category: "Higher Education", logo: "/images/batch2/college-board.png", desc: "Affiliated for SAT testing, Advanced Placement, and international university pathways." },
+  { name: "USEFP (EducationUSA)", category: "University Guidance", logo: "/images/partner_usefp.png", desc: "United States Educational Foundation in Pakistan - global college counselling and Fulbright guidance." },
+  { name: "Pearson Edexcel", category: "International Qualifications", logo: "/images/partner_pearson.png", desc: "Pearson accredited center offering globally recognized general and vocational secondary qualifications." },
+  { name: "University of Strathclyde", category: "Academic Partner", logo: "/images/batch2/strachlyde.jpg", desc: "UK higher education collaborative pathway and teacher development partnership." },
+  { name: "RobotMEA / FIRST LEGO League", category: "STEM & Robotics", logo: "/images/batch2/robotmea.jpg", desc: "Pioneering competitive STEM, autonomous robotics programming, and national engineering challenges." },
+  { name: "ITTI Teacher Training", category: "Professional Development", logo: "/images/partner_itti.png", desc: "International Teacher Training Institute empowering faculty with 21st-century instructional design." },
+  { name: "Alliance Française de Lahore", category: "Linguistics & Culture", logo: "/images/partner_alliance.png", desc: "French language immersion, DELF/DALF certifications, and Francophone cultural exchanges." },
+  { name: "Debating Society of Pakistan (DSP)", category: "Competitive Debating", logo: "/images/partner_dsp.png", desc: "Parliamentary debate training, World Schools Debating Championship (WSDC) circuits, and national trophies." },
+  { name: "Minding Minds", category: "Student Wellbeing", logo: "/images/batch2/minding.png", desc: "Comprehensive mental health counselling, emotional wellness, and cognitive psycho-social support." },
+  { name: "RIZQ Relief", category: "Community Service", logo: "/images/partner_rizq.png", desc: "Youth volunteerism, community food security, and corporate social responsibility outreach initiatives." },
+  { name: "Orange Education", category: "EdTech Innovation", logo: "/images/partner_orange.png", desc: "Digital classroom technologies, coding curriculum, and teacher instructional toolkits." },
+  { name: "IML & ICOTS", category: "Mind Sciences & Cognitive Development", logo: "/images/partner_iml.png", desc: "Advanced cognitive thinking skills, Olympiad preparation, and international testing standards." }
+];
+---
+
+<Layout 
+  title="Affiliations & Global Partners – Crescent School"
+  description="Explore Crescent Model Higher Secondary School's premier national and international affiliations: Cambridge Assessment, International Baccalaureate (IB), British Council, BISE Lahore, WWF, and College Board."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span>Our Institution</span>
+        <span>/</span>
+        <a href="/about-us/">About Us</a>
+        <span>/</span>
+        <span class="current">Affiliations</span>
+      </div>
+      <h1 class="hero_page_title">Affiliations & Global Partnerships</h1>
+      <p class="hero_subtitle">Partnering with premier international accreditation bodies, academic boards, and global institutions to deliver world-standard education.</p>
+    </div>
+  </section>
+
+  <!-- Intro Statement -->
+  <section class="affiliations_intro">
+    <div class="container">
+      <div class="intro_text_box">
+        <span class="sub_badge">ACCREDITED STANDARDS</span>
+        <h2>World-Class Educational Ecosystem</h2>
+        <div class="title-decorator"></div>
+        <p>
+          Crescent School collaborates with renowned national and international accreditation councils, examination boards, and youth development organizations. These enduring relationships ensure that our curricular delivery, faculty qualifications, testing integrity, and extracurricular standards remain on par with leading educational institutions worldwide.
+        </p>
+      </div>
+
+      <!-- Affiliations Grid -->
+      <div class="affiliations_grid">
+        {affiliations.map((item) => (
+          <div class="affiliation_card">
+            <div class="logo_wrapper">
+              <img 
+                src={getMediaUrl(item.logo)} 
+                alt={item.name} 
+                loading="lazy" 
+                onerror="this.src='/images/cs_logo.png'"
+              />
+            </div>
+            <div class="card_info">
+              <span class="badge_category">{item.category}</span>
+              <h3 class="partner_title">{item.name}</h3>
+              <p class="partner_desc">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .sub_badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--primary-color);
+    background: rgba(0, 33, 71, 0.08);
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+
+  .affiliations_intro {
+    padding: 80px 0 100px;
+    background: var(--bg-light);
+  }
+
+  .intro_text_box {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+  }
+
+  .intro_text_box h2 {
+    font-size: clamp(28px, 3.5vw, 36px);
+    color: var(--primary-color);
+    margin-bottom: 12px;
+  }
+
+  .intro_text_box p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  .affiliations_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 28px;
+  }
+
+  .affiliation_card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 30px 24px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .affiliation_card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-gold);
+  }
+
+  .logo_wrapper {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #ffffff;
+  }
+
+  .logo_wrapper img {
+    max-height: 80px;
+    max-width: 180px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+    transition: transform 0.3s ease;
+  }
+
+  .affiliation_card:hover .logo_wrapper img {
+    transform: scale(1.06);
+  }
+
+  .card_info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+  }
+
+  .badge_category {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--accent-teal);
+    background: rgba(3, 106, 109, 0.08);
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin: 0 auto 12px;
+    text-transform: uppercase;
+  }
+
+  .partner_title {
+    font-size: 17px;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    line-height: 1.35;
+    font-family: var(--font-heading);
+  }
+
+  .partner_desc {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+</style>
