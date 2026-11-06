@@ -49,7 +49,12 @@ const pages = [
   '/required-documents/',
   '/online-application-form/',
   '/merit-list/',
-  '/hall-of-fame/'
+  '/hall-of-fame/',
+  // Batch 7: Community, Alumni, Careers & Governance Policies
+  '/alumni/',
+  '/careers/',
+  '/contact-2/',
+  '/general-rules/'
 ];
 
 function generateSitemap() {

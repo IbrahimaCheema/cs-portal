@@ -1,0 +1,640 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getMediaUrl } from '../utils/media';
+
+const alumniTestimonials = [
+  {
+    quote: "I owe so much to all the faculty members of the Crescent School who shaped my personality and trained my brain.",
+    author: "Dr. Humayun Iqbal Khan",
+    designation: "Professor of Paediatrics & Senior Medical Consultant",
+    year: "Batch of 1978",
+    avatar: "HIK"
+  },
+  {
+    quote: "Crescent School played a key role in my life. It was my first step on the road to success. In my experience, Crescent instills values of perseverance, integrity, and social duty that stay with you forever.",
+    author: "Sardar Hasnain Bahadur Dreshak",
+    designation: "Eminent Politician & Former Provincial Minister",
+    year: "Batch of 1989",
+    avatar: "HBD"
+  },
+  {
+    quote: "Looking back, I loved every moment of the time I spent at Crescent. When I came for the entrance test as a boy, I was amazed at how vast the campus was. The teachers nurtured our curious minds and taught us how to lead.",
+    author: "Dr. Wasim Ahmed Lodhi",
+    designation: "Consultant Orthopaedic Surgeon, NHS (United Kingdom)",
+    year: "Batch of 1984",
+    avatar: "WAL"
+  },
+  {
+    quote: "Crescent Model School is an institution in every sense of the word. I remember Crescent for the warmth and affection of my teachers, the camaraderie of classmates, and the rigorous discipline that prepared us for global careers.",
+    author: "Mujtaba Jamal",
+    designation: "Senior Advocate Supreme Court & Legal Consultant",
+    year: "Batch of 1992",
+    avatar: "MJ"
+  }
+];
+
+const alumniInitiatives = [
+  {
+    icon: "🤝",
+    title: "Alumni Mentorship Network",
+    desc: "Connecting current senior and college students with experienced alumni in medicine, engineering, law, civil services, and tech."
+  },
+  {
+    icon: "🎓",
+    title: "Endowment & Scholarships",
+    desc: "Alumni-funded merit and need-based financial aid ensuring no deserving student is denied a Crescent education."
+  },
+  {
+    icon: "🌍",
+    title: "Global Chapter Reunions",
+    desc: "Active chapters in Lahore, Karachi, Islamabad, London, Toronto, Dubai, New York, and Melbourne hosting annual gatherings."
+  },
+  {
+    icon: "💡",
+    title: "Guest Lectures & Workshops",
+    desc: "Distinguished alumni returning to campus to share industry insights, entrepreneurship masterclasses, and career guidance."
+  }
+];
+---
+
+<Layout 
+  title="Crescent Alumni Network – Crescent School"
+  description="Connect with over 50,000 Crescent alumni worldwide. Explore alumni testimonials, global chapters, mentorship networks, and registration portal."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span class="current">Alumni</span>
+      </div>
+      <h1 class="hero_page_title">The Crescent Alumni Network</h1>
+      <p class="hero_subtitle">Connecting generations of Crescenterians. Once a Crescenterian, always a Crescenterian.</p>
+    </div>
+  </section>
+
+  <!-- Community Welcome Banner -->
+  <section class="alumni_welcome_section">
+    <div class="container">
+      <div class="welcome_card">
+        <span class="sub_badge">LIFELONG CRESCENT BOND</span>
+        <h2 class="section_heading">Your Journey with Crescent Never Ends</h2>
+        <p class="lead_text">
+          Whether you graduated last year or decades ago, your connection with Crescent School remains an enduring bond of character, heritage, and pride.
+        </p>
+        <p class="body_text">
+          Our alumni community spans more than 50,000 leaders, innovators, judges, surgeons, artists, civil servants, and entrepreneurs across six continents. We invite all former students to join the official Crescent Alumni Association to stay connected with batchmates, mentor future graduates, and give back to your alma mater.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Carousel/Grid -->
+  <section class="alumni_testimonials_section">
+    <div class="container">
+      <div class="section_header_center">
+        <span class="sub_badge">VOICES OF EXPERIENCE</span>
+        <h2 class="section_title">Words from Our Alumni</h2>
+        <div class="title-decorator"></div>
+      </div>
+
+      <div class="testimonials_grid">
+        {alumniTestimonials.map(t => (
+          <div class="testimonial_card">
+            <div class="quote_mark">“</div>
+            <p class="quote_text">{t.quote}</p>
+            <div class="author_block">
+              <div class="author_avatar">{t.avatar}</div>
+              <div class="author_meta">
+                <h4>{t.author}</h4>
+                <div class="designation">{t.designation}</div>
+                <span class="batch_badge">{t.year}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Initiatives Grid -->
+  <section class="alumni_initiatives_section">
+    <div class="container">
+      <div class="section_header_center">
+        <span class="sub_badge">GIVING BACK</span>
+        <h2 class="section_title">Alumni Programs & Initiatives</h2>
+        <div class="title-decorator"></div>
+      </div>
+
+      <div class="initiatives_grid">
+        {alumniInitiatives.map(item => (
+          <div class="initiative_box">
+            <div class="init_icon">{item.icon}</div>
+            <h3>{item.title}</h3>
+            <p>{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Alumni Registration Form -->
+  <section class="alumni_reg_section">
+    <div class="container">
+      <div class="reg_layout">
+        <div class="reg_form_card">
+          <div class="card_header">
+            <span class="sub_badge">STAY CONNECTED</span>
+            <h3>Join the Official Alumni Directory</h3>
+            <p>Update your current contact details and career milestones to receive invitations to campus reunions and alumni chapter events.</p>
+          </div>
+
+          <form id="alumni_form" class="styled_alumni_form">
+            <div class="form_grid_2">
+              <div class="form_group">
+                <label for="alumni_name">Full Name *</label>
+                <input type="text" id="alumni_name" name="name" required placeholder="Your full name" class="form_input" />
+              </div>
+              <div class="form_group">
+                <label for="alumni_email">Email Address *</label>
+                <input type="email" id="alumni_email" name="email" required placeholder="name@domain.com" class="form_input" />
+              </div>
+              <div class="form_group">
+                <label for="grad_year">Year of Graduation / Passing *</label>
+                <input type="text" id="grad_year" name="year" required placeholder="e.g. 1998, 2015" class="form_input" />
+              </div>
+              <div class="form_group">
+                <label for="campus_attended">Campus / Stream Attended *</label>
+                <select id="campus_attended" name="campus" required class="form_select">
+                  <option value="" disabled selected>-- Select Campus / Stream --</option>
+                  <option value="Boys Campus - Matric">Boys Campus - Matriculation</option>
+                  <option value="Girls Campus - Matric">Girls Campus - Matriculation</option>
+                  <option value="Cambridge O/A Level">Cambridge Section (O/A Level)</option>
+                  <option value="The Crescent College">The Crescent College (F.Sc / ICS / I.Com / F.A.)</option>
+                  <option value="IB Continuum">IB World School Cohort</option>
+                </select>
+              </div>
+              <div class="form_group">
+                <label for="current_role">Current Designation & Organization</label>
+                <input type="text" id="current_role" name="role" placeholder="e.g. Partner, KPMG / CEO, ABC Ltd" class="form_input" />
+              </div>
+              <div class="form_group">
+                <label for="city_country">Current City & Country *</label>
+                <input type="text" id="city_country" name="location" required placeholder="e.g. Lahore, Pakistan or London, UK" class="form_input" />
+              </div>
+            </div>
+
+            <div class="form_group">
+              <label class="check_opt">
+                <input type="checkbox" name="mentor_opt" />
+                <span>I am willing to participate as an Alumni Mentor for current students.</span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn_register_alumni">Submit Alumni Registration &rarr;</button>
+          </form>
+
+          <div id="alumni_success_alert" class="success_alert" style="display: none;">
+            <div class="alert_icon">🎉</div>
+            <h4>Welcome to the Crescent Alumni Directory!</h4>
+            <p>Your details have been successfully registered with the Alumni Secretariat. A confirmation email has been dispatched.</p>
+          </div>
+        </div>
+
+        <!-- Sidebar Info -->
+        <div class="alumni_side_info">
+          <div class="office_card">
+            <h4>Alumni Relations Secretariat</h4>
+            <p>Crescent Model Higher Secondary School<br/>352 Shadman Colony, Lahore, Pakistan</p>
+            <div class="meta_row">
+              <span>✉️ Email:</span>
+              <strong>alumni@crescentschool.edu.pk</strong>
+            </div>
+            <div class="meta_row">
+              <span>📞 Phone:</span>
+              <strong>042 3742 1361 (Ext: 118)</strong>
+            </div>
+          </div>
+
+          <div class="reunion_preview_card">
+            <span class="badge_reunion">UPCOMING EVENT</span>
+            <h4>Annual Grand Alumni Homecoming</h4>
+            <p>Join us at the Main Oval Lawn for an evening of reminiscence, faculty felicitations, and networking.</p>
+            <div class="event_date">📅 December 2026 | Shadman Campus</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const alumniForm = document.getElementById('alumni_form') as HTMLFormElement;
+  const alumniAlert = document.getElementById('alumni_success_alert');
+
+  if (alumniForm && alumniAlert) {
+    alumniForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alumniForm.style.display = 'none';
+      alumniAlert.style.display = 'block';
+    });
+  }
+</script>
+
+<style>
+  .sub_badge {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--primary-color);
+    background: rgba(0, 33, 71, 0.08);
+    padding: 5px 12px;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .alumni_welcome_section {
+    padding: 70px 0 40px;
+    background: var(--bg-white);
+  }
+
+  .welcome_card {
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .section_heading {
+    font-size: clamp(26px, 3.2vw, 36px);
+    color: var(--primary-color);
+    margin-bottom: 18px;
+    line-height: 1.3;
+  }
+
+  .lead_text {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--primary-light);
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  .body_text {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-muted);
+  }
+
+  /* Testimonials */
+  .alumni_testimonials_section {
+    padding: 70px 0;
+    background: var(--bg-light);
+  }
+
+  .section_header_center {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+  }
+
+  .testimonials_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 26px;
+  }
+
+  .testimonial_card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 30px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+  }
+
+  .testimonial_card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent-gold);
+  }
+
+  .quote_mark {
+    font-size: 44px;
+    color: var(--accent-gold);
+    line-height: 1;
+    font-family: Georgia, serif;
+    margin-bottom: 10px;
+  }
+
+  .quote_text {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--text-dark);
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  .author_block {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-top: 1px solid var(--border-light);
+    padding-top: 16px;
+  }
+
+  .author_avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .author_meta h4 {
+    font-size: 15px;
+    color: var(--primary-color);
+    margin: 0 0 2px 0;
+  }
+
+  .designation {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+
+  .batch_badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent-gold-hover);
+  }
+
+  /* Initiatives */
+  .alumni_initiatives_section {
+    padding: 70px 0;
+    background: var(--bg-white);
+  }
+
+  .initiatives_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+  }
+
+  .initiative_box {
+    background: #fbfcfe;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 30px 24px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .initiative_box:hover {
+    background: #ffffff;
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent-gold);
+    transform: translateY(-4px);
+  }
+
+  .init_icon {
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+
+  .initiative_box h3 {
+    font-size: 18px;
+    color: var(--primary-color);
+    margin: 0 0 10px 0;
+  }
+
+  .initiative_box p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  /* Registration Form */
+  .alumni_reg_section {
+    padding: 70px 0;
+    background: var(--bg-light);
+  }
+
+  .reg_layout {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .reg_form_card {
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-light);
+    padding: 40px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .card_header {
+    margin-bottom: 26px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .card_header h3 {
+    font-size: 22px;
+    color: var(--primary-color);
+    margin: 0 0 8px 0;
+  }
+
+  .card_header p {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .styled_alumni_form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form_grid_2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .form_group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form_group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+
+  .form_input,
+  .form_select {
+    padding: 10px 14px;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    background: #fbfcfe;
+  }
+
+  .form_input:focus,
+  .form_select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: #ffffff;
+  }
+
+  .check_opt {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 13px;
+    color: var(--text-muted);
+    cursor: pointer;
+  }
+
+  .btn_register_alumni {
+    background: var(--primary-color);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 13px 24px;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+  }
+
+  .btn_register_alumni:hover {
+    background: var(--primary-light);
+  }
+
+  .success_alert {
+    text-align: center;
+    padding: 30px;
+  }
+
+  .alert_icon {
+    font-size: 42px;
+    margin-bottom: 12px;
+  }
+
+  .success_alert h4 {
+    font-size: 20px;
+    color: #137333;
+    margin-bottom: 8px;
+  }
+
+  .success_alert p {
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  /* Sidebar */
+  .alumni_side_info {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .office_card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 26px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .office_card h4 {
+    font-size: 17px;
+    color: var(--primary-color);
+    margin: 0 0 10px 0;
+  }
+
+  .office_card p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .meta_row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 8px 0;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .reunion_preview_card {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+    color: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 26px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .badge_reunion {
+    display: inline-block;
+    background: var(--accent-gold);
+    color: var(--primary-dark);
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+
+  .reunion_preview_card h4 {
+    color: #ffffff;
+    font-size: 18px;
+    margin: 0 0 8px 0;
+  }
+
+  .reunion_preview_card p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+
+  .event_date {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent-gold);
+  }
+
+  @media (max-width: 900px) {
+    .reg_layout {
+      grid-template-columns: 1fr;
+    }
+    .form_grid_2 {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

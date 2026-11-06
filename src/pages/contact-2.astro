@@ -1,0 +1,535 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getMediaUrl } from '../utils/media';
+
+const campuses = [
+  {
+    name: "Boys Campus (Main Secretariat)",
+    address: "352 Shadman Colony, Lahore, Pakistan",
+    phone: "042 3742 1361-4",
+    phoneHref: "tel:04237421361",
+    email: "info@crescentschool.edu.pk",
+    mapUrl: "https://www.google.com/maps?cid=17272449557287959642",
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3400.4290402687084!2d74.32178981515108!3d31.53983808136312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391904bd457949b3%3A0xefb4439d3b51fc5a!2sCrescent%20Model%20Higher%20Secondary%20School%20(Boys%20Campus)!5e0!3m2!1sen!2s!4v1622808445194!5m2!1sen!2s",
+    grades: "Early Years, Junior School, Middle School, Senior School, Cambridge Section & The Crescent College"
+  },
+  {
+    name: "Girls Campus",
+    address: "930A Shadman Colony, Lahore, Pakistan",
+    phone: "042 3596 0725-26",
+    phoneHref: "tel:04235960725",
+    email: "info@crescentschool.edu.pk",
+    mapUrl: "https://www.google.com/maps?cid=12619077274026858159",
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3400.3557198316403!2d74.3266505!3d31.5418509!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3919050daf092b57%3A0xaf1fe67705bd56af!2sCrescent%20Model%20Higher%20Secondary%20School%20(Girls%20Campus)!5e0!3m2!1sen!2s!4v1622808529841!5m2!1sen!2s",
+    grades: "Junior Section, Middle School, Senior School, Cambridge Section & The Crescent College (Girls)"
+  }
+];
+
+const departments = [
+  { dept: "Admissions Directorate", email: "admissions@crescentschool.edu.pk", ext: "Ext: 102 / 105" },
+  { dept: "Accounts & Fee Section", email: "accounts@crescentschool.edu.pk", ext: "Ext: 108" },
+  { dept: "Examination & Board Cell", email: "exams@crescentschool.edu.pk", ext: "Ext: 112" },
+  { dept: "Alumni & Public Relations", email: "alumni@crescentschool.edu.pk", ext: "Ext: 118" }
+];
+---
+
+<Layout 
+  title="Contact Us – Crescent School"
+  description="Contact Crescent Model Higher Secondary School Lahore. Find phone numbers, campus locations in Shadman, department emails, and Google Maps directions."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span class="current">Contact Us</span>
+      </div>
+      <h1 class="hero_page_title">Contact Crescent School</h1>
+      <p class="hero_subtitle">We are here to assist prospective parents, students, and alumni. Reach out to our campus offices.</p>
+    </div>
+  </section>
+
+  <!-- Campuses Dual Grid -->
+  <section class="campuses_section">
+    <div class="container">
+      <div class="section_header_center">
+        <span class="sub_badge">CAMPUS LOCATIONS</span>
+        <h2 class="section_title">Our Campuses in Shadman, Lahore</h2>
+        <div class="title-decorator"></div>
+      </div>
+
+      <div class="campuses_grid">
+        {campuses.map(c => (
+          <div class="campus_card">
+            <div class="map_frame">
+              <iframe 
+                src={c.embedUrl} 
+                width="100%" 
+                height="220" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                title={`${c.name} Google Map`}
+              ></iframe>
+            </div>
+            <div class="campus_body">
+              <h3>{c.name}</h3>
+              <p class="grades_covered">{c.grades}</p>
+
+              <div class="contact_row">
+                <span class="c_icon">📍</span>
+                <div>
+                  <strong>Address:</strong>
+                  <p>{c.address}</p>
+                </div>
+              </div>
+
+              <div class="contact_row">
+                <span class="c_icon">📞</span>
+                <div>
+                  <strong>Telephone:</strong>
+                  <p><a href={c.phoneHref} class="link_dark">{c.phone}</a></p>
+                </div>
+              </div>
+
+              <div class="contact_row">
+                <span class="c_icon">✉️</span>
+                <div>
+                  <strong>Official Email:</strong>
+                  <p><a href={`mailto:${c.email}`} class="link_dark">{c.email}</a></p>
+                </div>
+              </div>
+
+              <div class="card_action_btn">
+                <a href={c.mapUrl} target="_blank" rel="noopener noreferrer" class="btn_maps_pill">
+                  Open in Google Maps &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Form & Department Directory Section -->
+  <section class="inquiry_section">
+    <div class="container">
+      <div class="inquiry_layout">
+        <!-- Inquiry Form -->
+        <div class="form_box">
+          <span class="sub_badge">SEND A MESSAGE</span>
+          <h3>General Inquiry & Feedback</h3>
+          <p class="form_subtitle">Have a question regarding admissions, academics, or campus visits? Drop us a message.</p>
+
+          <form id="contact_form" class="styled_contact_form">
+            <div class="form_row">
+              <div class="form_field">
+                <label for="c_name">Your Name *</label>
+                <input type="text" id="c_name" name="name" required placeholder="Full Name" class="f_input" />
+              </div>
+              <div class="form_field">
+                <label for="c_email">Email Address *</label>
+                <input type="email" id="c_email" name="email" required placeholder="name@domain.com" class="f_input" />
+              </div>
+            </div>
+
+            <div class="form_row">
+              <div class="form_field">
+                <label for="c_phone">Phone / Mobile *</label>
+                <input type="tel" id="c_phone" name="phone" required placeholder="03XX-XXXXXXX" class="f_input" />
+              </div>
+              <div class="form_field">
+                <label for="c_dept">Department to Contact</label>
+                <select id="c_dept" name="department" class="f_select">
+                  <option value="General Information">General Information</option>
+                  <option value="Admissions Office">Admissions Office</option>
+                  <option value="Accounts & Fees">Accounts & Fees</option>
+                  <option value="Principal Secretariat">Principal Secretariat</option>
+                  <option value="Careers / HR">Careers / HR</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form_field">
+              <label for="c_msg">Your Message *</label>
+              <textarea id="c_msg" name="message" rows="4" required placeholder="How can we help you?" class="f_textarea"></textarea>
+            </div>
+
+            <button type="submit" class="btn_send_inquiry">Send Message &rarr;</button>
+          </form>
+
+          <div id="contact_success" class="contact_success" style="display: none;">
+            <div class="s_icon">✉️</div>
+            <h4>Thank You for Contacting Crescent School</h4>
+            <p>Your message has been received. Our administrative team will respond within 24–48 working hours.</p>
+          </div>
+        </div>
+
+        <!-- Sidebar Directory & Office Hours -->
+        <div class="sidebar_directory">
+          <div class="timings_card">
+            <h4>Office & Visiting Hours</h4>
+            <div class="timing_row">
+              <span>Monday – Thursday:</span>
+              <strong>8:00 AM – 2:00 PM</strong>
+            </div>
+            <div class="timing_row">
+              <span>Friday:</span>
+              <strong>8:00 AM – 12:30 PM</strong>
+            </div>
+            <div class="timing_row">
+              <span>Saturday (Admissions Only):</span>
+              <strong>8:30 AM – 1:00 PM</strong>
+            </div>
+            <div class="timing_row">
+              <span>Sunday & Gazetted Holidays:</span>
+              <strong class="text_closed">Closed</strong>
+            </div>
+          </div>
+
+          <div class="departments_card">
+            <h4>Direct Department Contacts</h4>
+            {departments.map(d => (
+              <div class="dept_item">
+                <div class="dept_name">{d.dept}</div>
+                <div class="dept_ext">{d.ext}</div>
+                <div class="dept_email"><a href={`mailto:${d.email}`}>{d.email}</a></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const cForm = document.getElementById('contact_form') as HTMLFormElement;
+  const cSuccess = document.getElementById('contact_success');
+
+  if (cForm && cSuccess) {
+    cForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      cForm.style.display = 'none';
+      cSuccess.style.display = 'block';
+    });
+  }
+</script>
+
+<style>
+  .sub_badge {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--primary-color);
+    background: rgba(0, 33, 71, 0.08);
+    padding: 5px 12px;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .campuses_section {
+    padding: 70px 0;
+    background: var(--bg-white);
+  }
+
+  .section_header_center {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+  }
+
+  .campuses_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+  }
+
+  .campus_card {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+  }
+
+  .campus_card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+  }
+
+  .map_frame iframe {
+    display: block;
+  }
+
+  .campus_body {
+    padding: 28px;
+  }
+
+  .campus_body h3 {
+    font-size: 20px;
+    color: var(--primary-color);
+    margin: 0 0 6px 0;
+  }
+
+  .grades_covered {
+    font-size: 13px;
+    color: var(--accent-gold-hover);
+    font-weight: 600;
+    margin-bottom: 20px;
+    line-height: 1.4;
+  }
+
+  .contact_row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+    font-size: 13.5px;
+  }
+
+  .c_icon {
+    font-size: 18px;
+    flex-shrink: 0;
+    line-height: 1.3;
+  }
+
+  .contact_row strong {
+    display: block;
+    color: var(--primary-color);
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  .contact_row p {
+    margin: 2px 0 0 0;
+    color: var(--text-dark);
+  }
+
+  .link_dark {
+    color: var(--text-dark);
+    text-decoration: none;
+  }
+
+  .link_dark:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+  }
+
+  .card_action_btn {
+    margin-top: 22px;
+  }
+
+  .btn_maps_pill {
+    display: inline-block;
+    background: var(--primary-color);
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 18px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn_maps_pill:hover {
+    background: var(--primary-light);
+  }
+
+  /* Inquiry Section */
+  .inquiry_section {
+    padding: 70px 0;
+    background: var(--bg-light);
+  }
+
+  .inquiry_layout {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .form_box {
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-light);
+    padding: 40px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .form_box h3 {
+    font-size: 22px;
+    color: var(--primary-color);
+    margin: 0 0 6px 0;
+  }
+
+  .form_subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin: 0 0 24px 0;
+  }
+
+  .styled_contact_form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .form_row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form_field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form_field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+
+  .f_input,
+  .f_select,
+  .f_textarea {
+    padding: 10px 14px;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    background: #fbfcfe;
+  }
+
+  .f_input:focus,
+  .f_select:focus,
+  .f_textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: #ffffff;
+  }
+
+  .btn_send_inquiry {
+    background: var(--primary-color);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 13px 24px;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    align-self: flex-start;
+    transition: all 0.2s ease;
+  }
+
+  .btn_send_inquiry:hover {
+    background: var(--primary-light);
+  }
+
+  .contact_success {
+    text-align: center;
+    padding: 30px;
+  }
+
+  .s_icon {
+    font-size: 44px;
+    margin-bottom: 12px;
+  }
+
+  .contact_success h4 {
+    font-size: 20px;
+    color: #137333;
+    margin-bottom: 8px;
+  }
+
+  .contact_success p {
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  /* Sidebar */
+  .sidebar_directory {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .timings_card,
+  .departments_card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 26px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .timings_card h4,
+  .departments_card h4 {
+    font-size: 17px;
+    color: var(--primary-color);
+    margin: 0 0 16px 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .timing_row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13.5px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  .timing_row:last-child {
+    border-bottom: none;
+  }
+
+  .text_closed {
+    color: #e53935;
+  }
+
+  .dept_item {
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  .dept_item:last-child {
+    border-bottom: none;
+  }
+
+  .dept_name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary-color);
+  }
+
+  .dept_ext {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .dept_email a {
+    font-size: 13px;
+    color: var(--primary-light);
+    text-decoration: none;
+  }
+
+  @media (max-width: 900px) {
+    .campuses_grid,
+    .inquiry_layout {
+      grid-template-columns: 1fr;
+    }
+    .form_row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
