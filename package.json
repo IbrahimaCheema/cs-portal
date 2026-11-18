@@ -6,15 +6,19 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "node scripts/generate_sitemap.js && astro build",
-    "preview": "astro preview",
+    "preview": "npm run build && wrangler dev",
     "astro": "astro",
-    "upload:r2": "node scripts/upload_r2_assets.js"
+    "upload:r2": "node scripts/upload_r2_assets.js",
+    "deploy": "npm run build && wrangler deploy",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "11",
     "@astrojs/sitemap": "^3.7.3",
     "astro": "^4.15.0"
   },
   "devDependencies": {
-    "@aws-sdk/client-s3": "^3.1095.0"
+    "@aws-sdk/client-s3": "^3.1095.0",
+    "wrangler": "^4.164.0"
   }
 }

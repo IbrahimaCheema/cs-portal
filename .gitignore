@@ -38,3 +38,6 @@ public/*.webp
 public/*.gif
 !public/favicon*
 !public/apple-touch-icon*
+
+.dev.vars*
+!.dev.vars.example

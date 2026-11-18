@@ -7,7 +7,7 @@ import datetime
 
 CONFIG_PATH = os.path.expanduser(r"~\AppData\Roaming\xdg.config\cloudflare\config\default.json")
 ZONE_ID = "10cfaec12a4c31e87b01e69190ed3a48"
-TARGET = "cs-portal.pages.dev"
+TARGET = "cs-portal-8fy.pages.dev"
 DOMAINS = ["crescentschool.edu.pk", "www.crescentschool.edu.pk"]
 
 def get_token():
