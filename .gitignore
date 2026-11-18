@@ -23,6 +23,11 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
+# test reports and backups
+test_reports/
+backups/
+public/*_evidence/
+
 # 🖼️ NEVER UPLOAD HEAVY MEDIA / ASSETS TO GIT (Served via Local Public in dev / Cloudflare R2 in prod)
 public/images/
 public/documents/
